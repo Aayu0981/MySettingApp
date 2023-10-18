@@ -4,38 +4,38 @@ import './Aboutphone1.css';
 import './Sound2.css';
 // import Aboutphone1 from './Component/Aboutphone1';
 import Searchicone from "./Component/Searchicone";
-
 import Systemupdater from './Component/Systemupdater';
 import Security from './Component/Security';
 import Airoplane from './Component/Airoplane';
 import DandB from './Component/DandB';
-
 import Sound from './Component/Sound';
-
 import Bluetooth from './Component/Bluetooth'
 import Notification from './Component/Notification';
 import HomeScreen from './Component/HomeScreen';
 import Wallpaper from './Component/Wallpaper';
 import Theme from './Component/Theme';
 import { Route, Routes } from 'react-router-dom';
-import Aboutphone1 from './Component/Aboutphone1';
 import Home from './Home';
-import About2 from './Component/About2';
-import About3 from './Component/About3';
-import About4 from './Component/About4';
-import Security1 from './Component/Security1';
-import Security3 from './Component/Security3';
-import DandB1 from './Component/DandB1';
-import Sound1 from './Component/Sound1';
-import Sound2 from './Component/Sound2';
-import Sound3 from './Component/Sound3';
 import Connection from './Component/Connection';
-import Connection1 from './Component/Connection1';
-import Bluetooth1 from './Component/Bluetooth1';
-import About5 from './Component/About5';
-import About6 from './Component/About6';
 
 
+
+// Inside Component import
+
+import Sound1 from './Component2/Sound1';
+import Connection1 from './Component2/Connection1';
+import DandB1 from './Component2/DandB1';
+import Bluetooth1 from './Component2/Bluetooth1';
+import Aboutphone1 from './Component2/Aboutphone1';
+import About2 from './Component2/About2';
+import About3 from './Component2/About3';
+import About4 from './Component2/About4';
+import About5 from './Component2/About5';
+import About6 from './Component2/About6';
+import Security1 from './Component2/Security1';
+import Security3 from './Component2/Security3';
+import Sound2 from './Component2/Sound2';
+import Sound3 from './Component2/Sound3';
 
 
 

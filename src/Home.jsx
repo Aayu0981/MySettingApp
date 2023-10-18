@@ -12,7 +12,7 @@ import { FaHome } from 'react-icons/fa';
 import { FaImage } from 'react-icons/fa';
 import { FaPalette } from 'react-icons/fa';
 import { FaAlignRight, FaArrowRight, FaArrowsAlt, FaArrowsAltH, FaArrowsAltV, FaBluetooth, FaExpandArrowsAlt, FaGreaterThan, FaLongArrowAltRight, FaRegArrowAltCircleRight } from 'react-icons/fa';
-import Aboutphone1 from './Component/Aboutphone1';
+import Aboutphone1 from './Component2/Aboutphone1';
 import './App.css'
 
 
