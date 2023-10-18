@@ -1,0 +1,244 @@
+*{
+ margin-left: 15px;
+ 
+}
+
+
+
+.input-label {
+  position: relative;
+  margin: 0;
+  width: 100px;
+  border: 0;
+
+}
+
+.search-icon {
+  position: absolute;
+  left: 10px; /* Adjust the left position as needed */
+  top: 50%;
+  transform: translateY(-50%);
+}
+#searchbox{
+  width: 200px;
+  height: 25px;
+  border-radius: 20px;
+}
+
+input[type="text"] {
+  padding-left: 30px; /* Adjust the padding-left to make space for the icon */
+  border-radius: 8px;
+  padding-right: 30px;
+  padding-bottom: 6px;
+  padding-top: 5px;
+ 
+}
+#box1{
+  margin: 0;
+  margin-bottom:40px;
+}
+.about-phone{
+  margin-top: 20px;
+
+ 
+}
+
+.Phoneicone{
+  transform: rotate(115deg);
+  color: rgba(11, 71, 117, 0.625);
+}
+h1{
+  font-family: serif;
+  font-weight: 100;
+ 
+}
+#system{
+  margin-right: 0px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  color: rgba(194, 46, 16, 0.889);
+}
+.system11{
+  font-family: serif;
+  font-weight: lighter;
+ 
+  
+}
+.security{
+  margin-bottom: 20px;
+  margin-top: 20px;
+  color: rgba(12, 111, 56, 0.87);
+}
+#secu{
+  margin-left: 20px;
+}
+.airplane{
+  
+  /* margin-right: 20px; */
+  color: rgba(212, 88, 16, 0.915);
+  
+}
+#air{
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+}
+.Dandb{
+  margin-right: 20px;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  display: flex;
+
+}
+.sound{
+  margin-right: 0px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  color: green;
+}
+.danb11{
+  color: rgba(205, 193, 17, 0.745);
+  margin-right: 0px;
+  
+ 
+}
+.wifi{
+  margin-right: 0px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+ 
+  color: rgba(23, 82, 184, 0.929);
+
+}
+#wifi1{
+display: flex;
+margin-bottom: 20px;
+
+  
+
+}
+.bluetooth{
+  margin-top: 06px;
+  
+  /* margin-right: 20px; */
+  color: rgb(17, 55, 125);
+  
+}
+#text{
+  margin: 0;
+}
+#main2{
+  display: flex;
+  margin: 0;
+  align-items: center;
+}
+
+.notify{
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-right: 0px;
+  color: rgba(249, 169, 11, 0.899);
+  
+}
+.Home{
+  margin-top: 20px;
+  margin-right: 0px;
+  margin-bottom: 20px;
+  color:rgba(106, 26, 153, 0.856);
+  
+}
+#main3{
+  display: flex;
+}
+#One{
+  margin-top: 25px;
+  width: 270px;
+}
+#Second2{
+  margin-top: 40px;
+  width: 270px;
+}
+.wallpaper{
+  margin-top: 20px;
+  margin-right: 0px;
+  margin-bottom: 20px;
+  color: rgb(210, 48, 118);
+ 
+}
+.theme{
+  margin-top: 20px;
+  margin-right: 0px;
+  margin-bottom: 20px;
+  color: mediumorchid;
+  
+}
+
+.about-phone {
+  /* Default styles */
+  /* color: rgba(29, 99, 149, 0.803); */
+  display: flex;
+  margin-bottom: 20px;
+  
+  /* align-items: center; */
+  transition: background-color 0.3s;  /* Add a smooth transition */
+
+  /* Hover effect styles */
+  &:hover {
+    background-color: rgb(102, 132, 132);
+  }
+}
+
+.security111{
+
+  transition: background-color 0.3s; /* Add a smooth transition */
+  
+
+  /* Hover effect styles */
+  &:hover {
+    background-color: rgb(102, 132, 132);
+    
+    margin: 20px,0,0;
+   
+  }
+}
+
+/* arrow maintain */
+
+
+.arrow1{
+  width: 220px;
+
+  display: flex;
+  /* margin: 0; */
+ align-items: center;
+ justify-content: space-between;
+
+}
+
+.arow{
+  color: grey;
+  font-size: 15px;
+}
+#main2{
+  margin: 0;
+  /* align-items: center; */
+}
+
+.xyz{
+  /* align-items: center; */
+  margin: 0 ;
+}
+
+
+/* .arrow1{
+  display: flex;
+  justify-content: space-between;
+}
+.arow{
+  color: gray;
+  font-size: 15px;
+} */
+
+
+
+

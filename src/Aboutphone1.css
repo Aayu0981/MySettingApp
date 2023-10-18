@@ -1,0 +1,61 @@
+#about12{
+    font-size: 30px;
+    font-weight: 100;
+    margin-top: 50px;
+    margin-bottom: 20px;
+
+}
+#left{
+    background-color: rgba(202, 191, 191, 0.171);
+
+}
+#MIUI{
+    margin-top: 30px;   
+    margin-bottom: 20px;
+    justify-content: space-between;
+    
+}
+#right{
+    margin-right: 0;
+    margin-left: 0;
+   
+}
+.about10{
+   font-weight: 100;
+   font-size: 15px;
+
+}
+.about9{
+    margin-bottom: 0;
+}
+.config{
+    width: 380px;
+    display: flex;
+    justify-content: space-between;
+    
+}
+.up{
+    margin-top: 30px;
+color: rgb(5, 26, 220);
+}
+.device{
+    background-color: rgba(202, 191, 191, 0.171);
+   
+    padding-top: 4px;
+}
+.storage{
+    background-color: rgba(202, 191, 191, 0.171);
+    padding-bottom: 20px;
+}
+sub{
+    /* vertical-align: sub; */
+    font-size: small;
+    color: grey;
+    margin-left: 0px;
+}
+.oc1{
+    margin-top: 0px;
+}
+.s1{
+    padding-top: 5 px;
+}
