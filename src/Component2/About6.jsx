@@ -5,10 +5,10 @@ function About6() {
     <div style={{width:400}}>
 
    <div>
-    <h2>Important safety information</h2>
+    <p className='heading'>Important safety information</p>
    </div>
 
-   <div>
+   <div style={{marginLeft:0}}>
    <ul class="ul1">
     <li>Read all the safety information below before using your device.</li><br/>
     <li>Using unauthorised cables, power adapters, or batteries can cause ﬁre or explosion, or pose other risks.</li><br/>

@@ -196,7 +196,7 @@ function Home() {
   <div id='main3'>
         <FaImage className='wallpaper'/>  
 
-        <div className='arrow1'>
+        <div className='arrow1' onClick={()=>navigate("/Wallpaper")}>
           <div id="text"> Wallpaper</div>
          <span className='arow' >&gt;</span>
         </div>

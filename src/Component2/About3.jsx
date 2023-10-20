@@ -72,7 +72,7 @@ function About3() {
             <div style={{marginLeft:0}}> <p className='Darktext1' style={{marginBottom:0,marginLeft:0}}>Xiaomi Cloud</p>
             <p className='Lighttext' style={{marginTop:0,marginLeft:0}}>Sync the list of apps, back up sytem settings and home sceen layout</p></div>
 
-            <div><p>&gt;</p></div>
+            
             
         </div>
 
@@ -86,7 +86,7 @@ function About3() {
             <p className='Lighttext'  style={{marginTop:0,marginLeft:0}}>On</p>
           </div>
             
-            <div><p>&gt;</p></div>
+            <div><p className='Lighttext'>&gt;</p></div>
         </div>
 
         <div id='Cloud' style={{marginLeft:0 ,marginRight:0}}>

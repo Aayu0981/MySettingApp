@@ -9,14 +9,14 @@ function Bluetooth() {
 
   const navigate = useNavigate();
 
-  const [isAirplaneModeOn, setIsAirplaneModeOn] = useState(false);
-       const toggleAirplaneMode = () => {
-       setIsAirplaneModeOn(!isAirplaneModeOn);
+  const [isBluetoothOn, setIsBluetoothOn] = useState(false);
+       const toggleBluetooth = () => {
+       setIsBluetoothOn(!isBluetoothOn);
     }
 
 
   return (
-    <div style={{width:350}}>
+    <div style={{width:400}}>
       
       
       <div onClick={()=> navigate(-1)}>
@@ -30,7 +30,7 @@ function Bluetooth() {
    <p className='Darktext' >Bluetooth</p>
 
    <label className="switch">
-        <input type="checkbox" onChange={toggleAirplaneMode} checked={isAirplaneModeOn} />
+        <input type="checkbox" onChange={toggleBluetooth} checked={isBluetoothOn} />
         <span className="slider round"></span>
         </label>
 
@@ -44,7 +44,7 @@ function Bluetooth() {
  <hr style={{opacity:0.5}}/>
 
  <div>
-  <p className='Lighttext'>ADDITONAL SETTINGS</p><br/>
+  <p className='Lighttext' style={{marginLeft:0,marginTop:20}}>ADDITONAL SETTINGS</p>
  </div>
 
  <div  className='Modes' onClick={()=>navigate("/Bluetooth1")}>

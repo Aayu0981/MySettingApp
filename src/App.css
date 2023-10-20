@@ -1,6 +1,7 @@
 *{
  margin-left: 15px;
  
+ 
 }
 
 
@@ -57,11 +58,11 @@ h1{
   margin-bottom: 20px;
   margin-top: 20px;
   color: rgba(194, 46, 16, 0.889);
+ 
 }
 .system11{
   font-family: serif;
   font-weight: lighter;
- 
   
 }
 .security{
@@ -71,6 +72,8 @@ h1{
 }
 #secu{
   margin-left: 20px;
+
+  
 }
 .airplane{
   
@@ -184,7 +187,7 @@ margin-bottom: 20px;
 
   /* Hover effect styles */
   &:hover {
-    background-color: rgb(102, 132, 132);
+    background-color: rgba(200, 188, 188, 0.1);
   }
 }
 
@@ -195,12 +198,13 @@ margin-bottom: 20px;
 
   /* Hover effect styles */
   &:hover {
-    background-color: rgb(102, 132, 132);
+    background-color: rgba(200, 188, 188, 0.1);
     
-    margin: 20px,0,0;
+    /* margin: 20px,0,0; */
    
   }
 }
+
 
 /* arrow maintain */
 
@@ -238,6 +242,92 @@ margin-bottom: 20px;
   color: gray;
   font-size: 15px;
 } */
+
+
+.System-apps-udates{
+
+  transition: background-color 0.3s;  /* Add a smooth transition */
+
+  /* Hover effect styles */
+  &:hover {
+    background-color: rgba(152, 142, 142, 0.195);
+  }
+
+}
+
+#Air-plane{
+
+  transition: background-color 0.3s;  /* Add a smooth transition */
+
+  /* Hover effect styles */
+  &:hover {
+    background-color: rgba(200, 188, 188, 0.1);
+  }
+}
+
+#Display-And-Bright{
+
+  transition: background-color 0.3s;  /* Add a smooth transition */
+
+  /* Hover effect styles */
+  &:hover {
+    background-color: rgba(200, 188, 188, 0.1);
+  }
+}
+
+#Sound-vibration{
+
+  transition: background-color 0.3s;  /* Add a smooth transition */
+
+  /* Hover effect styles */
+  &:hover {
+    background-color: rgba(200, 188, 188, 0.1);
+  }
+}
+
+
+#wifi1{
+
+  transition: background-color 0.3s;  /* Add a smooth transition */
+
+  /* Hover effect styles */
+  &:hover {
+    background-color: rgba(200, 188, 188, 0.1);
+  }
+}
+
+#Blue-Tooth{
+
+  transition: background-color 0.3s;  /* Add a smooth transition */
+
+  /* Hover effect styles */
+  &:hover {
+    background-color: rgba(200, 188, 188, 0.1);
+  }
+}
+
+#Noti-Fication{
+
+  transition: background-color 0.3s;  /* Add a smooth transition */
+
+  /* Hover effect styles */
+  &:hover {
+    background-color: rgba(200, 188, 188, 0.1);
+  }
+}
+
+#Wall-Paper{
+
+  transition: background-color 0.3s;  /* Add a smooth transition */
+
+  /* Hover effect styles */
+  &:hover {
+    background-color: rgba(200, 188, 188, 0.1);
+  }
+}
+
+
+
 
 
 

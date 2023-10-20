@@ -7,26 +7,26 @@ import { useState } from 'react';
 function Airoplane() {
 const navigate=useNavigate();
 
-const [isAirplaneModeOn, setIsAirplaneModeOn] = useState(false);
+const [isAirplaneModeOn1, setIsAirplaneModeOn] = useState(false);
        const toggleAirplaneMode = () => {
-       setIsAirplaneModeOn(!isAirplaneModeOn);
+       setIsAirplaneModeOn(!isAirplaneModeOn1);
     }
 
 
 
   return (
-    <div >
+    <div style={{width:400}} >
          
          <div onClick={()=> navigate(-1)}>
             <p><FaArrowLeft/></p>
         </div>
 
-        <div><span>Aeroplane Mode</span></div>
+        <p className='heading'>Aeroplane Mode</p>
 
-        <div>
-          <h4>Aeroplane Mode</h4>
+        <div className='Media'>
+          <p className='Darktext1' style={{marginLeft:0}}>Aeroplane Mode</p>
           <label className="switch">
-              <input type="checkbox" onChange={toggleAirplaneMode} checked={isAirplaneModeOn} />
+              <input type="checkbox" onChange={toggleAirplaneMode} checked={isAirplaneModeOn1} />
               <span className="slider round"></span>
               </label>
 

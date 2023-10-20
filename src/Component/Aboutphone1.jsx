@@ -1,5 +1,6 @@
 import React from 'react'
-// import './Aboutphone1.css';
+import { FaArrowLeft } from 'react-icons/fa';
+
 
 
 import { Navigate, isRouteErrorResponse, useNavigate } from 'react-router-dom';
@@ -10,8 +11,15 @@ function Aboutphone1() {
   return (
     
    <>
-    <div id='about12'><span className='about11'>About phone </span></div>
-    
+
+         <div style={{marginLeft:0}} onClick={()=> nevigate(-1)}>
+            <p className='back'><FaArrowLeft/></p>
+        </div>
+
+   <p className='heading'>About phone </p>
+
+
+  
     <div style={{position:"relative",zIndex:1,display:"flex"}}>
     <div id='left' style={{width:200,height:300,borderRadius:20,position:"relative"}}>
     <img src="https://i.imgur.com/G9wfOYe.png"  style={{backgroundColor:"transparent" ,width:100}} />
@@ -26,13 +34,13 @@ function Aboutphone1() {
      
 
      <div id='right' >
-      <div className='device' style={{width:200,height:100,borderRadius:20, position: 'relative', zIndex:2}}>
+      <div className='device' style={{width:170,height:100,borderRadius:20, position: 'relative', zIndex:2}}>
       <p>Device name</p>
       <p style={{fontSize:12,color:'grey'}}>POCO M4 Pro</p>
      </div>
 
      <div  className='storage' style={{width:180,height:155,borderRadius:20, zIndex:2}}>
-      <p className='s1'>Storage</p><br/>
+      <p className='s1' >Storage</p><br/>
       <p className='ooccu' style={{fontSize:12,color:'grey',marginTop:50}}>Occupied</p>
       <p className='oc1'>59.1 GB<sub>/64 GB</sub></p>
      </div>
@@ -41,30 +49,30 @@ function Aboutphone1() {
 
      <div id='MIUI'>
       <div className="config">
-      <p className='about9' >MIUI version(For POCO)</p>
+      <p className='Darktext1'  >MIUI version(For POCO)</p>
       <p className='about10'>MIUI Global 13.0.5 Stable</p></div>
       
      
-      <div className="config"><p className='about9'>Android Version</p>
+      <div className="config"><p className='Darktext1'>Android Version</p>
       <p className='about10'>12 SP1A.21082.016</p></div>
       
       
-      <div className="config"><p className='about9'>Android security update</p>
+      <div className="config"><p className='Darktext1'>Android security update</p>
       <p className='about10'>2023-04-01</p></div>
       
      
-      <div className="config"   onClick={()=>nevigate("/About2")}><p className='about11'>All specs</p>
+      <div className="config"   onClick={()=>nevigate("/About2")}><p className='Darktext1'>All specs</p>
       <p className='arow'>&gt;</p></div>
       
      </div>
      <hr/>
 
      <div >
-      <div className='config' onClick={()=>nevigate("/About3")}><p className='about11'>Back up and restore</p>
+      <div className='config' onClick={()=>nevigate("/About3")}><p className='Darktext1'>Back up and restore</p>
       <p className='arow'>&gt;</p></div>
       
       
-      <div className="config"  onClick={()=>nevigate("/About4")}><p>Factory reset</p>
+      <div className="config"  onClick={()=>nevigate("/About4")}><p className='Darktext1'>Factory reset</p>
       <p className='arow'>&gt;</p></div>
      
       
@@ -73,10 +81,10 @@ function Aboutphone1() {
         <hr/>
 
      <div>
-      <div className="config"  onClick={()=>nevigate("/About6")}><p>Important safety information</p>
+      <div className="config"  onClick={()=>nevigate("/About6")}><p className='Darktext1' >Important safety information</p>
       <p className='arow'>&gt;</p></div>
       
-      <div className="config"  onClick={()=>nevigate("/About7")}><p>certification</p>
+      <div className="config"  onClick={()=>nevigate("/About7")}><p className='Darktext1'>certification</p>
       <span className='arow'>&gt;</span></div>
       
      </div>

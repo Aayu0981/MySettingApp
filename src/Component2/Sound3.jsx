@@ -10,10 +10,19 @@ function Sound3() {
     const navigate=useNavigate();
 
     // toggle button code 1
-    const [isAirplaneModeOn, setIsAirplaneModeOn] = useState(false);
-       const toggleAirplaneMode = () => {
-       setIsAirplaneModeOn(!isAirplaneModeOn);
+    const [isSoundOn1, setIsSoundOn1] = useState(false);
+       const toggleSound1 = () => {
+       setIsSoundOn1(!isSoundOn1);
     }
+
+
+    const [isSoundOn2, setIsSoundOn2] = useState(false);
+       const toggleSound2 = () => {
+       setIsSoundOn2(!isSoundOn2);
+    }
+
+
+    
 
   return (
   <div style={{width:400}}>
@@ -38,7 +47,7 @@ function Sound3() {
 
           {/* toggle button code 2 */}
            <label className="switch">
-              <input type="checkbox" onChange={toggleAirplaneMode} checked={isAirplaneModeOn} />
+              <input type="checkbox" onChange={toggleSound1} checked={isSoundOn1} />
               <span className="slider round"></span>
               </label>
               </div>
@@ -58,7 +67,7 @@ function Sound3() {
             <div >
           {/* toggle button code 2 */}
            <label className="switch">
-              <input type="checkbox" onChange={toggleAirplaneMode} checked={isAirplaneModeOn} />
+              <input type="checkbox" onChange={toggleSound2} checked={isSoundOn2} />
               <span className="slider round"></span>
               </label>
               </div>

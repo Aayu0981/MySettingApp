@@ -14,9 +14,15 @@ function DandB2() {
       };
     
 
-    const [isAirplaneModeOn, setIsAirplaneModeOn] = useState(false);
-       const toggleAirplaneMode = () => {
-       setIsAirplaneModeOn(!isAirplaneModeOn);
+    const [isBrightOn1, setIsBrighteOn1] = useState(false);
+       const toggleBright1 = () => {
+       setIsBrighteOn1(!setIsBrighteOn1);
+    }
+
+
+    const [isBrightOn2, setIsBrighteOn2] = useState(false);
+       const toggleBright2 = () => {
+       setIsBrighteOn2(!setIsBrighteOn2);
     }
 
 
@@ -42,12 +48,12 @@ function DandB2() {
     <div style={{display:'flex',width:350,marginLeft:0,alignItems:'center',justifyContent:'space-between'}}>
 
         <div style={{marginLeft:0,marginRight:0}}>
-            <p className='Darktext1' style={{marginLeft:0}}>Automatic brightness</p>
-        <p className='Lighttext' style={{marginLeft:0}}>Adjust brightness to ambient light to save battery</p></div>
+            <p className='Darktext1' style={{marginLeft:0,marginBottom:0}}>Automatic brightness</p>
+        <p className='Lighttext' style={{marginLeft:0,marginTop:0}}>Adjust brightness to ambient light to save battery</p></div>
         
         
         <label style={{marginLeft:0}}  className="switch">
-              <input  type="checkbox" onChange={toggleAirplaneMode} checked={isAirplaneModeOn} />
+              <input  type="checkbox" onChange={toggleBright1} checked={setIsBrighteOn1} style={{width:100}} />
               <span  className="slider round"></span>
               </label>
     </div>
@@ -56,13 +62,13 @@ function DandB2() {
     <div style={{display:'flex', marginLeft:0, alignItems:'center'}}>
 
         <div style={{marginLeft:0, width:250}}>
-            <p style={{marginLeft:0}} className='Darktext1'>Sunlight mode</p>
-        <p style={{marginLeft:0}} className='Lighttext'>Adjust brightness to strong ambient light to prevent the screen from going too dark</p>
+            <p style={{marginLeft:0,marginBottom:0}} className='Darktext1'>Sunlight mode</p>
+        <p style={{marginLeft:0,marginTop:0}} className='Lighttext'>Adjust brightness to strong ambient light to prevent the screen from going too dark</p>
         
         </div>
         
         <label style={{marginLeft:0}} className="switch">
-              <input  type="checkbox" onChange={toggleAirplaneMode} checked={isAirplaneModeOn} />
+              <input  type="checkbox" onChange={toggleBright2} checked={isBrightOn2} style={{width:100}} />
               <span  className="slider round"></span>
               </label>
     </div>

@@ -16,37 +16,37 @@ function About4() {
             <p ><FaArrowLeft /></p>
         </div>
 
-       <div style={{fontSize:20,fontWeight:'500',marginTop:40,marginBottom:30}}><span>Factory reset</span></div>
+       <p className='heading'>Factory reset</p>
       
 
-       <p style={{fontSize:13,color:'grey',marginLeft:25}}>ERASE THEFOLLOWING ITEMS</p>
+       <p style={{fontSize:13,color:'grey',marginLeft:0}}>ERASE THEFOLLOWING ITEMS</p>
 
-       <div >
-        <h4>Accounts</h4>
+       <div style={{marginLeft:0}} >
+        <p className='Darktext1' style={{marginLeft:0}} >Accounts</p>
 
-        <h4>Contacts</h4>
+        <p  className='Darktext1' style={{marginLeft:0}} >Contacts</p>
 
-        <h4>Photos and videos</h4>
+        <p  className='Darktext1' style={{marginLeft:0}} >Photos and videos</p>
 
-        <h4>Apps</h4>
+        <p  className='Darktext1' style={{marginLeft:0}} >Apps</p>
 
-        <h4>Backups</h4>
+        <p  className='Darktext1' style={{marginLeft:0}} >Backups</p>
 
-        <h4>Emulated SD card data</h4>
+        <p  className='Darktext1' style={{marginLeft:0}} >Emulated SD card data</p>
 
-        <h4>other items on this device</h4>
+        <p className='Darktext1' style={{marginLeft:0}} >other items on this device</p>
        </div>
 
 
-       <div>
+       <div style={{marginLeft:0}} >
         <br/>
 
 
-        <p style={{fontSize:13,color:'grey'}}>All the items listed above will be erased permanently 
+        <p style={{fontSize:13,color:'grey',marginLeft:0}}>All the items listed above will be erased permanently 
         Back up all important items to your computer or Xiaomi
         </p>
 
-        <p style={{fontSize:13,color:'grey'}}>Note:Before restoring items, check whether the folder "MIUI-Backup-AllBackup" exists on your mobile device. If it doesn't, create it.</p>
+        <p style={{fontSize:13,color:'grey' , marginLeft:0}}>Note:Before restoring items, check whether the folder "MIUI-Backup-AllBackup" exists on your mobile device. If it doesn't, create it.</p>
         
        </div>
       

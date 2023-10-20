@@ -43,8 +43,8 @@ function Systemupdater() {
     
     <div style={{display:'flex',marginLeft:0 , justifyContent:'space-between' , marginTop:10}}>
 
-      <div style={{display:'flex', marginLeft:0, marginBottom:30 }}><img src={img2} style={{width:85, marginLeft:0}} />
-      <p>Themes</p>
+      <div style={{display:'flex', marginLeft:0, marginBottom:30 }}><img src={img2} style={{width:85, marginLeft:0,backgroundColor:'white'}} />
+      <p className='Darktext1' >Themes</p>
       </div>
       
       <button style={{  border:'solid 1px green',width:80,height:30 , color:'green',backgroundColor:'white'}}>Update</button>

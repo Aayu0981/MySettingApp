@@ -10,9 +10,9 @@ function DandB() {
 
   const navigate=useNavigate();
 
-  const [isAirplaneModeOn, setIsAirplaneModeOn] = useState(false);
-  const toggleAirplaneMode = () => {
-  setIsAirplaneModeOn(!isAirplaneModeOn);
+  const [isDisplayOn, setIsDisplayOn] = useState(false);
+  const toggleDisplay = () => {
+  setIsDisplayOn(!isDisplayOn);
 }
 
   return (
@@ -63,7 +63,7 @@ function DandB() {
 
         <div  className='Modes' >
           <p className='Darktext1'>Refresh rate</p>
-          <p className='Lighttext'>60 Hz &gt;</p>
+          <p className='Lighttext'>60 Hz</p>
         </div>
 
         <hr/>
@@ -80,7 +80,7 @@ function DandB() {
           <p  className='Darktext1'>Auto-rotate screen</p>
           
           <label className="switch">
-              <input type="checkbox" onChange={toggleAirplaneMode} checked={isAirplaneModeOn} />
+              <input type="checkbox" onChange={toggleDisplay} checked={isDisplayOn} />
               <span className="slider round"></span>
               </label>
        

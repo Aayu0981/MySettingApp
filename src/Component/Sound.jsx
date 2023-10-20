@@ -166,10 +166,19 @@ function Sound() {
     setSliderValue3(event.target.value);
   };
 
-  const [isAirplaneModeOn, setIsAirplaneModeOn] = useState(false);
-       const toggleAirplaneMode = () => {
-       setIsAirplaneModeOn(!isAirplaneModeOn);
+  const [isModeOn1, setIsModeOn1] = useState(false);
+       const toggleMode1 = () => {
+       setIsModeOn1(!isModeOn1);
     }
+
+
+    const [isModeOn2, setIsModeOn2] = useState(false);
+    const toggleMode2 = () => {
+    setIsModeOn2(!isModeOn2);
+ }
+
+
+
 
 
   return (
@@ -217,21 +226,21 @@ function Sound() {
           <FaMusic className='Music' /><p  className='Darktext1'> Media</p>
           </div>
           <div className="Sound-slider" style={{marginTop:0,marginLeft:0}}>
-            <input style={{marginTop:0}} type="range" min="0" max="100" value={sliderValue1} onChange={handleSliderChange1} className="sound" />
+            <input style={{marginTop:0,width:250}} type="range" min="0" max="100" value={sliderValue1} onChange={handleSliderChange1} className="sound"  />
           </div>
         </div>
 
         <div  style={{marginLeft:0}}>
             <div className='Media'><FaBell className='Music' /> <p className='Darktext1'>Ringtone</p> </div> 
           <div className="Ringtone"  style={{marginTop:0,marginLeft:0}}>
-            <input type="range" min="0" max="100" value={sliderValue2} onChange={handleSliderChange2} className="Ringtone" />
+            <input type="range" min="0" max="100" value={sliderValue2} onChange={handleSliderChange2} className="Ringtone"  style={{width:250}} />
           </div>
         </div>
 
         <div  style={{marginLeft:0}}> 
          <div className='Media' style={{marginTop:22,marginLeft:0}}> <FaClock className='Music' /> <p className='Darktext1'>Alarm</p></div>
           <div className="Alarm" style={{marginTop:0,marginLeft:0}}>
-            <input type="range" min="0" max="100" value={sliderValue3} onChange={handleSliderChange3} className="Alarm" />
+            <input type="range" min="0" max="100" value={sliderValue3} onChange={handleSliderChange3} className="Alarm" style={{width:250}} />
           </div>
         </div>
       </div>
@@ -242,7 +251,7 @@ function Sound() {
         <p className='Darktext1' style={{marginBottom:0,marginTop:30}}>Sound assistant</p>
         <p className='Lighttext' style={{marginTop:0}}>Customize your sound settings</p>
         </div>
-        <span className="arrow">&gt;</span>
+        <p className="Lighttext">&gt;</p>
       </div>
 
       <hr  />
@@ -258,7 +267,7 @@ function Sound() {
           </div>
           
           <label className="switch">
-              <input type="checkbox" onChange={toggleAirplaneMode} checked={isAirplaneModeOn} />
+              <input type="checkbox" onChange={toggleMode1} checked={isModeOn1} style={{width:102}} />
               <span className="slider round"></span>
               </label>
        
@@ -273,7 +282,7 @@ function Sound() {
           </div>
           
           <label className="switch">
-              <input type="checkbox" onChange={toggleAirplaneMode} checked={isAirplaneModeOn} />
+              <input type="checkbox" onChange={toggleMode2} checked={isModeOn2} />
               <span className="slider round"></span>
               </label>
 
@@ -284,12 +293,12 @@ function Sound() {
           <p className='Darktext1' style={{marginBottom:0,marginLeft:0}}>Do not disturb</p>
           <p className='Lighttext' style={{marginTop:0,marginLeft:0}}> There'll be no reminders for incoming calls and notifications</p>
           </div>
-          <span className="arrow">&gt;</span>
+          <p className="Lighttext">&gt;</p>
         </div>
 
         <div className='Modes' onClick={() => navigate("/Sound2")} >
           <p className='Darktext1'>Additional settings</p>
-          <span className="arrow">&gt;</span>
+          <p className='Lighttext'>&gt;</p>
         </div>
       </div>
     </div>

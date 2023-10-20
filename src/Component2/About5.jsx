@@ -1,29 +1,38 @@
 import React from 'react'
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { FaArrowLeft } from 'react-icons/fa';
+
 
 function About5() {
+   
 
+  const navigate=useNavigate();
 
    
     // toggle button code 1
-    const [isAirplaneModeOn, setIsAirplaneModeOn] = useState(false);
-       const toggleAirplaneMode = () => {
-       setIsAirplaneModeOn(!isAirplaneModeOn);
+    const [isbackupsOn, setIsbackupsOn] = useState(false);
+       const togglebackups = () => {
+       setIsbackupsOn(!isbackupsOn);
     }
 
 
   return (
-    <div>
+    <div style={{width:400}}>
+
+       <div style={{marginLeft:0}} onClick={()=> navigate(-1)}>
+            <p className='back'><FaArrowLeft/></p>
+        </div>
     
 
-    <div><span>Back up my data</span></div>
+    <p className='heading'>Back up my data</p>
 
 
-    <div>
-        <p>Turn on backups</p>
+    <div className='Media'>
+        <p className='Darktext1' >Turn on backups</p>
 
         <label className="switch">
-              <input type="checkbox" onChange={toggleAirplaneMode} checked={isAirplaneModeOn} />
+              <input type="checkbox" onChange={togglebackups} checked={isbackupsOn} />
               <span className="slider round"></span>
               </label>
        
@@ -31,11 +40,11 @@ function About5() {
 
     <div>
 
-        <p>Automatically back up device data (sych as Wi-Fi password and call history)
+        <p className='Lighttext' style={{marginLeft:0}} >Automatically back up device data (sych as Wi-Fi password and call history)
             and app data (such as settings and files stored by apps) remotely
         </p>
 
-        <p>when you turn on automatic backup,device and app data is periodically saved remotely.</p>
+        <p className='Lighttext'   style={{marginLeft:0}}>when you turn on automatic backup,device and app data is periodically saved remotely.</p>
     </div>
 
 

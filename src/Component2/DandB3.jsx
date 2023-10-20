@@ -9,10 +9,17 @@ import { FaArrowLeft } from 'react-icons/fa';
 function DandB3() {
     const navigate=useNavigate();
 
-    const [isAirplaneModeOn, setIsAirplaneModeOn] = useState(false);
-    const toggleAirplaneMode = () => {
-    setIsAirplaneModeOn(!isAirplaneModeOn);
+    const [isReadOn1, setIsReadOn1] = useState(false);
+    const toggleRead1 = () => {
+    setIsReadOn1(!isReadOn1);
  }
+
+
+ 
+ const [isReadOn2, setIsReadOn2] = useState(false);
+ const toggleRead2 = () => {
+ setIsReadOn2(!isReadOn2);
+}
 
 
   return (
@@ -31,7 +38,7 @@ function DandB3() {
             <p className='Darktext1'>Reading mode</p>
 
             <label className="switch">
-              <input type="checkbox" onChange={toggleAirplaneMode} checked={isAirplaneModeOn} />
+              <input type="checkbox" onChange={toggleRead1} checked={isReadOn1} />
               <span className="slider round"></span>
               </label>
 
@@ -71,7 +78,7 @@ function DandB3() {
             </div>
             
             <label className="switch">
-              <input type="checkbox" onChange={toggleAirplaneMode} checked={isAirplaneModeOn} />
+              <input type="checkbox" onChange={toggleRead2} checked={isReadOn2}  style={{width:105}}/>
               <span className="slider round"></span>
               </label>
 

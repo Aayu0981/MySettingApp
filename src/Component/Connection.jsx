@@ -9,9 +9,9 @@ function Connection() {
 
   const navigate = useNavigate();
 
-  const [isAirplaneModeOn, setIsAirplaneModeOn] = useState(false);
-       const toggleAirplaneMode = () => {
-       setIsAirplaneModeOn(!isAirplaneModeOn);
+  const [iswifiOn, setIswifiOn] = useState(false);
+       const togglewifi = () => {
+       setIswifiOn(!iswifiOn);
     }
 
   return (
@@ -31,7 +31,7 @@ function Connection() {
          <p className='Darktext1'>Wi-Fi</p>
 
          <label className="switch">
-              <input type="checkbox" onChange={toggleAirplaneMode} checked={isAirplaneModeOn} />
+              <input type="checkbox" onChange={togglewifi} checked={iswifiOn} />
               <span className="slider round"></span>
               </label>
 
@@ -39,13 +39,13 @@ function Connection() {
 
        <hr/>
 
-       <div>
-        <p className='Lighttext'>MORE SETTINGS</p><br/>
-       </div>
+       
+        <p className='Lighttext' style={{marginTop:20}}>MORE SETTINGS</p><br/>
+       
 
-       <div className='Modes' onClick={()=>navigate("/Connection1")}>
-       <p className='Darktext1'>Additional settings</p>
-       <span>&gt;</span>
+       <div className='Modes' onClick={()=>navigate("/Connection1")} >
+       <p className='Darktext1' style={{marginTop:0}}>Additional settings</p>
+       <p className= 'Lighttext' style={{marginTop:0}}>&gt;</p>
        </div>
             
 

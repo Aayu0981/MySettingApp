@@ -4,6 +4,7 @@ import './Aboutphone1.css';
 import './Sound2.css';
 import './Sound.css';
 import './About2.css';
+import './Wallpaper.css';
 // import Aboutphone1 from './Component/Aboutphone1';
 import Searchicone from "./Component/Searchicone";
 import Systemupdater from './Component/Systemupdater';
@@ -19,6 +20,7 @@ import Theme from './Component/Theme';
 import { Route, Routes } from 'react-router-dom';
 import Home from './Home';
 import Connection from './Component/Connection';
+
 
 
 
@@ -48,6 +50,8 @@ import DandB3 from './Component2/DandB3';
 import DandB4 from './Component2/DandB4';
 import Notification4 from './Component2/Notification4';
 import Systemupdater1 from './Component2/Systemupdater1';
+import Legalinfo from './Component2/Legalinfo';
+import Status from './Component2/Status';
 
 
 
@@ -74,6 +78,8 @@ function App() {
        <Route path='/About5' Component={About5}></Route>
        <Route path='/About6' Component={About6}></Route>
        <Route path='/About7' Component={About7}></Route>
+       <Route path='/Legalinfo'Component={Legalinfo}></Route>
+       <Route path='/Status' Component={Status}></Route>
 
        {/* security path start */}
        <Route path='/Security' Component={Security}></Route>
@@ -108,6 +114,9 @@ function App() {
         <Route path='/Notification2'Component={Notification2}></Route>
         <Route path='/Notification3' Component={Notification3}></Route>
         <Route path='/Notification4' Component={Notification4}></Route>
+
+
+        <Route path='/Wallpaper' Component={Wallpaper}></Route>
       </Routes>
      
    
