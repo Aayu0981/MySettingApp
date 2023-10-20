@@ -4,8 +4,8 @@ toggle css start */
 .switch {
     position: relative;
     display: inline-block;
-    width: 130px;
-    height: 20px;
+    width: 125px;
+    height: 15px;
   }
   
   .switch input {
@@ -32,8 +32,8 @@ toggle css start */
   .slider:before {
     position: absolute;
     content: "";
-    height: 27px;
-    width: 28px;
+    height: 20px;
+    width: 23px;
     left: 2px;
     bottom: 2px;
     background-color: white;

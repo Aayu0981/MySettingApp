@@ -16,7 +16,7 @@ setIsAirplaneModeOn(!isAirplaneModeOn);
 }
 
   return (
-    <div>
+    <div style={{width:350}}>
            
 
         <div onClick={()=> navigate(-1)}>
@@ -24,32 +24,37 @@ setIsAirplaneModeOn(!isAirplaneModeOn);
         </div>
       
 
-       <div><span>Additional settings</span></div>
+       <p className='heading'>Additional settings</p>
 
-
-     <div>
-         <p>CONNECTION</p>
-
-          <h4>Pair compatible device</h4>
-          <p>Quickly connect earnphone, speakers, and other compatible device</p>
+       <p className='Lighttext'>CONNECTION</p>
+     <div >
+         <div >
+            <div>
+          <p className='Darktext1' style={{marginBottom:0}}> Pair compatible device</p>
+          <p className='Lighttext' style={{marginTop:0}}>Quickly connect earnphone, speakers, and other compatible device</p>
+          </div>
 
           {/* toggle button code 2 */}
           <label className="switch">
               <input type="checkbox" onChange={toggleAirplaneMode} checked={isAirplaneModeOn} />
               <span className="slider round"></span>
               </label>
+              </div>
 
-
-           <h4>Bluetooth blocklist</h4>
-         <span>&gt;</span>
+           <div  className='Modes'> 
+           <p className='Darktext1'>Bluetooth blocklist</p>
+            <p className='Lighttext'>&gt;</p>
+         </div>
      </div>
 
            <hr/>
 
-       <div>
-            <p>DISPLAYED ITEMS</p>
+           <p className='Lighttext'>DISPLAYED ITEMS</p>
 
-            <h4>Show Bluetooth device without names</h4>
+       <div className='Modes'>
+           
+
+            <p className='Darktext1'>Show Bluetooth device without names</p>
             {/* toggle button code 2 */}
           <label className="switch">
               <input type="checkbox" onChange={toggleAirplaneMode} checked={isAirplaneModeOn} />

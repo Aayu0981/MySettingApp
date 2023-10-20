@@ -15,7 +15,7 @@ function Connection() {
     }
 
   return (
-   <div >
+   <div  style={{width:350}} >
          
          
         <div onClick={()=> navigate(-1)}>
@@ -25,10 +25,10 @@ function Connection() {
 
 
 
-     <div><span>Wi-Fi</span></div>
+     <p className='heading'>Wi-Fi</p>
 
-      <div>
-         <p>Wi-Fi</p>
+      <div className='Modes'>
+         <p className='Darktext1'>Wi-Fi</p>
 
          <label className="switch">
               <input type="checkbox" onChange={toggleAirplaneMode} checked={isAirplaneModeOn} />
@@ -40,11 +40,11 @@ function Connection() {
        <hr/>
 
        <div>
-        <p>MORE SETTINGS</p><br/>
+        <p className='Lighttext'>MORE SETTINGS</p><br/>
        </div>
 
-       <div  onClick={()=>navigate("/Connection1")}>
-       <p>Additional settings</p>
+       <div className='Modes' onClick={()=>navigate("/Connection1")}>
+       <p className='Darktext1'>Additional settings</p>
        <span>&gt;</span>
        </div>
             

@@ -18,7 +18,7 @@ function Sound2() {
   return (
 
    
-    <div style={{width:350,backgroundColor:'red'}}>
+    <div style={{width:400}}>
 
 
         
@@ -26,10 +26,10 @@ function Sound2() {
             <p><FaArrowLeft/></p>
         </div>
 
-     <div><span>Additional settings</span></div>
+     <p className='heading'>Additional settings</p>
 
-     <div >
-        <p>Dial pad tones</p>
+     <div className='Modes'>
+        <p className='Darktext1'>Dial pad tones</p>
 
          {/* toggle button code 2 */}
         <label className="switch">
@@ -39,16 +39,16 @@ function Sound2() {
        
      </div>
 
-     <div >
-        <p>Tap sounds</p>
+     <div className='Modes' >
+        <p className='Darktext1'>Tap sounds</p>
         <label className="switch">
               <input type="checkbox" onChange={toggleAirplaneMode} checked={isAirplaneModeOn} />
               <span className="slider round"></span>
               </label>
      </div>
 
-     <div  >
-        <p>Play sound when locking device</p>
+     <div   className='Modes'>
+        <p className='Darktext1'>Play sound when locking device</p>
         <label className="switch">
               <input type="checkbox" onChange={toggleAirplaneMode} checked={isAirplaneModeOn} />
               <span className="slider round"></span>
@@ -56,8 +56,8 @@ function Sound2() {
      </div>
        
 
-       <div  >
-        <p>play sound when taking screenshot</p>
+       <div  className='Modes' >
+        <p className='Darktext1'>play sound when taking screenshot</p>
         <label className="switch">
               <input type="checkbox" onChange={toggleAirplaneMode} checked={isAirplaneModeOn} />
               <span className="slider round"></span>
@@ -66,8 +66,8 @@ function Sound2() {
 
 
        
-       <div  >
-        <p>play sound when uninstalling apps</p>
+       <div className='Modes' >
+        <p className='Darktext1'>play sound when uninstalling apps</p>
         <label className="switch">
               <input type="checkbox" onChange={toggleAirplaneMode} checked={isAirplaneModeOn} />
               <span className="slider round"></span>
@@ -75,8 +75,8 @@ function Sound2() {
        </div>
 
 
-       <div >
-        <p>play sound when deleting items</p>
+       <div className='Modes' >
+        <p className='Darktext1'>play sound when deleting items</p>
         <label className="switch">
               <input type="checkbox" onChange={toggleAirplaneMode} checked={isAirplaneModeOn} />
               <span className="slider round"></span>
@@ -84,17 +84,17 @@ function Sound2() {
        </div>
 
 
-       <div  >
-        <p>play sound when charger is connected</p>
+       <div  className='Modes' >
+        <p className='Darktext1'>play sound when charger is connected</p>
         <label className="switch">
-              <input type="checkbox" onChange={toggleAirplaneMode} checked={isAirplaneModeOn} />
+              <input type="checkbox" onChange={toggleAirplaneMode} checked={isAirplaneModeOn} style={{width:120}} />
               <span className="slider round"></span>
               </label>
        </div>
 
 
-       <div  >
-        <p>play audio at startup</p>
+       <div  className='Modes' >
+        <p className='Darktext1'>play audio at startup</p>
         <label className="switch">
               <input type="checkbox" onChange={toggleAirplaneMode} checked={isAirplaneModeOn} />
               <span className="slider round"></span>

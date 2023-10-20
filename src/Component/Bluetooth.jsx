@@ -16,7 +16,7 @@ function Bluetooth() {
 
 
   return (
-    <div>
+    <div style={{width:350}}>
       
       
       <div onClick={()=> navigate(-1)}>
@@ -24,10 +24,10 @@ function Bluetooth() {
         </div>
       
         
-      <div><span>Bluetooth</span></div>
+      <p className='heading'>Bluetooth</p>
 
-<div>
-   <h4>Bluetooth</h4>
+<div className='Modes'>
+   <p className='Darktext' >Bluetooth</p>
 
    <label className="switch">
         <input type="checkbox" onChange={toggleAirplaneMode} checked={isAirplaneModeOn} />
@@ -36,20 +36,20 @@ function Bluetooth() {
 
  </div>
 
- <div>
-  <h4>Device name</h4>
-  <span>POCO M4 Pro &gt;</span>
+ <div className='Modes'>
+  <p className='Darktext1'>Device name</p>
+  <p className='Lighttext'>POCO M4 Pro &gt;</p>
  </div>
 
- <hr/>
+ <hr style={{opacity:0.5}}/>
 
  <div>
-  <p>ADDITONAL SETTINGS</p><br/>
+  <p className='Lighttext'>ADDITONAL SETTINGS</p><br/>
  </div>
 
- <div  onClick={()=>navigate("/Bluetooth1")}>
- <h4>Additional settings</h4>
- <span>&gt;</span>
+ <div  className='Modes' onClick={()=>navigate("/Bluetooth1")}>
+ <p className='Darktext1'>Additional settings</p>
+ <p className='Lighttext'>&gt;</p>
  </div>
       
 

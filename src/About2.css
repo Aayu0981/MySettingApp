@@ -1,0 +1,108 @@
+.one{
+   border: solid 1.2px rgba(0, 0, 0, 0.225);
+}
+
+.Lighttext{
+    color:grey;
+    font-size: 15px;
+}
+.Darktext{
+    font-size:18px;
+}
+.back{
+    font-weight: 100;
+    font-size: 20px;
+    margin-left:0;
+}
+
+
+/* next line for about3 */
+
+#MobileDevice{
+    display: flex;
+    background-color: rgba(128, 128, 128, 0.307);
+    border-radius: 20px;
+    margin-bottom: 15px;
+}
+
+#Cloud{
+    display: flex;
+    justify-content: space-between;
+}
+.Darktext1{
+   
+    font-weight: 600;
+   
+
+}
+.button{
+    
+    width:300px;
+     height:40px ;
+     border-radius: 25px;
+     background-color: rgb(0, 193, 126);
+     color: white;
+     font-size:15px ;
+     font-weight: 500;
+     
+
+    }
+
+/* 
+    DandB css start */
+
+
+    .heading{
+        font-size: 30px;
+        margin-bottom: 30px;;
+        margin-left: 0px;
+        font-weight: 300;
+    }
+
+    .Modes{
+     display: flex;
+       align-items: center; 
+       justify-content: space-between;
+       margin-left: 0;
+    } 
+
+
+    /* soud css start */
+    .bell{
+        font-size: 40px;
+        color: blueviolet;
+    }
+    .alarm{
+        font-size: 30px;
+        color: palevioletred;
+    }
+    .phone{
+        font-size: 25px;
+        color:green
+    }
+    
+
+
+    /* sound css start */
+
+    .Ring{
+        background-color: rgba(128, 128, 128, 0.178);
+    }
+    .Music{
+        color: rgb(125, 119, 119);
+    }
+    .Sound-Assistant{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-left: 0px;
+    }
+    hr{
+        opacity: 0.5;
+    }
+    .Media{
+        display: flex;
+        align-items: center;
+        margin-top :0;
+       margin-left: 0;
+    }

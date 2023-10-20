@@ -76,7 +76,7 @@ function Aboutphone1() {
       <div className="config"  onClick={()=>nevigate("/About6")}><p>Important safety information</p>
       <p className='arow'>&gt;</p></div>
       
-      <div className="config"><p>certification</p>
+      <div className="config"  onClick={()=>nevigate("/About7")}><p>certification</p>
       <span className='arow'>&gt;</span></div>
       
      </div>

@@ -12,7 +12,7 @@ import { FaHome } from 'react-icons/fa';
 import { FaImage } from 'react-icons/fa';
 import { FaPalette } from 'react-icons/fa';
 import { FaAlignRight, FaArrowRight, FaArrowsAlt, FaArrowsAltH, FaArrowsAltV, FaBluetooth, FaExpandArrowsAlt, FaGreaterThan, FaLongArrowAltRight, FaRegArrowAltCircleRight } from 'react-icons/fa';
-import Aboutphone1 from './Component2/Aboutphone1';
+import Aboutphone1 from './Component/Aboutphone1';
 import './App.css'
 
 
@@ -56,7 +56,7 @@ function Home() {
      <div id='main3' className='sytem11' >
     <FaArrowUp id='system'/>   
      
-     <div className='arrow1'>
+     <div className='arrow1' onClick={()=>navigate("/Systemupdater")}>
       <div id="text">System apps updater</div>
     <span className='arow'>&gt;</span>
     </div>
@@ -170,7 +170,7 @@ function Home() {
         <FaBell className='notify'/>   
         
 
-        <div className='arrow1'>
+        <div className='arrow1' onClick={()=> navigate("/Notification")} >
           <div id="text">Notification & Control Center</div>
            <span className='arow' >&gt;</span>
           </div>

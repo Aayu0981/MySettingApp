@@ -16,7 +16,7 @@ function Sound3() {
     }
 
   return (
-  <div>
+  <div style={{width:400}}>
 
         <div onClick={()=> navigate(-1)}>
             <p><FaArrowLeft/></p>
@@ -24,29 +24,46 @@ function Sound3() {
 
 
  
-     <div><span>Sound assistant</span></div>
+     <p className='heading'>Sound assistant</p>
 
-      <div>
-          <p>Adjust media sound in multiple apps</p>
- <       p>adjust sound for individual apps while multiple apps play audio simultaneously</p>
+      <div style={{display:'flex',marginLeft:0,alignItems:'center'}}>
+
+        <div  style={{marginLeft:0}} >
+          <p className='Darktext1' style={{marginBottom:5}}>Adjust media sound in multiple apps</p>
+         <p className='Lighttext' style={{marginTop:0}}>adjust sound for individual apps while multiple apps play audio simultaneously</p>
+         </div>
+
+
+         <div>
 
           {/* toggle button code 2 */}
            <label className="switch">
               <input type="checkbox" onChange={toggleAirplaneMode} checked={isAirplaneModeOn} />
               <span className="slider round"></span>
               </label>
+              </div>
+
         </div>
    
          
-        <div>
-          <p>Multiple audio sources</p>
- <       p> Don't adjust media volume during incoming notifications or while audio from other source is played</p>
+        <div style={{display:'flex',marginLeft:0,alignItems:'center'}}>
 
+          <div style={{marginLeft:0}}>
+          <p className='Darktext1' style={{marginBottom:5}}>Multiple audio sources</p>
+          < p className='Lighttext' style={{marginTop:0}}> Don't adjust media volume during incoming notifications or while audio from other source is played</p>
+
+          </div>
+            
+
+            <div >
           {/* toggle button code 2 */}
            <label className="switch">
               <input type="checkbox" onChange={toggleAirplaneMode} checked={isAirplaneModeOn} />
               <span className="slider round"></span>
               </label>
+              </div>
+
+
         </div>
 
    
