@@ -7,17 +7,17 @@ function Security() {
 
     return (
       
-        <div style={{width:400}} >
+        <div style={{width:350}} >
 
                
-        <div onClick={()=> navigate(-1)}>
+        <div style={{marginLeft:0}} onClick={()=> navigate(-1)}>
             <p><FaArrowLeft/></p>
         </div>
              
-        <p className='heading '>Security status</p>
+        <p style={{marginLeft:30}} className='heading '>Security status</p>
 
 
-          <div   style={{marginLeft:0}} > 
+          <div   style={{marginLeft:20}} > 
             <div className='Media'  style={{justifyContent:'space-between'}}><p className='Darktext1'   >Find device</p>
             <p className='Lighttext'>On</p>
             </div>

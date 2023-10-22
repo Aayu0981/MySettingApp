@@ -18,16 +18,16 @@ function Connection() {
    <div  style={{width:350}} >
          
          
-        <div onClick={()=> navigate(-1)}>
+        <div style={{marginLeft:0}} onClick={()=> navigate(-1)}>
             <p><FaArrowLeft/></p>
         </div>
       
 
 
 
-     <p className='heading'>Wi-Fi</p>
+     <p style={{marginLeft:30}} className='heading'>Wi-Fi</p>
 
-      <div className='Modes'>
+      <div style={{marginLeft:30}} className='Modes'>
          <p className='Darktext1'>Wi-Fi</p>
 
          <label className="switch">
@@ -37,13 +37,13 @@ function Connection() {
 
        </div>
 
-       <hr/>
+       <hr style={{marginLeft:30}}/>
 
        
-        <p className='Lighttext' style={{marginTop:20}}>MORE SETTINGS</p><br/>
+        <p  className='Lighttext' style={{marginTop:20, marginLeft:30}}>MORE SETTINGS</p><br/>
        
 
-       <div className='Modes' onClick={()=>navigate("/Connection1")} >
+       <div style={{marginLeft:20}} className='Modes' onClick={()=>navigate("/Connection1")} >
        <p className='Darktext1' style={{marginTop:0}}>Additional settings</p>
        <p className= 'Lighttext' style={{marginTop:0}}>&gt;</p>
        </div>

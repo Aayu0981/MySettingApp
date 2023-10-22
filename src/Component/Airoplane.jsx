@@ -15,16 +15,16 @@ const [isAirplaneModeOn1, setIsAirplaneModeOn] = useState(false);
 
 
   return (
-    <div style={{width:400}} >
+    <div style={{width:350}} >
          
          <div onClick={()=> navigate(-1)}>
             <p><FaArrowLeft/></p>
         </div>
 
-        <p className='heading'>Aeroplane Mode</p>
+        <p className='heading' style={{marginLeft:30}}>Aeroplane Mode</p>
 
-        <div className='Media'>
-          <p className='Darktext1' style={{marginLeft:0}}>Aeroplane Mode</p>
+        <div  className='Media' style={{justifyContent:'space-between'}}>
+          <p className='Darktext1' style={{marginLeft:30}}>Aeroplane Mode</p>
           <label className="switch">
               <input type="checkbox" onChange={toggleAirplaneMode} checked={isAirplaneModeOn1} />
               <span className="slider round"></span>

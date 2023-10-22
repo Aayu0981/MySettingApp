@@ -16,7 +16,7 @@ function Aboutphone1() {
             <p className='back'><FaArrowLeft/></p>
         </div>
 
-   <p className='heading'>About phone </p>
+   <p style={{marginLeft:30}} className='heading'>About phone </p>
 
 
   

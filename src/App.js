@@ -52,6 +52,9 @@ import Notification4 from './Component2/Notification4';
 import Systemupdater1 from './Component2/Systemupdater1';
 import Legalinfo from './Component2/Legalinfo';
 import Status from './Component2/Status';
+import Textsize from './Component2/Textsize';
+import Hotspot from './Component/Hotspot';
+import Hotspot2 from './Component2/Hotspot2';
 
 
 
@@ -70,6 +73,8 @@ function App() {
         <Route path='/Bluetooth' Component={Bluetooth}></Route>
         <Route path='/Systemupdater' Component={Systemupdater}></Route>
         <Route path='/Systemupdater1'Component={Systemupdater1}></Route>
+        <Route path='/Hotspot' Component={Hotspot}></Route>
+        <Route path='/Hotspot2' Component={Hotspot2}></Route>
 
         {/* About pages path start */}
        <Route path='/About2' Component={About2}></Route>
@@ -92,6 +97,7 @@ function App() {
        <Route path='/DandB2'Component={DandB2}></Route>
        <Route path='/DandB3'Component={DandB3}></Route>
        <Route path='/DandB4'Component={DandB4}></Route>
+       <Route path='/Textsize' Component={Textsize}></Route>
       
        
        {/* sound path start */}

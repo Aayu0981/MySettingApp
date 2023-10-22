@@ -1,18 +1,25 @@
 import React from 'react'
 import { FaBell } from 'react-icons/fa';
-import { useNavigate } from 'react-router-dom';
 import img1 from '../image/LockScreen.jpeg'
 import img2 from '../image/Float.jpeg'
 import img3 from '../image/Badges.jpeg'
 import img4 from '../image/control.jpeg';
+import { FaArrowLeft } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
 
 function Notification() {
+  const nevigate=useNavigate
 
   const navigate=useNavigate();
   return (
-    <div  style={{width:400}}>
+    <div  style={{width:350}}>
+
+       
+<div style={{marginLeft:0}} onClick={()=> nevigate(-1)}>
+            <p className='back'><FaArrowLeft/></p>
+        </div>
         
-        <p className='heading'>Notifications & Control centre</p>
+        <p style={{marginLeft:10}}className='heading'>Notifications & Control centre</p>
            
         
               <p className='Lighttext'>NOTIFICATION</p>

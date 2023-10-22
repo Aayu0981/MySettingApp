@@ -18,14 +18,16 @@ function Notification2() {
   return (
     <div style={{width:350}}>
 
-      <div onClick={()=> navigate(-1)}>
+      
+
+      <div style={{marginLeft:0}}onClick={()=> navigate(-1)}>
             <p><FaArrowLeft/></p>
         </div>
 
 
-        <p className='heading'>Additional cards</p>
+        <p className='heading' style={{marginLeft:30}}>Additional cards</p>
 
-        <div className='Modes' style={{marginLeft:0}}>
+        <div className='Modes' style={{marginLeft:30}}>
             <p className='Darktext1'  style={{marginLeft:0}}>Smart home</p>
             <label className="switch">
               <input type="checkbox" onChange={toggleAirplaneMode} checked={isAirplaneModeOn} />

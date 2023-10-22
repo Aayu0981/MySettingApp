@@ -23,11 +23,11 @@ function Systemupdater() {
         </div>
         
 
-    <p   style={{fontSize:30,marginBottom:30,marginLeft:0,fontWeight:300}}>System apps updater</p>
+    <p   style={{fontSize:30,marginBottom:30,marginLeft:20,fontWeight:300}}>System apps updater</p>
 
-    <p className='Lighttext' style={{marginLeft:0, marginBottom:30}}>System apps</p>
+    <p className='Lighttext' style={{marginLeft:20, marginBottom:30}}>System apps</p>
 
-    <div style={{display:'flex', justifyContent:'space-between',marginLeft:0}}>
+    <div style={{display:'flex', justifyContent:'space-between',marginLeft:20}}>
 
     <div style={{display:'flex' ,marginLeft:0}}><img src={img1} style={{width:40, marginLeft:0}} /> 
     <p>Calculator</p>

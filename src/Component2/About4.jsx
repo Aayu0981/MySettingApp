@@ -12,16 +12,16 @@ function About4() {
     <div  style={{width:350}}>
 
        
-        <div onClick={()=> navigate(-1)}>
+        <div style={{marginLeft:0}} onClick={()=> navigate(-1)}>
             <p ><FaArrowLeft /></p>
         </div>
 
-       <p className='heading'>Factory reset</p>
+       <p style={{marginLeft:30}} className='heading'>Factory reset</p>
       
 
-       <p style={{fontSize:13,color:'grey',marginLeft:0}}>ERASE THEFOLLOWING ITEMS</p>
+       <p style={{ marginLeft:30,fontSize:13,color:'grey'}}>ERASE THEFOLLOWING ITEMS</p>
 
-       <div style={{marginLeft:0}} >
+       <div style={{marginLeft:30}} >
         <p className='Darktext1' style={{marginLeft:0}} >Accounts</p>
 
         <p  className='Darktext1' style={{marginLeft:0}} >Contacts</p>
@@ -38,7 +38,7 @@ function About4() {
        </div>
 
 
-       <div style={{marginLeft:0}} >
+       <div style={{marginLeft:30}} >
         <br/>
 
 

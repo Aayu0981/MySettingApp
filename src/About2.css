@@ -106,3 +106,27 @@
         margin-top :0;
        margin-left: 0;
     }
+
+
+    /* textsize css */
+
+    /* SliderComponent.css */
+.slider-container {
+  text-align: center;
+}
+
+.slider {
+  width: 80%;
+  margin: 10px 0;
+}
+
+
+/* SliderComponent.css */
+.slider-container {
+    text-align: center;
+  }
+  
+  .slider {
+    width: 80%;
+    margin: 10px 0;
+  }

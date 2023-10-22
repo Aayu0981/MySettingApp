@@ -29,20 +29,20 @@ function Sound1() {
 
 
   return (
- <div  style={{width:400}}>
+ <div  style={{width:350}}>
    
 
-        <div onClick={()=> navigate(-1)}>
+        <div style={{marginLeft:0}} onClick={()=> navigate(-1)}>
             <p><FaArrowLeft/></p>
         </div>
 
 
 
       
-       <p className='heading'>Do not disturb</p>
+       <p style={{marginLeft:30}} className='heading'>Do not disturb</p>
        
 
-     <div style={{marginLeft:0}}>
+     <div style={{marginLeft:30}}>
          <div style={{marginLeft:0}} className='Media'>
                
                 <div style={{marginLeft:0}}>
@@ -84,7 +84,7 @@ function Sound1() {
       
       <hr/>
 
-       <div  className='Modes' >
+       <div  className='Modes'style={{marginLeft:30}} >
            <p className='Darktext1' style={{marginLeft:0}}>Schedule turn on time</p>
            <p className='Lighttext'>&gt; off</p>
        </div>

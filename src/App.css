@@ -40,7 +40,7 @@ input[type="text"] {
 }
 .about-phone{
   margin-top: 20px;
-
+  margin-left: 30px;
  
 }
 
@@ -82,42 +82,53 @@ h1{
   
 }
 #air{
-  margin-top: 20px;
+  margin-top: 35px;
   display: flex;
   align-items: center;
 }
 .Dandb{
   margin-right: 20px;
-  margin-top: 40px;
+  margin-top: 25px;
   margin-bottom: 20px;
   display: flex;
 
 }
 .sound{
   margin-right: 0px;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin-top: 10px;
+  margin-bottom: 5px;
   color: green;
 }
 .danb11{
   color: rgba(205, 193, 17, 0.745);
   margin-right: 0px;
-  
+  margin-top: 10px;
+  margin-bottom: 10px;
  
 }
 .wifi{
-  margin-right: 0px;
-  margin-top: 20px;
+  margin-left: 30px;
+  margin-top: 25px;
   margin-bottom: 20px;
  
   color: rgba(23, 82, 184, 0.929);
 
 }
+.wifi1{
+  margin-top: 10px;
+}
 #wifi1{
 display: flex;
+
 margin-bottom: 20px;
 
-  
+}
+.Hotspot{
+  margin-left: 30px;
+  margin-top: 15px;
+  margin-bottom: 20px;
+ 
+  color: rgb(142, 136, 53);
 
 }
 .bluetooth{
@@ -152,6 +163,7 @@ margin-bottom: 20px;
 }
 #main3{
   display: flex;
+  margin-bottom: 0px;
 }
 #One{
   margin-top: 25px;
@@ -177,6 +189,7 @@ margin-bottom: 20px;
 }
 
 .about-phone {
+  background-color: re;
   /* Default styles */
   /* color: rgba(29, 99, 149, 0.803); */
   display: flex;
@@ -193,6 +206,7 @@ margin-bottom: 20px;
 
 .security111{
 
+  margin-top: 0px;
   transition: background-color 0.3s; /* Add a smooth transition */
   
 
@@ -252,10 +266,11 @@ margin-bottom: 20px;
   &:hover {
     background-color: rgba(152, 142, 142, 0.195);
   }
-
 }
 
 #Air-plane{
+
+  
 
   transition: background-color 0.3s;  /* Add a smooth transition */
 
@@ -277,6 +292,8 @@ margin-bottom: 20px;
 
 #Sound-vibration{
 
+  margin-top: 25px;
+
   transition: background-color 0.3s;  /* Add a smooth transition */
 
   /* Hover effect styles */
@@ -288,6 +305,8 @@ margin-bottom: 20px;
 
 #wifi1{
 
+  margin-bottom: 0px;
+
   transition: background-color 0.3s;  /* Add a smooth transition */
 
   /* Hover effect styles */
@@ -296,7 +315,9 @@ margin-bottom: 20px;
   }
 }
 
+
 #Blue-Tooth{
+  margin-top: 15px;
 
   transition: background-color 0.3s;  /* Add a smooth transition */
 
@@ -307,6 +328,9 @@ margin-bottom: 20px;
 }
 
 #Noti-Fication{
+
+  margin-top: 35px;
+
 
   transition: background-color 0.3s;  /* Add a smooth transition */
 
@@ -326,6 +350,36 @@ margin-bottom: 20px;
   }
 }
 
+#Hotspot{
+  background-color: rgba(128, 128, 128, 0.248);
+  margin-left: 0;
+  margin-top: 20px;
+  border-radius: 15px;
+ 
+}
+
+
+/* Text size css */
+
+.Text1{
+  width: 200px;
+  background-color: rgba(0, 70, 232, 0.841);
+  color: white;
+  padding:10px;
+  border-radius: 20px;
+  margin-left: 100px;
+  
+}
+
+.Text2{
+  width: 200px;
+  background-color: rgba(128, 128, 128, 0.271) ;
+  color: black;
+  padding:5px;
+  border-radius: 20px;
+  margin-left: 0px;
+  margin-top: 30px;
+}
 
 
 

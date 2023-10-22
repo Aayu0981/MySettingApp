@@ -65,17 +65,17 @@ setIsAddOn8(!isAddOn8);
   return (
 
    
-    <div style={{width:400}}>
+    <div style={{width:350}}>
 
 
         
-        <div onClick={()=> navigate(-1)}>
+        <div style={{marginLeft:0}} onClick={()=> navigate(-1)}>
             <p><FaArrowLeft/></p>
         </div>
 
-     <p className='heading'>Additional settings</p>
+     <p  style={{marginLeft:30}}className='heading'>Additional settings</p>
 
-     <div className='Modes'>
+     <div className='Modes' style={{marginLeft:30}}>
         <p className='Darktext1'>Dial pad tones</p>
 
          {/* toggle button code 2 */}
@@ -86,7 +86,7 @@ setIsAddOn8(!isAddOn8);
        
      </div>
 
-     <div className='Modes' >
+     <div className='Modes' style={{marginLeft:30}} >
         <p className='Darktext1'>Tap sounds</p>
         <label className="switch">
               <input type="checkbox" onChange={toggleAdd2} checked={isAddOn2} />
@@ -94,7 +94,7 @@ setIsAddOn8(!isAddOn8);
               </label>
      </div>
 
-     <div   className='Modes'>
+     <div   className='Modes' style={{marginLeft:30}}>
         <p className='Darktext1'>Play sound when locking device</p>
         <label className="switch">
               <input type="checkbox" onChange={toggleAdd3} checked={isAddOn3} />
@@ -103,7 +103,7 @@ setIsAddOn8(!isAddOn8);
      </div>
        
 
-       <div  className='Modes' >
+       <div  className='Modes' style={{marginLeft:30}} >
         <p className='Darktext1'>play sound when taking screenshot</p>
         <label className="switch">
               <input type="checkbox" onChange={toggleAdd4} checked={isAddOn4} />
@@ -113,7 +113,7 @@ setIsAddOn8(!isAddOn8);
 
 
        
-       <div className='Modes' >
+       <div className='Modes' style={{marginLeft:30}}>
         <p className='Darktext1'>play sound when uninstalling apps</p>
         <label className="switch">
               <input type="checkbox" onChange={toggleAdd5} checked={isAddOn5} />
@@ -122,7 +122,7 @@ setIsAddOn8(!isAddOn8);
        </div>
 
 
-       <div className='Modes' >
+       <div className='Modes' style={{marginLeft:30}} >
         <p className='Darktext1'>play sound when deleting items</p>
         <label className="switch">
               <input type="checkbox" onChange={toggleAdd6} checked={isAddOn6} />
@@ -131,7 +131,7 @@ setIsAddOn8(!isAddOn8);
        </div>
 
 
-       <div  className='Modes' >
+       <div  className='Modes' style={{marginLeft:30}} >
         <p className='Darktext1'>play sound when charger is connected</p>
         <label className="switch">
               <input type="checkbox" onChange={toggleAdd7} checked={isAddOn7} style={{width:120}} />
@@ -140,7 +140,7 @@ setIsAddOn8(!isAddOn8);
        </div>
 
 
-       <div  className='Modes' >
+       <div  className='Modes' style={{marginLeft:30}} >
         <p className='Darktext1'>play audio at startup</p>
         <label className="switch">
               <input type="checkbox" onChange={toggleAdd8} checked={isAddOn8} />

@@ -1,10 +1,18 @@
 import React from 'react'
 import img5 from '../image/MIUI.jpeg'
 import img6 from '../image/Android.jpeg'
+import { FaArrowLeft } from 'react-icons/fa'
+import { useNavigate } from 'react-router-dom'
 
 function Notification4() {
+  const nevigate=useNavigate();
   return (
-    <div style={{maxWidth:400,marginLeft:0}}>
+    <div style={{maxWidth:350,marginLeft:0}}>
+
+      
+<div style={{marginLeft:15}} onClick={()=> nevigate(-1)}>
+            <p className='back'><FaArrowLeft/></p>
+        </div>
 
         <div style={{fontSize:30,fontWeight:100}}><span >Notification shade</span></div>
 

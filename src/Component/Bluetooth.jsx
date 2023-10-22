@@ -16,27 +16,27 @@ function Bluetooth() {
 
 
   return (
-    <div style={{width:400}}>
+    <div style={{width:350}}>
       
       
-      <div onClick={()=> navigate(-1)}>
+      <div style={{marginLeft:0}} onClick={()=> navigate(-1)}>
             <p><FaArrowLeft/></p>
         </div>
       
         
-      <p className='heading'>Bluetooth</p>
+      <p  style={{marginLeft:30}}className='heading'>Bluetooth</p>
 
-<div className='Modes'>
+<div className='Modes' style={{marginLeft:20}}>
    <p className='Darktext' >Bluetooth</p>
 
-   <label className="switch">
+   <label className="switch" >
         <input type="checkbox" onChange={toggleBluetooth} checked={isBluetoothOn} />
         <span className="slider round"></span>
         </label>
 
  </div>
 
- <div className='Modes'>
+ <div className='Modes'style={{marginLeft:20}}>
   <p className='Darktext1'>Device name</p>
   <p className='Lighttext'>POCO M4 Pro &gt;</p>
  </div>
@@ -44,10 +44,10 @@ function Bluetooth() {
  <hr style={{opacity:0.5}}/>
 
  <div>
-  <p className='Lighttext' style={{marginLeft:0,marginTop:20}}>ADDITONAL SETTINGS</p>
+  <p className='Lighttext' style={{marginLeft:20,marginTop:20}}>ADDITONAL SETTINGS</p>
  </div>
 
- <div  className='Modes' onClick={()=>navigate("/Bluetooth1")}>
+ <div  style={{marginLeft:20}} className='Modes' onClick={()=>navigate("/Bluetooth1")}>
  <p className='Darktext1'>Additional settings</p>
  <p className='Lighttext'>&gt;</p>
  </div>

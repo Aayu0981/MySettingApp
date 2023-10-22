@@ -21,17 +21,17 @@ setIsPairOn2(!isPairOn2);
 }
 
   return (
-    <div style={{width:400}}>
+    <div style={{width:350}}>
            
 
-        <div onClick={()=> navigate(-1)}>
+        <div style={{marginLeft:0}}onClick={()=> navigate(-1)}>
             <p><FaArrowLeft/></p>
         </div>
       
 
-       <p className='heading'>Additional settings</p>
+       <p className='heading' style={{marginLeft:20}}>Additional settings</p>
 
-       <p className='Lighttext'>CONNECTION</p>
+       <p  className='Lighttext'>CONNECTION</p>
      <div  style={{marginLeft:0}}>
          <div className='Media' >
             <div>

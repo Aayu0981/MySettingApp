@@ -35,6 +35,97 @@
 
 
 
+  /* brightness handler css */
+
+  .brightness-slider {
+ 
+    margin: 0 auto;
+    padding: 20px;
+    width: 250px;
+    color: blue;
+    background-color: rgba(174, 170, 170, 0.122);
+    border-radius: 20px;
+   
+   
+  }
+  
+  
+  .overlay {
+    pointer-events: none;
+  
+  }
+  
+  input[type="range"] {
+    width: 100%;
+   
+    
+  }
+  
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: #3498db;
+    border: 2px solid #3498db;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  
+  input[type="range"]::-webkit-slider-thumb:hover {
+    background: #2980b9;
+  }
+  
+  input[type="range"] {
+    appearance: none;
+    height: 5px;
+    background: #d1d1d1;
+    border: 1px solid #d1d1d1;
+    border-radius: 5px;
+    width: 100%
+  }
+  
+  /* Firefox */
+  input[type="range"]::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: #3498db;
+    border: 2px solid #3498db;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  
+  input[type="range"]::-moz-range-thumb:hover {
+    background: #2980b9;
+  }
+  
+  input[type="range"]::-moz-range-track {
+    background: blue;
+    border: 1px solid #d1d1d1;
+    border-radius: 5px;
+    width: 100%;  
+  }
+  
+  input[type="range"]::-moz-range-progress {
+    background-color: #3498db;  
+  }
+  
+  input[type="range"]::-moz-range-progress:hover {
+    background-color: #2980b9; 
+  }
+
+
+  /* ringtonr silder */
+
+  /* .Ring-slider{
+    background-color: gray;
+    width: 300;
+    padding-top: 150x;
+    padding-bottom: 20;
+    border-radius: 15;
+  } */
+
+
   
 
  

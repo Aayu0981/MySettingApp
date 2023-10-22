@@ -182,8 +182,8 @@ function Sound() {
 
 
   return (
-    <div  style={{width:400}}>
-      <div onClick={() => navigate(-1)}>
+    <div  style={{width:350}}>
+      <div style={{marginLeft:0}} onClick={() => navigate(-1)}>
         <p ><FaArrowLeft /></p>
       </div>
 
@@ -225,22 +225,29 @@ function Sound() {
           <div className='Media'  >
           <FaMusic className='Music' /><p  className='Darktext1'> Media</p>
           </div>
+          <div  className='brightness-slider' style={{marginLeft:0,width:300,paddingBottom:8,paddingTop:15}} >
           <div className="Sound-slider" style={{marginTop:0,marginLeft:0}}>
             <input style={{marginTop:0,width:250}} type="range" min="0" max="100" value={sliderValue1} onChange={handleSliderChange1} className="sound"  />
           </div>
+          </div>
         </div>
 
-        <div  style={{marginLeft:0}}>
+        <div  style={{marginLeft:0,marginTop:20}}>
             <div className='Media'><FaBell className='Music' /> <p className='Darktext1'>Ringtone</p> </div> 
+            <div className='brightness-slider' style={{marginLeft:0,width:300}} >
           <div className="Ringtone"  style={{marginTop:0,marginLeft:0}}>
             <input type="range" min="0" max="100" value={sliderValue2} onChange={handleSliderChange2} className="Ringtone"  style={{width:250}} />
+          </div>
           </div>
         </div>
 
         <div  style={{marginLeft:0}}> 
          <div className='Media' style={{marginTop:22,marginLeft:0}}> <FaClock className='Music' /> <p className='Darktext1'>Alarm</p></div>
+         <div   className='brightness-slider' style={{marginLeft:0,width:300}}>
           <div className="Alarm" style={{marginTop:0,marginLeft:0}}>
             <input type="range" min="0" max="100" value={sliderValue3} onChange={handleSliderChange3} className="Alarm" style={{width:250}} />
+        
+          </div>
           </div>
         </div>
       </div>

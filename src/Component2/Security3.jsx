@@ -8,7 +8,7 @@ function Security3() {
  const navigate=useNavigate();
 
   return (
-    <div>
+    <div style={{width:350}}>
 
       
        <div onClick={()=> navigate(-1)}>

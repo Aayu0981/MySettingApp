@@ -26,7 +26,7 @@ function About3() {
         
 
 
-        <p style={{fontSize:30,marginBottom:5,marginLeft:30,fontWeight:300}}>Back up and restore</p>
+        <p style={{fontSize:30,marginBottom:5,marginLeft:20,fontWeight:300}}>Back up and restore</p>
 
         <div>
 

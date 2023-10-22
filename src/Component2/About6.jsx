@@ -1,11 +1,21 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom';
+import { FaArrowLeft } from 'react-icons/fa';
 
 function About6() {
+
+  const nevigate =useNavigate();
+
   return (
-    <div style={{width:400}}>
+    <div style={{width:350}}>
+
+       
+<div style={{marginLeft:30}} onClick={()=> nevigate(-1)}>
+            <p className='back'><FaArrowLeft/></p>
+        </div>
 
    <div>
-    <p className='heading'>Important safety information</p>
+    <p style={{marginLeft:30}} className='heading'>Important safety information</p>
    </div>
 
    <div style={{marginLeft:0}}>

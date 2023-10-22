@@ -1,6 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
-import { FaAndroid, FaArrowAltCircleUp, FaArrowUp, FaRegArrowAltCircleUp } from 'react-icons/fa';
+import { FaAndroid, FaArrowAltCircleUp, FaArrowUp, FaLink, FaRegArrowAltCircleUp } from 'react-icons/fa';
 import { FaLock } from 'react-icons/fa';
 import { FaAirbnb, FaFontAwesome, FaFontAwesomeLogoFull, FaPlane } from 'react-icons/fa';
 import { FaSun } from 'react-icons/fa';
@@ -25,7 +25,7 @@ function Home() {
 
 
 
-<div>
+<div  style={{width:350}}>
 
     
     <div>
@@ -128,7 +128,7 @@ function Home() {
      </div>
 
 
-     <div id='wifi1'>
+     <div id='wifi1' className='wifi1'>
           <FaWifi className='wifi'/>
 
           <div className='arrow1'  onClick={()=>navigate("/Connection")}>
@@ -138,6 +138,23 @@ function Home() {
           
           {/* <span className='arow' style={{marginLeft:218}}>&gt;</span> */}
           </div>
+
+
+
+
+          <div id='wifi1'>
+          <FaLink className='Hotspot'/>
+
+          <div className='arrow1'  onClick={()=>navigate("/Hotspot")}>
+            <div id="text">Hotspot</div>
+           <span className='arow' >&gt;</span>
+          </div>
+          
+          {/* <span className='arow' style={{marginLeft:218}}>&gt;</span> */}
+          </div>
+
+
+          
 
 
           <div id="Blue-Tooth">

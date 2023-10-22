@@ -7,10 +7,14 @@ import img3 from '../image/google.png'
 import img4 from '../image/Msg.png'
 import img5 from '../image/Truecaller.png'
 import img6 from '../image/Calculator.png'
+import { FaArrowLeft } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
 
 
 
 function Notification1() {
+
+  const nevigate=useNavigate();
 
     const [isNotificationOn1, setIsNotificationOn1] = useState(false);
     const toggleNotification1 = () => {
@@ -55,8 +59,13 @@ setIsNotificationOn7(!isNotificationOn7);
 
 
   return (
-    <div style={{width:400}}>
-   <p className='heading'>Notification </p>
+    <div style={{width:350}}>
+
+
+<div style={{marginLeft:0}} onClick={()=> nevigate(-1)}>
+            <p className='back'><FaArrowLeft/></p>
+        </div>
+   <p style={{marginLeft:10}}className='heading'>Notification </p>
      
 
 

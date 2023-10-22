@@ -15,6 +15,12 @@ function DandB() {
   setIsDisplayOn(!isDisplayOn);
 }
 
+        
+
+
+           
+
+
   return (
     <div style={{width:350}}>
 
@@ -64,6 +70,14 @@ function DandB() {
         <div  className='Modes' >
           <p className='Darktext1'>Refresh rate</p>
           <p className='Lighttext'>60 Hz</p>
+        </div>
+        
+        <hr/>
+        <p className='Lighttext'>FONT</p>
+
+        <div className='Modes' onClick={()=> navigate("/Textsize")}>
+          <p className='Darktext1'>Text size</p>
+          <p className='Lighttext'> &gt;</p>
         </div>
 
         <hr/>

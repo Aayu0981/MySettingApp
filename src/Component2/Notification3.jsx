@@ -1,5 +1,7 @@
 import React from 'react'
 import { useState} from 'react';
+import { FaArrowLeft } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
 
 
 
@@ -22,11 +24,18 @@ const toggleIteam3 = () => {
 setIsIteamOn3(!isIteamOn3);
 }
 
+const nevigate=useNavigate();
+
 
   return (
-    <div style={{width:400}}>
+    <div style={{width:350}}>
+
+      
+<div style={{marginLeft:0}} onClick={()=> nevigate(-1)}>
+            <p className='back'><FaArrowLeft/></p>
+        </div>
     
-    <p className='heading'>Items shown on the Lock Screen afer Swiping down</p>
+    <p  style={{marginLeft:10}}className='heading'>Items shown on the Lock Screen afer Swiping down</p>
 
     <div className='Media' style={{justifyContent:'space-between'}}>
         <p className='Darktext1'>Notification</p>

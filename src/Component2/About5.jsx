@@ -18,7 +18,7 @@ function About5() {
 
 
   return (
-    <div style={{width:400}}>
+    <div style={{width:350}}>
 
        <div style={{marginLeft:0}} onClick={()=> navigate(-1)}>
             <p className='back'><FaArrowLeft/></p>
@@ -28,7 +28,7 @@ function About5() {
     <p className='heading'>Back up my data</p>
 
 
-    <div className='Media'>
+    <div className='Modes'>
         <p className='Darktext1' >Turn on backups</p>
 
         <label className="switch">

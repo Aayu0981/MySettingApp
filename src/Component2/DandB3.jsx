@@ -25,17 +25,17 @@ function DandB3() {
   return (
     <div style={{width:350}}>
 
-<div style={{marginLeft:0}} onClick={()=> navigate(-1)}>
+<div style={{marginLeft:10}} onClick={()=> navigate(-1)}>
             <p className='back'><FaArrowLeft/></p>
         </div>
 
-        <p className='heading'>Reading mode</p>
+        <p className='heading' style={{marginLeft:30}}>Reading mode</p>
 
         <img src={Reading} style={{width:300,borderRadius:30}} />
 
 
         <div className='Modes'>
-            <p className='Darktext1'>Reading mode</p>
+            <p className='Darktext1' style={{marginLeft:30}}>Reading mode</p>
 
             <label className="switch">
               <input type="checkbox" onChange={toggleRead1} checked={isReadOn1} />
