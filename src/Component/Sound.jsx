@@ -143,9 +143,12 @@ import React from 'react';
 import { FaArrowLeft, FaBell, FaClock, FaMusic, FaPhoneAlt } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import axios from 'axios';
 
 function Sound() {
   const navigate = useNavigate();
+  const BASE_URL = 'http://localhost:4000';
+
 
 
   // State variables for sliders
@@ -154,16 +157,45 @@ function Sound() {
   const [sliderValue3, setSliderValue3] = useState(60);
 
   // Event handlers for sliders
-  const handleSliderChange1 = (event) => {
+  const handleSliderChange1 = async (event) => {
     setSliderValue1(event.target.value);
+
+    try {
+      const response = await axios.post(`${BASE_URL}/mediasoundtogle`,{
+              tog:`${sliderValue1}`
+      });
+      console.log(response.data);
+    } catch (error) {
+      console.error('Error toggling airplane mode', error.message);
+    };
+
+
   };
 
-  const handleSliderChange2 = (event) => {
+  const handleSliderChange2 = async (event) => {
     setSliderValue2(event.target.value);
+
+    try {
+      const response = await axios.post(`${BASE_URL}/ringtonesoundtogle`,{
+              tog:`${sliderValue2}`
+      });
+      console.log(response.data);
+    } catch (error) {
+      console.error('Error toggling airplane mode', error.message);
+    }
   };
 
-  const handleSliderChange3 = (event) => {
+  const handleSliderChange3 =async (event) => {
     setSliderValue3(event.target.value);
+
+    try {
+      const response = await axios.post(`${BASE_URL}/alarmsoundtogle`,{
+              tog:`${sliderValue3}`
+      });
+      console.log(response.data);
+    } catch (error) {
+      console.error('Error toggling airplane mode', error.message);
+    }
   };
 
   const [isModeOn1, setIsModeOn1] = useState(false);
