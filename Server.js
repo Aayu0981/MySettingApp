@@ -114,31 +114,227 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const app = express();
 const router = express.Router();
+const bodyParser = require('body-parser');
 
 // Update the MongoDB connection URL
-mongoose.connect('mongodb://localhost:27017/mydatabase', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
+const Url="mongodb://localhost:27017/mydatabase";
+const connection = async (dbUrl)=>{
+
+  try{
+    await mongoose.connect(
+        dbUrl,
+        {
+            useNewUrlParser:true,
+            useUnifiedTopology:true
+        }
+    );
+
+    console.log('Database Connected');
+  } catch(error){
+    console.log('Error while Connecting database...',error);
+  }
+
+
+};
+
+
+
+
+const UserSchema = new mongoose.Schema({
+  name:{
+    type:String,
+    default:"Ayushi"
+},
+wifi:{
+  type:Boolean,
+  default:false
+},
+airplanemode:{
+  type:Boolean,
+  default:false
+},
+sound:{
+  media:{
+    type:Number,
+  default:50
+  },
+  ringtone:{
+    type:Number,
+  default:50
+  },
+  alarm:{
+    type:Number,
+  default:50
+  }
+  
+},
+brightness:{
+  type:Number,
+  default:50
+},
+bluetooth:{
+  type:Boolean,
+  default:false
+},
+hotspot:{
+  type:Boolean,
+  default:false
+},
+display:{
+  type:Boolean,
+  default:false
+}
 });
 
-const toggleSchema = new mongoose.Schema({
-  isToggled: Boolean,
-});
-
-const Toggle = mongoose.model('Toggle', toggleSchema);
+const User = mongoose.model('User', UserSchema);
 
 // ... Rest of your code
 
 app.use(express.json());
+app.use(bodyParser.json({ extended: true }));
 
 // Enable CORS for all routes
 app.use(cors());
 
 // Use the router
-app.use('/', router);
+app.get('/setup',async(req,res)=>{
+  const newuser=  new User();
+  try{
+    await newuser.save();
+    console.log(foods);
+    res.send('Data added successfully')
+ }catch(error){
+     res.status(500).send(error);
+ }
+  
+}
+)
 
-app.listen(3000, () => {
-  console.log('Server is running on port 3000');
+app.post('/airplanemodetogle',async(req,res)=>{
+    console.log("hii");
+  const userinfo = await User.findOne({name :"Ayushi"});
+  const togle=req.body.tog;
+  try{
+  await User.findByIdAndUpdate(userinfo.id,{airplanemode:togle});
+  res.send('Data added successfully');
+  
+}catch(error){
+  console.log(error);
+}
+}
+)
+
+
+app.post('/wifitogle',async(req,res)=>{
+  const userinfo = await User.findOne({name :"Ayushi"});
+  const togle=req.body.tog;
+  try{
+  await User.findByIdAndUpdate(userinfo.id,{wifi:togle});
+  res.send('Data added successfully');
+  
+}catch(error){
+  console.log(error);
+}
+}
+)
+
+app.post('/mediasoundtogle',async(req,res)=>{
+  console.log("hi");
+  const userinfo = await User.findOne({name :"Ayushi"});
+  const togle=req.body.tog;
+  try{
+  await User.findByIdAndUpdate(userinfo.id,{'sound.media' :togle});
+  res.send('Data added successfully');
+  
+}catch(error){
+  console.log(error);
+}
+}
+)
+
+app.post('/ringtonesoundtogle',async(req,res)=>{
+  const userinfo = await User.findOne({name :"Ayushi"});
+  const togle=req.body.tog;
+  try{
+  await User.findByIdAndUpdate(userinfo.id,{'sound.ringtone' :togle});
+  res.send('Data added successfully');
+  
+}catch(error){
+  console.log(error);
+}
+}
+)
+
+app.post('/alarmsoundtogle',async(req,res)=>{
+  const userinfo = await User.findOne({name :"Ayushi"});
+  const togle=req.body.tog;
+  try{
+  await User.findByIdAndUpdate(userinfo.id,{'sound.alarm' :togle});
+  res.send('Data added successfully');
+  
+}catch(error){
+  console.log(error);
+}
+}
+)
+
+app.post('/brightnesstogle',async(req,res)=>{
+  const userinfo = await User.findOne({name :"Ayushi"});
+  const togle=req.body.tog;
+  try{
+  await User.findByIdAndUpdate(userinfo.id,{brightness:togle});
+  res.send('Data added successfully');
+  
+}catch(error){
+  console.log(error);
+}
+}
+);
+
+app.post('/bluetoothtogle',async(req,res)=>{
+  const userinfo = await User.findOne({name :"Ayushi"});
+  const togle=req.body.tog;
+  try{
+  await User.findByIdAndUpdate(userinfo.id,{bluetooth:togle});
+  res.send('Data added successfully');
+  
+}catch(error){
+  console.log(error);
+}
+}
+);
+
+app.post('/hotspottogle',async(req,res)=>{
+  const userinfo = await User.findOne({name :"Ayushi"});
+  const togle=req.body.tog;
+  try{
+  await User.findByIdAndUpdate(userinfo.id,{hotspot:togle});
+  res.send('Data added successfully');
+  
+}catch(error){
+  console.log(error);
+}
+}
+)
+
+app.post('/displaytogle',async(req,res)=>{
+  const userinfo = await User.findOne({name :"Ayushi"});
+  const togle=req.body.tog;
+  try{
+  await User.findByIdAndUpdate(userinfo.id,{display:togle});
+  res.send('Data added successfully');
+  
+}catch(error){
+  console.log(error);
+}
+}
+)
+
+
+
+app.listen(4000, () => {
+  console.log('Server is running on port 4000');
 });
 
+connection(Url);
 
