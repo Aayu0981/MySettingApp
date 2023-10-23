@@ -2,16 +2,27 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { FaArrowLeft } from 'react-icons/fa';
+import axios from 'axios';
 
 
 
 function Bluetooth() {
 
   const navigate = useNavigate();
+  const BASE_URL = 'http://localhost:4000';
 
   const [isBluetoothOn, setIsBluetoothOn] = useState(false);
-       const toggleBluetooth = () => {
+       const toggleBluetooth = async () => {
        setIsBluetoothOn(!isBluetoothOn);
+       try {
+        const response = await axios.post(`${BASE_URL}/bluetoothtogle`,{
+                tog:`${isBluetoothOn}`
+        });
+        console.log(response.data);
+      } catch (error) {
+        console.error('Error toggling airplane mode', error.message);
+      }
+
     }
 
 
