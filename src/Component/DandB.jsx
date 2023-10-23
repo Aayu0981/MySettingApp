@@ -5,14 +5,27 @@ import { useNavigate } from 'react-router-dom';
 import { FaArrowLeft } from 'react-icons/fa';
 import Dark from '../image/Dark2.jpeg'
 import Light from '../image/light.jpeg'
+import axios from 'axios';
 
 function DandB() {
 
   const navigate=useNavigate();
+  const BASE_URL = 'http://localhost:4000';
 
   const [isDisplayOn, setIsDisplayOn] = useState(false);
-  const toggleDisplay = () => {
+  const toggleDisplay = async () => {
   setIsDisplayOn(!isDisplayOn);
+
+  try {
+    const response = await axios.post(`${BASE_URL}/bluetoothtogle`,{
+            tog:`${isDisplayOn}`
+    });
+    console.log(response.data);
+  } catch (error) {
+    console.error('Error toggling airplane mode', error.message);
+  }
+
+
 }
 
         
