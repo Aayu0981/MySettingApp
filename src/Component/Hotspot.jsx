@@ -2,14 +2,24 @@ import React from 'react'
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FaArrowLeft } from 'react-icons/fa';
+import axios from 'axios';
 
 function Hotspot() {
 
     const navigate=useNavigate();
+    const BASE_URL = 'http://localhost:4000';
 
     const [isHotspotOn, setIsHotspotOn] = useState(false);
-const togglehotspot = () => {
+const togglehotspot =async () => {
 setIsHotspotOn(!isHotspotOn);
+try {
+  const response = await axios.post(`${BASE_URL}/hotspottogle`,{
+          tog:`${isHotspotOn}`
+  });
+  console.log(response.data);
+} catch (error) {
+  console.error('Error toggling airplane mode', error.message);
+}
 }
 
   return (
