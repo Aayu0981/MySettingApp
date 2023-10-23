@@ -2,14 +2,25 @@ import React from 'react'
  import { FaAirbnb, FaArrowLeft, FaFontAwesome, FaFontAwesomeLogoFull, FaPlane } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import axios from 'axios';
 
 
 function Airoplane() {
 const navigate=useNavigate();
+const BASE_URL = 'http://localhost:4000';
 
 const [isAirplaneModeOn1, setIsAirplaneModeOn] = useState(false);
-       const toggleAirplaneMode = () => {
+       const toggleAirplaneMode = async () => {
        setIsAirplaneModeOn(!isAirplaneModeOn1);
+       try {
+        const response = await axios.post(`${BASE_URL}/airplanemodetogle`,{
+                tog:`${isAirplaneModeOn1}`
+        });
+        console.log(response.data);
+      } catch (error) {
+        console.error('Error toggling airplane mode', error.message);
+      }
+
     }
 
 
