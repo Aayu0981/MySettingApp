@@ -255,7 +255,7 @@ const UserSchema = new mongoose.Schema({
     }
 
   },
-  notificaitons:{
+  notifications:{
     notification1:{
       type:Boolean,
       default:false
@@ -543,12 +543,12 @@ app.post('/notificationtogle', async (req, res) => {
     const { notification1, notification2, notification3, notification4, notification5, notification6 } = req.body;
 
     await User.findByIdAndUpdate(userinfo._id, {
-      "notificaitons.notification1":notification1,
-      "notificaitons.notification2":notification2  ,   
-      "notificaitons.notification3":notification3,
-      "notificaitons.notification4":notification4,
-      "notificaitons.notification5":notification5,
-      "notificaitons.notification6":notification6
+      "notifications.notification1":notification1,
+      "notifications.notification2":notification2,   
+      "notifications.notification3":notification3,
+      "notifications.notification4":notification4,
+      "notifications.notification5":notification5,
+      "notifications.notification6":notification6
     });
 
     res.send('Data added successfully');
