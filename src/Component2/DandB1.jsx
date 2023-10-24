@@ -1,16 +1,50 @@
 import React from 'react'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { FaArrowLeft } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 function DandB1() {
 
   const navigate=useNavigate();
+  const BASE_URL = 'http://localhost:4000';
 
-  const [isAirplaneModeOn, setIsAirplaneModeOn] = useState(false);
-  const toggleAirplaneMode = () => {
-  setIsAirplaneModeOn(!isAirplaneModeOn);
+  const fetchData = async () => {
+    try {
+      const response = await axios.get(`${BASE_URL}/getUserData`);
+      setIsdarkModeOn(response.data.display.darkmode);
+    } catch (error) {
+      console.error('Error:', error.message);
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+
+  const [isdarkModeOn, setIsdarkModeOn] = useState(false);
+  const toggledarkMode = () => {
+  setIsdarkModeOn(!isdarkModeOn);
 }
+
+useEffect(() => {
+
+  const post = async () => {
+    try {
+      const response = await axios.post(`${BASE_URL}/darkmodetogle`, {
+        tog: `${isdarkModeOn}`
+      });
+      console.log(response.data);
+    } catch (error) {
+      console.error('Error toggling airplane mode', error.message);
+    }
+  };
+
+  post();
+
+
+}, [isdarkModeOn])
 
   return (
     <div style={{width:350}}>
@@ -26,7 +60,7 @@ function DandB1() {
         <p className='Darktext1' style={{marginLeft:30}}>Schedule Dark mode</p>
 
         <label className="switch">
-              <input type="checkbox" onChange={toggleAirplaneMode} checked={isAirplaneModeOn} />
+              <input type="checkbox" onChange={ toggledarkMode} checked={isdarkModeOn} />
               <span className="slider round"></span>
               </label>
 
