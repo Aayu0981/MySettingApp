@@ -1,6 +1,6 @@
 import React from 'react'
 import { FaDocker, FaGoogle, FaGoogleDrive, FaMap, FaMapMarked, FaMapSigns, FaPage4, FaPagelines, FaPager, FaPhone } from 'react-icons/fa'
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import img1 from '../image/Phone.png'
 import img2 from '../image/Map.jpg'
 import img3 from '../image/google.png'
@@ -9,51 +9,91 @@ import img5 from '../image/Truecaller.png'
 import img6 from '../image/Calculator.png'
 import { FaArrowLeft } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 
 
 function Notification1() {
 
   const nevigate=useNavigate();
+  const BASE_URL = 'http://localhost:4000';
 
-    const [isNotificationOn1, setIsNotificationOn1] = useState(false);
-    const toggleNotification1 = () => {
-    setIsNotificationOn1(!isNotificationOn1);
- }
+  // const fetchData = async () => {
+  //   try {
+  //     const response = await axios.get(`${BASE_URL}/getUserData`);
+  //     setIsNotificationOn(response.data.notifications);
+  //   } catch (error) {
+  //     console.error('Error:', error.message);
+  //   }
+  // };
 
- const [isNotificationOn2, setIsNotificationOn2] = useState(false);
- const toggleNotification2 = () => {
- setIsNotificationOn2(!isNotificationOn2);
-}
-
-const [isNotificationOn3, setIsNotificationOn3] = useState(false);
-const toggleNotification3 = () => {
-setIsNotificationOn3(!isNotificationOn3);
-}
-
-const [isNotificationOn4, setIsNotificationOn4] = useState(false);
-const toggleNotification4 = () => {
-setIsNotificationOn4(!isNotificationOn4);
-}
+  // useEffect(() => {
+  //   fetchData();
+  // }, []);
 
 
-const [isNotificationOn5, setIsNotificationOn5] = useState(false);
-const toggleNotification5 = () => {
-setIsNotificationOn5(!isNotificationOn5);
-}
+  const initialState={
+    notification1:true,
+    notification2:false,
+    notification3:false,
+    notification4:false,
+    notification5:false,
+    notification6:false,
+
+  }
+
+//     const [isNotificationOn1, setIsNotificationOn1] = useState("");
+//     const toggleNotification1 = () => {
+//     setIsNotificationOn1(!isNotificationOn1);
+//  }
+
+//  const [isNotificationOn2, setIsNotificationOn2] = useState(false);
+//  const toggleNotification2 = () => {
+//  setIsNotificationOn2(!isNotificationOn2);
+// }
+
+// const [isNotificationOn3, setIsNotificationOn3] = useState(false);
+// const toggleNotification3 = () => {
+// setIsNotificationOn3(!isNotificationOn3);
+// }
+
+// const [isNotificationOn4, setIsNotificationOn4] = useState(false);
+// const toggleNotification4 = () => {
+// setIsNotificationOn4(!isNotificationOn4);
+// }
 
 
-const [isNotificationOn6, setIsNotificationOn6] = useState(false);
-const toggleNotification6= () => {
-setIsNotificationOn6(!isNotificationOn6);
-}
+// const [isNotificationOn5, setIsNotificationOn5] = useState(false);
+// const toggleNotification5 = () => {
+// setIsNotificationOn5(!isNotificationOn5);
+// }
 
 
-const [isNotificationOn7, setIsNotificationOn7] = useState(false);
-const toggleNotification7 = () => {
-setIsNotificationOn7(!isNotificationOn7);
-}
+// const [isNotificationOn6, setIsNotificationOn6] = useState(false);
+// const toggleNotification6= () => {
+// setIsNotificationOn6(!isNotificationOn6);
+// }
 
+
+const [isNotificationOn, setIsNotificationOn] = useState(initialState);
+
+
+  function toggleNotification(e) {
+    const { name, checked } = e.target;
+    setIsNotificationOn(prevState => ({ ...prevState, [name]: checked }));
+  }
+
+  useEffect(() => {
+    const post = async () => {
+      try {
+        const response = await axios.post(`${BASE_URL}/notificationtogle`, isNotificationOn);
+        console.log(response.data);
+      } catch (error) {
+        console.error('Error toggling airplane mode', error.message);
+      }
+    };
+    post();
+  }, [isNotificationOn]);
 
 
 
@@ -90,7 +130,7 @@ setIsNotificationOn7(!isNotificationOn7);
 
         </div>
         <label className="switch">
-              <input type="checkbox" onChange={toggleNotification1} checked={isNotificationOn1} />
+              <input type="checkbox" onChange={(e)=>toggleNotification(e)} name='notification1' value={isNotificationOn.notification1} checked={isNotificationOn.notification1} />
               <span className="slider round"></span>
               </label>
     </div>
@@ -105,7 +145,7 @@ setIsNotificationOn7(!isNotificationOn7);
 
         </div>
         <label className="switch">
-              <input type="checkbox" onChange={toggleNotification2} checked={isNotificationOn2} />
+              <input type="checkbox" onChange={(e)=>toggleNotification(e)} name='notification2'  checked={isNotificationOn.notification2} />
               <span className="slider round"></span>
               </label>
     </div>
@@ -121,7 +161,7 @@ setIsNotificationOn7(!isNotificationOn7);
      
               
         <label className="switch">
-              <input type="checkbox" onChange={toggleNotification3} checked={isNotificationOn3} />
+              <input type="checkbox" onChange={(e)=>toggleNotification(e)} name='notification3' checked={isNotificationOn.notification3} />
               <span className="slider round"></span>
               </label>
     </div>
@@ -134,7 +174,7 @@ setIsNotificationOn7(!isNotificationOn7);
        
         
         <label className="switch">
-              <input type="checkbox" onChange={toggleNotification4} checked={isNotificationOn4} />
+              <input type="checkbox" onChange={(e)=>toggleNotification(e)}name='notification4' checked={isNotificationOn.notification4} />
               <span className="slider round"></span>
               </label>
     </div>
@@ -147,7 +187,7 @@ setIsNotificationOn7(!isNotificationOn7);
 
  
         <label className="switch">
-           <input type="checkbox" onChange={toggleNotification5} checked={isNotificationOn5} />
+           <input type="checkbox" onChange={(e)=>toggleNotification(e)} name='notification5' checked={isNotificationOn.notification5} />
           <span className="slider round"></span>
           </label>
       </div>
@@ -160,7 +200,7 @@ setIsNotificationOn7(!isNotificationOn7);
 
  
  <label className="switch">
-       <input type="checkbox" onChange={toggleNotification6} checked={isNotificationOn6} />
+       <input type="checkbox" onChange={(e)=>toggleNotification(e)}name='notification6' checked={isNotificationOn.notification6} />
        <span className="slider round"></span>
        </label>
 </div>
