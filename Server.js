@@ -25,7 +25,7 @@
 //       res.status(500).json({ message: 'Internal server error' });
 //     }
 //   });
-  
+
 //   // PUT request to update the toggle state
 //   router.put('/', async (req, res) => {
 //     const { isToggled } = req.body;
@@ -117,21 +117,21 @@ const router = express.Router();
 const bodyParser = require('body-parser');
 
 // Update the MongoDB connection URL
-const Url="mongodb://localhost:27017/mydatabase";
-const connection = async (dbUrl)=>{
+const Url = "mongodb+srv://ravib18477:abc123456@cluster0.bnr4wda.mongodb.net/?retryWrites=true&w=majority";
+const connection = async (dbUrl) => {
 
-  try{
+  try {
     await mongoose.connect(
-        dbUrl,
-        {
-            useNewUrlParser:true,
-            useUnifiedTopology:true
-        }
+      dbUrl,
+      {
+        useNewUrlParser: true,
+        useUnifiedTopology: true
+      }
     );
 
     console.log('Database Connected');
-  } catch(error){
-    console.log('Error while Connecting database...',error);
+  } catch (error) {
+    console.log('Error while Connecting database...', error);
   }
 
 
@@ -141,49 +141,85 @@ const connection = async (dbUrl)=>{
 
 
 const UserSchema = new mongoose.Schema({
-  name:{
-    type:String,
-    default:"Ayushi"
-},
-wifi:{
-  type:Boolean,
-  default:false
-},
-airplanemode:{
-  type:Boolean,
-  default:false
-},
-sound:{
-  media:{
-    type:Number,
-  default:50
+  name: {
+    type: String,
+    default: "Ayushi"
   },
-  ringtone:{
-    type:Number,
-  default:50
+  wifi: {
+    type: Boolean,
+    default: false
   },
-  alarm:{
-    type:Number,
-  default:50
+  airplanemode: {
+    type: Boolean,
+    default: false
+  },
+  sound: {
+    media: {
+      type: Number,
+      default: 50
+    },
+    ringtone: {
+      type: Number,
+      default: 50
+    },
+    alarm: {
+      type: Number,
+      default: 50
+    }
+
+  },
+
+  bluetooth: {
+    type: Boolean,
+    default: false
+  },
+  hotspot: {
+    type: Boolean,
+    default: false
+  },
+  display: {
+    mode: {
+      type: Boolean,
+      default: false
+    },
+    brightness: {
+      level: {
+        type: Number,
+        default: 100
+      },
+      autobrightness: {
+        type: Boolean,
+        default: false
+      },
+      sunlightmode: {
+        type: Boolean,
+        default: false
+      } 
+
+    },
+    readmode: {
+      type: Boolean,
+      default: false
+    },
+    scheduleturnoff: {
+      type: Boolean,
+      default: false
+    },
+    darkmode:{
+      type:Boolean,
+      default:false
+    },
+    textsize:{
+      type: Number,
+      default: 50
+    },
+    autorotate:{
+      type:Boolean,
+      default:false
+    }
+
   }
-  
-},
-brightness:{
-  type:Number,
-  default:50
-},
-bluetooth:{
-  type:Boolean,
-  default:false
-},
-hotspot:{
-  type:Boolean,
-  default:false
-},
-display:{
-  type:Boolean,
-  default:false
-}
+
 });
 
 const User = mongoose.model('User', UserSchema);
@@ -197,138 +233,244 @@ app.use(bodyParser.json({ extended: true }));
 app.use(cors());
 
 // Use the router
-app.get('/setup',async(req,res)=>{
-  const newuser=  new User();
-  try{
+app.get('/setup', async (req, res) => {
+  const newuser = new User();
+  try {
     await newuser.save();
     console.log(foods);
     res.send('Data added successfully')
- }catch(error){
-     res.status(500).send(error);
- }
-  
+  } catch (error) {
+    res.status(500).send(error);
+  }
+
 }
 )
 
-app.post('/airplanemodetogle',async(req,res)=>{
-    console.log("hii");
-  const userinfo = await User.findOne({name :"Ayushi"});
-  const togle=req.body.tog;
-  try{
-  await User.findByIdAndUpdate(userinfo.id,{airplanemode:togle});
-  res.send('Data added successfully');
-  
-}catch(error){
-  console.log(error);
-}
+app.get('/getUserData', async (req, res) => {
+  try {
+    const userData = await User.findOne({ name: 'Ayushi' });
+    res.json(userData);
+  } catch (error) {
+    console.error('Error fetching user data:', error);
+    res.status(500).send('Internal Server Error');
+  }
+});
+
+app.post('/airplanemodetogle', async (req, res) => {
+  console.log("hii");
+  const userinfo = await User.findOne({ name: "Ayushi" });
+  const togle = req.body.tog;
+  try {
+    await User.findByIdAndUpdate(userinfo.id, { airplanemode: togle });
+    res.send('Data added successfully');
+
+  } catch (error) {
+    console.log(error);
+  }
 }
 )
 
 
-app.post('/wifitogle',async(req,res)=>{
-  const userinfo = await User.findOne({name :"Ayushi"});
-  const togle=req.body.tog;
-  try{
-  await User.findByIdAndUpdate(userinfo.id,{wifi:togle});
-  res.send('Data added successfully');
-  
-}catch(error){
-  console.log(error);
-}
+app.post('/wifitogle', async (req, res) => {
+  const userinfo = await User.findOne({ name: "Ayushi" });
+  const togle = req.body.tog;
+  try {
+    await User.findByIdAndUpdate(userinfo.id, { wifi: togle });
+    res.send('Data added successfully');
+
+  } catch (error) {
+    console.log(error);
+  }
 }
 )
 
-app.post('/mediasoundtogle',async(req,res)=>{
+app.post('/mediasoundtogle', async (req, res) => {
   console.log("hi");
-  const userinfo = await User.findOne({name :"Ayushi"});
-  const togle=req.body.tog;
-  try{
-  await User.findByIdAndUpdate(userinfo.id,{'sound.media' :togle});
-  res.send('Data added successfully');
-  
-}catch(error){
-  console.log(error);
-}
+  const userinfo = await User.findOne({ name: "Ayushi" });
+  const togle = req.body.tog;
+  try {
+    await User.findByIdAndUpdate(userinfo.id, { 'sound.media': togle });
+    res.send('Data added successfully');
+
+  } catch (error) {
+    console.log(error);
+  }
 }
 )
 
-app.post('/ringtonesoundtogle',async(req,res)=>{
-  const userinfo = await User.findOne({name :"Ayushi"});
-  const togle=req.body.tog;
-  try{
-  await User.findByIdAndUpdate(userinfo.id,{'sound.ringtone' :togle});
-  res.send('Data added successfully');
-  
-}catch(error){
-  console.log(error);
-}
+app.post('/ringtonesoundtogle', async (req, res) => {
+  const userinfo = await User.findOne({ name: "Ayushi" });
+  const togle = req.body.tog;
+  try {
+    await User.findByIdAndUpdate(userinfo.id, { 'sound.ringtone': togle });
+    res.send('Data added successfully');
+
+  } catch (error) {
+    console.log(error);
+  }
 }
 )
 
-app.post('/alarmsoundtogle',async(req,res)=>{
-  const userinfo = await User.findOne({name :"Ayushi"});
-  const togle=req.body.tog;
-  try{
-  await User.findByIdAndUpdate(userinfo.id,{'sound.alarm' :togle});
-  res.send('Data added successfully');
-  
-}catch(error){
-  console.log(error);
-}
+app.post('/alarmsoundtogle', async (req, res) => {
+  const userinfo = await User.findOne({ name: "Ayushi" });
+  const togle = req.body.tog;
+  try {
+    await User.findByIdAndUpdate(userinfo.id, { 'sound.alarm': togle });
+    res.send('Data added successfully');
+
+  } catch (error) {
+    console.log(error);
+  }
 }
 )
 
-app.post('/brightnesstogle',async(req,res)=>{
-  const userinfo = await User.findOne({name :"Ayushi"});
-  const togle=req.body.tog;
-  try{
-  await User.findByIdAndUpdate(userinfo.id,{brightness:togle});
-  res.send('Data added successfully');
-  
-}catch(error){
-  console.log(error);
-}
+
+app.post('/bluetoothtogle', async (req, res) => {
+  const userinfo = await User.findOne({ name: "Ayushi" });
+  const togle = req.body.tog;
+  try {
+    await User.findByIdAndUpdate(userinfo.id, { bluetooth: togle });
+    res.send('Data added successfully');
+
+  } catch (error) {
+    console.log(error);
+  }
 }
 );
 
-app.post('/bluetoothtogle',async(req,res)=>{
-  const userinfo = await User.findOne({name :"Ayushi"});
-  const togle=req.body.tog;
-  try{
-  await User.findByIdAndUpdate(userinfo.id,{bluetooth:togle});
-  res.send('Data added successfully');
-  
-}catch(error){
-  console.log(error);
+app.post('/hotspottogle', async (req, res) => {
+  const userinfo = await User.findOne({ name: "Ayushi" });
+  const togle = req.body.tog;
+  try {
+    await User.findByIdAndUpdate(userinfo.id, { hotspot: togle });
+    res.send('Data added successfully');
+
+  } catch (error) {
+    console.log(error);
+  }
 }
+)
+
+app.post('/displaytogle', async (req, res) => {
+  const userinfo = await User.findOne({ name: "Ayushi" });
+  const togle = req.body.tog;
+  try {
+    await User.findByIdAndUpdate(userinfo.id, { "display.mode": togle });
+    res.send('Data added successfully');
+
+  } catch (error) {
+    console.log(error);
+  }
+}
+)
+
+app.post('/brightnesstogle', async (req, res) => {
+  console.log("hi")
+  const userinfo = await User.findOne({ name: "Ayushi" });
+  const togle = req.body.tog;
+  try {
+    await User.findByIdAndUpdate(userinfo.id, { 'display.brightness.level': togle });
+    res.send('Data added successfully');
+
+  } catch (error) {
+    console.log(error);
+  }
+}
+)
+
+app.post('/autobrightnesstogle', async (req, res) => {
+  const userinfo = await User.findOne({ name: "Ayushi" });
+  const togle = req.body.tog;
+  try {
+    await User.findByIdAndUpdate(userinfo.id, { 'display.brightness.autobrightness': togle });
+    res.send('Data added successfully');
+
+  } catch (error) {
+    console.log(error);
+  }
+}
+)
+
+app.post('/sunlightmodetogle', async (req, res) => {
+  const userinfo = await User.findOne({ name: "Ayushi" });
+  const togle = req.body.tog;
+  try {
+    await User.findByIdAndUpdate(userinfo.id, { 'display.brightness.sunlightmode': togle });
+    res.send('Data added successfully');
+
+  } catch (error) {
+    console.log(error);
+  }
 }
 );
 
-app.post('/hotspottogle',async(req,res)=>{
-  const userinfo = await User.findOne({name :"Ayushi"});
-  const togle=req.body.tog;
-  try{
-  await User.findByIdAndUpdate(userinfo.id,{hotspot:togle});
-  res.send('Data added successfully');
-  
-}catch(error){
-  console.log(error);
-}
-}
-)
+app.post('/readmodetogle', async (req, res) => {
+  const userinfo = await User.findOne({ name: "Ayushi" });
+  const togle = req.body.tog;
+  try {
+    await User.findByIdAndUpdate(userinfo.id, { 'display.readmode': togle });
+    res.send('Data added successfully');
 
-app.post('/displaytogle',async(req,res)=>{
-  const userinfo = await User.findOne({name :"Ayushi"});
-  const togle=req.body.tog;
-  try{
-  await User.findByIdAndUpdate(userinfo.id,{display:togle});
-  res.send('Data added successfully');
-  
-}catch(error){
-  console.log(error);
+  } catch (error) {
+    console.log(error);
+  }
 }
+);
+
+app.post('/autorotatemodetogle', async (req, res) => {
+  const userinfo = await User.findOne({ name: "Ayushi" });
+  const togle = req.body.tog;
+  try {
+    await User.findByIdAndUpdate(userinfo.id, { 'display.autorotate': togle });
+    res.send('Data added successfully');
+
+  } catch (error) {
+    console.log(error);
+  }
 }
-)
+);
+
+app.post('/scheduleturnoffmodetogle', async (req, res) => {
+  const userinfo = await User.findOne({ name: "Ayushi" });
+  const togle = req.body.tog;
+  try {
+    await User.findByIdAndUpdate(userinfo.id, { 'display.scheduleturnoff': togle });
+    res.send('Data added successfully');
+
+  } catch (error) {
+    console.log(error);
+  }
+}
+);
+
+app.post('/darkmodetogle', async (req, res) => {
+  const userinfo = await User.findOne({ name: "Ayushi" });
+  const togle = req.body.tog;
+  try {
+    await User.findByIdAndUpdate(userinfo.id, { 'display.darkmode': togle });
+    res.send('Data added successfully');
+
+  } catch (error) {
+    console.log(error);
+  }
+}
+);
+
+app.post('/textsizetogle', async (req, res) => {
+  const userinfo = await User.findOne({ name: "Ayushi" });
+  const togle = req.body.tog;
+  try {
+    await User.findByIdAndUpdate(userinfo.id, { 'display.textsize': togle });
+    res.send('Data added successfully');
+
+  } catch (error) {
+    console.log(error);
+  }
+}
+);
+
+
+
 
 
 
