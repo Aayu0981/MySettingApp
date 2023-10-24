@@ -18,18 +18,25 @@ function Notification1() {
   const nevigate=useNavigate();
   const BASE_URL = 'http://localhost:4000';
 
-  // const fetchData = async () => {
-  //   try {
-  //     const response = await axios.get(`${BASE_URL}/getUserData`);
-  //     setIsNotificationOn(response.data.notifications);
-  //   } catch (error) {
-  //     console.error('Error:', error.message);
-  //   }
-  // };
+  const fetchData = async () => {
+    try {
+      const response = await axios.get(`${BASE_URL}/getUserData`);
+      setIsNotificationOn({
+        notification1:response.data.notifications.notification1,
+        notification2:response.data.notifications.notification2,
+        notification3:response.data.notifications.notification3,
+        notification4:response.data.notifications.notification4,
+        notification5:response.data.notifications.notification5,
+        notification6:response.data.notifications.notification6
+    });
+    } catch (error) {
+      console.error('Error:', error.message);
+    }
+  };
 
-  // useEffect(() => {
-  //   fetchData();
-  // }, []);
+  useEffect(() => {
+    fetchData();
+  }, []);
 
 
   const initialState={
@@ -41,38 +48,6 @@ function Notification1() {
     notification6:false,
 
   }
-
-//     const [isNotificationOn1, setIsNotificationOn1] = useState("");
-//     const toggleNotification1 = () => {
-//     setIsNotificationOn1(!isNotificationOn1);
-//  }
-
-//  const [isNotificationOn2, setIsNotificationOn2] = useState(false);
-//  const toggleNotification2 = () => {
-//  setIsNotificationOn2(!isNotificationOn2);
-// }
-
-// const [isNotificationOn3, setIsNotificationOn3] = useState(false);
-// const toggleNotification3 = () => {
-// setIsNotificationOn3(!isNotificationOn3);
-// }
-
-// const [isNotificationOn4, setIsNotificationOn4] = useState(false);
-// const toggleNotification4 = () => {
-// setIsNotificationOn4(!isNotificationOn4);
-// }
-
-
-// const [isNotificationOn5, setIsNotificationOn5] = useState(false);
-// const toggleNotification5 = () => {
-// setIsNotificationOn5(!isNotificationOn5);
-// }
-
-
-// const [isNotificationOn6, setIsNotificationOn6] = useState(false);
-// const toggleNotification6= () => {
-// setIsNotificationOn6(!isNotificationOn6);
-// }
 
 
 const [isNotificationOn, setIsNotificationOn] = useState(initialState);
