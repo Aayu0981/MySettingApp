@@ -61,15 +61,47 @@
 
 
 
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
+import axios from 'axios';
 
 function Textsize() {
   // Define the slider value and its change handler
+  const BASE_URL = 'http://localhost:4000';
+
+  const fetchData = async () => {
+    try {
+      const response = await axios.get(`${BASE_URL}/getUserData`);
+      setSliderValue(response.data.display.textsize);
+    } catch (error) {
+      console.error('Error:', error.message);
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+
   const [sliderValue, setSliderValue] = useState(50); // Initial slider value
 
   const handleSliderChange = (event) => {
     setSliderValue(event.target.value);
   };
+
+  useEffect(() => {
+    const post = async () => {
+      try {
+        const response = await axios.post(`${BASE_URL}/textsizetogle`, {
+          tog: `${sliderValue}`
+        });
+        console.log(response.data);
+      } catch (error) {
+        console.error('Error toggling airplane mode', error.message);
+      }
+    }
+    post();
+  }, [sliderValue]);
+
 
   return (
     <div style={{ width: 350 }}>
