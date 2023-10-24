@@ -117,7 +117,7 @@ const router = express.Router();
 const bodyParser = require('body-parser');
 
 // Update the MongoDB connection URL
-const Url = "mongodb+srv://ravib18477:abc123456@cluster0.bnr4wda.mongodb.net/?retryWrites=true&w=majority";
+const Url = "mongodb://127.0.0.1:27017/MySetting";
 const connection = async (dbUrl) => {
 
   try {
@@ -165,6 +165,42 @@ const UserSchema = new mongoose.Schema({
     alarm: {
       type: Number,
       default: 50
+    },
+
+    additionsetting : {
+      daialpadtone : {
+        type: Boolean,
+        default: false
+      },
+      tapsound : {
+        type: Boolean,
+        default: false
+
+      },
+      playsoundonlock : {
+        type: Boolean,
+        default: false
+      },
+      playsoundonss : {
+        type: Boolean,
+        default: false
+      },
+      playsoundonunistall : {
+        type: Boolean,
+        default: false
+      },
+      playsoundondlelete : {
+        type: Boolean,
+        default: false
+      },
+      palysoundoncharger : {
+        type: Boolean,
+        default: false
+      },
+      playsoundonstart : {
+        type: Boolean,
+        default: false
+      }
     }
 
   },
@@ -264,7 +300,7 @@ app.get('/setup', async (req, res) => {
   const newuser = new User();
   try {
     await newuser.save();
-    console.log(foods);
+    
     res.send('Data added successfully')
   } catch (error) {
     res.status(500).send(error);
@@ -523,7 +559,35 @@ app.post('/notificationtogle', async (req, res) => {
   }
 });
 
+app.post('/additionalsetting', async(req,res)=>{
+  try{
 
+    const userinfo = await User.findOne({ name: "Ayushi" });
+
+    if (!userinfo) {
+      return res.status(404).send("User not found");
+    }
+
+    const {daialpadtone  , tapsound, playsoundonlock, playsoundonss, playsoundonunistall, playsoundondlelete, palysoundoncharger, playsoundonstart } = req.body;
+
+    await User.findByIdAndUpdate(userinfo._id, {
+      "sound.additionalsetting.daialpadtone":daialpadtone,
+      "sound.additionalsetting.tapsound":tapsound  ,   
+      "sound.additionalsetting.playsoundonlock":playsoundonlock,
+      "sound.additionalsetting.playsoundonss":playsoundonss,
+      "sound.additionalsetting.playsoundonunistall":playsoundonunistall,
+      "sound.additionalsetting.playsoundoncharger":palysoundoncharger,
+      "sound.additionalsetting.playsoundonstart":playsoundonstart
+    });
+
+    res.send('Data added successfully');
+
+  }
+  catch (error) {
+    console.error('Error updating notification settings:', error);
+    res.status(500).send('Internal Server Error');
+  }
+})
 
 
 

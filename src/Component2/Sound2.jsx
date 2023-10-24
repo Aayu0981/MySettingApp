@@ -1,63 +1,52 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { FaArrowLeft } from 'react-icons/fa';
+import { faL } from '@fortawesome/free-solid-svg-icons';
+import axios from 'axios';
+import { useEffect } from 'react';
 
 
 
 function Sound2() {
 
     const navigate=useNavigate();
+    const BASE_URL = 'http://localhost:4000';
 
-    // toggle button code 1
-    const [isAddOn1, setIsAddOn1] = useState(false);
-       const toggleAdd1 = () => {
-       setIsAddOn1(!isAddOn1);
+    const initialState={
+      daialpadtone :false ,
+       tapsound : false, 
+       playsoundonlock: false, 
+       playsoundonss : false, 
+       playsoundonunistall : false, 
+       playsoundondlelete : false, 
+       palysoundoncharger : false,
+        playsoundonstart : false
     }
 
-    const [isAddOn2, setIsAddOn2] = useState(false);
-    const toggleAdd2 = () => {
-    setIsAddOn2(!isAddOn2);
- }
-
-
-     const [isAddOn3, setIsAddOn3] = useState(false);
-    const toggleAdd3 = () => {
-     setIsAddOn3(!isAddOn3);
+   //  toggle button code 1
+    const [isAddsettingOn, setIsAddsettingOn] = useState(initialState);
+    function toggleAddsetting(e) {
+      const { name, checked } = e.target;
+      setIsAddsettingOn(prevState => ({ ...prevState, [name]: checked }));
     }
 
 
-    const [isAddOn4, setIsAddOn4] = useState(false);
-    const toggleAdd4 = () => {
-    setIsAddOn4(!isAddOn4);
- }
-     
-     
- const [isAddOn5, setIsAddOn5] = useState(false);
- const toggleAdd5 = () => {
- setIsAddOn5(!isAddOn5);
-}   
-
-
-   
-
-const [isAddOn6, setIsAddOn6] = useState(false);
-const toggleAdd6 = () => {
-setIsAddOn6(!isAddOn6);
-}
+    useEffect(() => {
+      const post = async () => {
+        try {
+          const response = await axios.post(`${BASE_URL}/additionalsetting`, isAddsettingOn);
+          console.log(response.data);
+        } catch (error) {
+          console.error('Error toggling airplane mode', error.message);
+        }
+      };
+      post();
+    }, [isAddsettingOn]);
+  
 
 
 
-const [isAddOn7, setIsAddOn7] = useState(false);
-const toggleAdd7 = () => {
-setIsAddOn7(!isAddOn7);
-}
 
-
-
-const [isAddOn8, setIsAddOn8] = useState(false);
-const toggleAdd8 = () => {
-setIsAddOn8(!isAddOn8);
-}
 
 
 
@@ -80,7 +69,7 @@ setIsAddOn8(!isAddOn8);
 
          {/* toggle button code 2 */}
         <label className="switch">
-              <input type="checkbox" onChange={toggleAdd1} checked={isAddOn1} />
+              <input type="checkbox" onChange={(e)=>toggleAddsetting(e)} value={isAddsettingOn.daialpadtone} checked={isAddsettingOn.daialpadtone} />
               <span className="slider round"></span>
               </label>
        
@@ -89,7 +78,7 @@ setIsAddOn8(!isAddOn8);
      <div className='Modes' style={{marginLeft:30}} >
         <p className='Darktext1'>Tap sounds</p>
         <label className="switch">
-              <input type="checkbox" onChange={toggleAdd2} checked={isAddOn2} />
+              <input type="checkbox" onChange={(e)=>toggleAddsetting(e)}  value={isAddsettingOn.tapsound} checked={isAddsettingOn.tapsound} />
               <span className="slider round"></span>
               </label>
      </div>
@@ -97,7 +86,7 @@ setIsAddOn8(!isAddOn8);
      <div   className='Modes' style={{marginLeft:30}}>
         <p className='Darktext1'>Play sound when locking device</p>
         <label className="switch">
-              <input type="checkbox" onChange={toggleAdd3} checked={isAddOn3} />
+              <input type="checkbox" onChange={(e)=>toggleAddsetting(e)}   value={isAddsettingOn.playsoundonlock}  checked={isAddsettingOn.playsoundonlock} />
               <span className="slider round"></span>
               </label>
      </div>
@@ -106,7 +95,7 @@ setIsAddOn8(!isAddOn8);
        <div  className='Modes' style={{marginLeft:30}} >
         <p className='Darktext1'>play sound when taking screenshot</p>
         <label className="switch">
-              <input type="checkbox" onChange={toggleAdd4} checked={isAddOn4} />
+              <input type="checkbox" onChange={(e)=>toggleAddsetting(e)}  value={isAddsettingOn.playsoundonss}  checked={isAddsettingOn.playsoundonss} />
               <span className="slider round"></span>
               </label>
        </div>
@@ -116,7 +105,7 @@ setIsAddOn8(!isAddOn8);
        <div className='Modes' style={{marginLeft:30}}>
         <p className='Darktext1'>play sound when uninstalling apps</p>
         <label className="switch">
-              <input type="checkbox" onChange={toggleAdd5} checked={isAddOn5} />
+              <input type="checkbox" onChange={(e)=>toggleAddsetting(e)}   value={isAddsettingOn.playsoundonunistall} checked={isAddsettingOn.playsoundonunistall} />
               <span className="slider round"></span>
               </label>
        </div>
@@ -125,7 +114,7 @@ setIsAddOn8(!isAddOn8);
        <div className='Modes' style={{marginLeft:30}} >
         <p className='Darktext1'>play sound when deleting items</p>
         <label className="switch">
-              <input type="checkbox" onChange={toggleAdd6} checked={isAddOn6} />
+              <input type="checkbox" onChange={(e)=>toggleAddsetting(e)}   value={isAddsettingOn.playsoundondlelete} checked={isAddsettingOn.playsoundondlelete} />
               <span className="slider round"></span>
               </label>
        </div>
@@ -134,7 +123,7 @@ setIsAddOn8(!isAddOn8);
        <div  className='Modes' style={{marginLeft:30}} >
         <p className='Darktext1'>play sound when charger is connected</p>
         <label className="switch">
-              <input type="checkbox" onChange={toggleAdd7} checked={isAddOn7} style={{width:120}} />
+              <input type="checkbox" onChange={(e)=>toggleAddsetting(e)}   value={isAddsettingOn.palysoundoncharger} checked={isAddsettingOn.palysoundoncharger} style={{width:120}} />
               <span className="slider round"></span>
               </label>
        </div>
@@ -143,7 +132,7 @@ setIsAddOn8(!isAddOn8);
        <div  className='Modes' style={{marginLeft:30}} >
         <p className='Darktext1'>play audio at startup</p>
         <label className="switch">
-              <input type="checkbox" onChange={toggleAdd8} checked={isAddOn8} />
+              <input type="checkbox" onChange={(e)=>toggleAddsetting(e)}   value={isAddsettingOn.playsoundonstart}  checked={isAddsettingOn.playsoundonstart} />
               <span className="slider round"></span>
               </label>
        </div>

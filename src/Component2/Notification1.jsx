@@ -33,7 +33,7 @@ function Notification1() {
 
 
   const initialState={
-    notification1:true,
+    notification1:false,
     notification2:false,
     notification3:false,
     notification4:false,
