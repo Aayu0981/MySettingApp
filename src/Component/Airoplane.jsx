@@ -9,20 +9,40 @@ function Airoplane() {
 const navigate=useNavigate();
 const BASE_URL = 'http://localhost:4000';
 
+const fetchData = async () => {
+  try {
+    const response = await axios.get(`${BASE_URL}/getUserData`);
+    setIsAirplaneModeOn(response.data.airplanemode);
+  } catch (error) {
+    console.error('Error:', error.message);
+  }
+};
+
+useEffect(() => {
+  fetchData();
+}, []);
+
+
+
 const [isAirplaneModeOn1, setIsAirplaneModeOn] = useState(false);
        const toggleAirplaneMode = async () => {
        setIsAirplaneModeOn(!isAirplaneModeOn1);
-       try {
-        const response = await axios.post(`${BASE_URL}/airplanemodetogle`,{
-                tog:`${isAirplaneModeOn1}`
-        });
-        console.log(response.data);
-      } catch (error) {
-        console.error('Error toggling airplane mode', error.message);
+        }
+
+    useEffect(() => {
+      const post = async () => {
+        try {
+          const response = await axios.post(`${BASE_URL}/airplanemodetogle`, {
+            tog: `${isAirplaneModeOn1}`
+          });
+          console.log(response.data);
+        } catch (error) {
+          console.error('Error toggling airplane mode', error.message);
+        }
+  
       }
-
-    }
-
+      post();
+    }, [isAirplaneModeOn1]);
 
 
   return (
