@@ -167,7 +167,7 @@ const UserSchema = new mongoose.Schema({
       default: 50
     },
 
-    additionsetting : {
+    additionalsetting : {
       daialpadtone : {
         type: Boolean,
         default: false
@@ -193,7 +193,7 @@ const UserSchema = new mongoose.Schema({
         type: Boolean,
         default: false
       },
-      palysoundoncharger : {
+      playsoundoncharger : {
         type: Boolean,
         default: false
       },
@@ -325,7 +325,7 @@ app.post('/airplanemodetogle', async (req, res) => {
   const togle = req.body.tog;
   try {
     await User.findByIdAndUpdate(userinfo.id, { airplanemode: togle });
-    res.send('Data added successfully');
+    res.send('Airplane mode toggled successfully');
 
   } catch (error) {
     console.log(error);
@@ -568,7 +568,7 @@ app.post('/additionalsetting', async(req,res)=>{
       return res.status(404).send("User not found");
     }
 
-    const {daialpadtone  , tapsound, playsoundonlock, playsoundonss, playsoundonunistall, playsoundondlelete, palysoundoncharger, playsoundonstart } = req.body;
+    const {daialpadtone  , tapsound, playsoundonlock, playsoundonss, playsoundonunistall, playsoundondlelete, playsoundoncharger, playsoundonstart } = req.body;
 
     await User.findByIdAndUpdate(userinfo._id, {
       "sound.additionalsetting.daialpadtone":daialpadtone,
@@ -576,7 +576,8 @@ app.post('/additionalsetting', async(req,res)=>{
       "sound.additionalsetting.playsoundonlock":playsoundonlock,
       "sound.additionalsetting.playsoundonss":playsoundonss,
       "sound.additionalsetting.playsoundonunistall":playsoundonunistall,
-      "sound.additionalsetting.playsoundoncharger":palysoundoncharger,
+      "sound.additionalsetting.playsoundondlelete":playsoundondlelete,
+      "sound.additionalsetting.playsoundoncharger":playsoundoncharger,
       "sound.additionalsetting.playsoundonstart":playsoundonstart
     });
 
