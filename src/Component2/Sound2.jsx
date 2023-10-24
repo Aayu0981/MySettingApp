@@ -12,28 +12,37 @@ function Sound2() {
     const navigate=useNavigate();
     const BASE_URL = 'http://localhost:4000';
 
-   //  const fetchData = async () => {
-   //    try {
-   //      const response = await axios.get(`${BASE_URL}/getUserData`);
-   //      setIsAddsettingOn(response.data.sound.addtionalsetting);
-   //    } catch (error) {
-   //      console.error('Error:', error.message);
-   //    }
-   //  };
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(`${BASE_URL}/getUserData`);
+        setIsAddsettingOn({
+       daialpadtone :response.data.sound.additionalsetting.daialpadtone ,
+       tapsound : response.data.sound.additionalsetting.tapsound, 
+       playsoundonlock: response.data.sound.additionalsetting.playsoundonlock, 
+       playsoundonss : response.data.sound.additionalsetting.playsoundonss, 
+       playsoundonunistall : response.data.sound.additionalsetting.playsoundonunistall, 
+       playsoundondlelete : response.data.sound.additionalsetting.playsoundondlelete, 
+       playsoundoncharger : response.data.sound.additionalsetting.playsoundoncharger,
+       playsoundonstart : response.data.sound.additionalsetting.playsoundonstart
+        });
+      } catch (error) {
+        console.error('Error:', error.message);
+      }
+    };
   
-   //  useEffect(() => {
-   //    fetchData();
-   //  }, []);
+    useEffect(() => {
+      fetchData();
+    }, []);
 
     const initialState={
-      daialpadtone :false ,
+       daialpadtone :false ,
        tapsound : false, 
        playsoundonlock: false, 
        playsoundonss : false, 
        playsoundonunistall : false, 
        playsoundondlelete : false, 
        playsoundoncharger : false,
-        playsoundonstart : false
+       playsoundonstart : false
     }
 
    //  toggle button code 1
@@ -56,13 +65,6 @@ function Sound2() {
       post();
     }, [isAddsettingOn]);
   
-
-
-
-
-
-
-
 
   return (
 
