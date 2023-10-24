@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { FaSun } from 'react-icons/fa';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -12,26 +12,65 @@ function DandB() {
   const navigate=useNavigate();
   const BASE_URL = 'http://localhost:4000';
 
+  const fetchData = async () => {
+    try {
+      const response = await axios.get(`${BASE_URL}/getUserData`);
+      setIsDisplayOn(response.data.display.autorotate);
+      setdarkmode(response.data.display.darkmode);
+    } catch (error) {
+      console.error('Error:', error.message);
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+
   const [isDisplayOn, setIsDisplayOn] = useState(false);
   const toggleDisplay = async () => {
   setIsDisplayOn(!isDisplayOn);
+};
 
-  try {
-    const response = await axios.post(`${BASE_URL}/bluetoothtogle`,{
-            tog:`${isDisplayOn}`
-    });
-    console.log(response.data);
-  } catch (error) {
-    console.error('Error toggling airplane mode', error.message);
+useEffect(() => {
+  const post = async () => {
+    try {
+      const response = await axios.post(`${BASE_URL}/autorotatemodetogle`, {
+        tog: `${isDisplayOn}`
+      });
+      console.log(response.data);
+    } catch (error) {
+      console.error('Error toggling airplane mode', error.message);
+    }
+
   }
+  post();
+}, [isDisplayOn]);
 
+const [darkmode,setdarkmode]=useState(false);
 
+const enabledarkmode=()=>{
+  setdarkmode(true);
 }
+const disabledarkmode=()=>{
+  setdarkmode(false);
+}
+useEffect(() => {
+  const post = async () => {
+    try {
+      const response = await axios.post(`${BASE_URL}/darkmodetogle`, {
+        tog: `${darkmode}`
+      });
+      console.log(response.data);
+    } catch (error) {
+      console.error('Error toggling airplane mode', error.message);
+    }
 
-        
+  }
+  post();
+}, [darkmode]);
 
 
-           
 
 
   return (
@@ -47,12 +86,12 @@ function DandB() {
 
         <div  style={{display:'flex'}}>
             
-        <div style={{marginLeft:0}} >
+        <div style={{marginLeft:0}} onClick={disabledarkmode} id='darkmode' className={darkmode===false?'makeactive':"oo"}>
             <img src={Light} style={{width:130 , marginLeft:0}} />
             <p className='Darktext1' style={{marginLeft:22,marginTop:8}}>Light mode</p>
           </div>
 
-          <div style={{marginLeft:0}}>
+          <div style={{marginLeft:0}} onClick={enabledarkmode} id='darkmode' className={darkmode===true?'makeactive':"oo"}>
             <img src={Dark} style={{width:130,height:160}} />
             <p className='Darktext1' style={{marginLeft:40,marginTop:8}}>Dark mode</p>
           </div>
