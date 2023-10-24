@@ -320,13 +320,18 @@ app.get('/getUserData', async (req, res) => {
 });
 
 app.post('/airplanemodetogle', async (req, res) => {
-  console.log("hii");
   const userinfo = await User.findOne({ name: "Ayushi" });
   const togle = req.body.tog;
+     let message="" ;
+     if(togle==true){
+      message="on";
+     }
+     else{
+     message="off";}
   try {
     await User.findByIdAndUpdate(userinfo.id, { airplanemode: togle });
-    res.send('Airplane mode toggled successfully');
-
+    res.send(`Airplane mode ${message}`);
+       
   } catch (error) {
     console.log(error);
   }
@@ -390,10 +395,12 @@ app.post('/alarmsoundtogle', async (req, res) => {
 
 app.post('/bluetoothtogle', async (req, res) => {
   const userinfo = await User.findOne({ name: "Ayushi" });
-  const togle = req.body.tog;
+  const togle =await req.body.tog;
+  // const message=await 
   try {
     await User.findByIdAndUpdate(userinfo.id, { bluetooth: togle });
-    res.send('Data added successfully');
+   togle?res.send(`Bluetooth mode on`):res.send(`Bluetooth mode off`);
+    togle?console.log(`Bluetooth mode on`):console.log(`Bluetooth mode off`);
 
   } catch (error) {
     console.log(error);
