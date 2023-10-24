@@ -8,14 +8,14 @@ import { FaArrowLeft } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 
 function Notification() {
-  const nevigate=useNavigate
+  
 
   const navigate=useNavigate();
   return (
     <div  style={{width:350}}>
 
        
-<div style={{marginLeft:0}} onClick={()=> nevigate(-1)}>
+<div style={{marginLeft:0}} onClick={()=> navigate(-1)}>
             <p className='back'><FaArrowLeft/></p>
         </div>
         
