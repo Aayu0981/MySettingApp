@@ -218,6 +218,33 @@ const UserSchema = new mongoose.Schema({
       default:false
     }
 
+  },
+  notificaitons:{
+    notification1:{
+      type:Boolean,
+      default:false
+    },
+    notification2:{
+      type:Boolean,
+      default:false
+    },
+    notification3:{
+      type:Boolean,
+      default:false
+    },
+    notification4:{
+      type:Boolean,
+      default:false
+    },
+    notification5:{
+      type:Boolean,
+      default:false
+    },
+    notification6:{
+      type:Boolean,
+      default:false
+    },
+
   }
 
 });
@@ -468,6 +495,34 @@ app.post('/textsizetogle', async (req, res) => {
   }
 }
 );
+
+app.post('/notificationtogle', async (req, res) => {
+  try {
+    const userinfo = await User.findOne({ name: "Ayushi" });
+
+    if (!userinfo) {
+      return res.status(404).send("User not found");
+    }
+
+    const { notification1, notification2, notification3, notification4, notification5, notification6 } = req.body;
+
+    await User.findByIdAndUpdate(userinfo._id, {
+      "notificaitons.notification1":notification1,
+      "notificaitons.notification2":notification2  ,   
+      "notificaitons.notification3":notification3,
+      "notificaitons.notification4":notification4,
+      "notificaitons.notification5":notification5,
+      "notificaitons.notification6":notification6
+    });
+
+    res.send('Data added successfully');
+
+  } catch (error) {
+    console.error('Error updating notification settings:', error);
+    res.status(500).send('Internal Server Error');
+  }
+});
+
 
 
 
