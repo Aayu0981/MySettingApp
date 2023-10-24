@@ -20,12 +20,12 @@ function Notification4() {
 
         <div style={{display:'flex' ,marginLeft:0}}>
 
-            <div style={{textAlign:'center'}}>
+            <div style={{textAlign:'center'}} id='darkmode' >
             <img src={img6} style={{width:200,borderRadius:20}} /> 
             <p className='Darktext1'>MIUI</p>
             </div>
             
-            <div  style={{textAlign:'center',marginLeft:0}}>
+            <div  style={{textAlign:'center',marginLeft:0}} id='darkmode'>
             <img src={img5} style={{width:200,borderRadius:20}} />
             <p className='Darktext1'>Android</p>
             </div>
