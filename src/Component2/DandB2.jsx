@@ -1,30 +1,95 @@
 import React from 'react'
-import { useState } from 'react'
+import { useState,useEffect } from 'react'
 import { FaArrowLeft } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 
 function DandB2() {
 
     const navigate=useNavigate();
+    const BASE_URL = 'http://localhost:4000';
+   
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(`${BASE_URL}/getUserData`);
+        setSliderValue1(response.data.display.brightness.level);
+        setBrightness(response.data.display.brightness.level);
+        setIsBrighteOn1(response.data.display.brightness.autobrightness);
+        setIsBrighteOn2(response.data.display.brightness.sunlightmode)
+  
+      } catch (error) {
+        console.error('Error:', error.message);
+      }
+    };
+  
+    useEffect(() => {
+      fetchData();
+    }, []);
 
+    
     const [sliderValue1, setSliderValue1] = useState(50);
     const handleSliderChange1 = (event) => {
         setSliderValue1(event.target.value);
       };
+
+      useEffect(() => {
+        const post = async () => {
+          try {
+            const response = await axios.post(`${BASE_URL}/brightnesstogle`, {
+              tog: `${sliderValue1}`
+            });
+            console.log(response.data);
+          } catch (error) {
+            console.error('Error toggling airplane mode', error.message);
+          }
+    
+        }
+        post();
+      }, [sliderValue1]);
     
 
     const [isBrightOn1, setIsBrighteOn1] = useState(false);
        const toggleBright1 = () => {
-       setIsBrighteOn1(!setIsBrighteOn1);
+       setIsBrighteOn1(!isBrightOn1);
     }
+
+    useEffect(() => {
+      const post = async () => {
+        try {
+          const response = await axios.post(`${BASE_URL}/autobrightnesstogle`, {
+            tog: `${isBrightOn1}`
+          });
+          console.log(response.data);
+        } catch (error) {
+          console.error('Error toggling airplane mode', error.message);
+        }
+  
+      }
+      post();
+    }, [isBrightOn1]);
+  
 
 
     const [isBrightOn2, setIsBrighteOn2] = useState(false);
        const toggleBright2 = () => {
-       setIsBrighteOn2(!setIsBrighteOn2);
+       setIsBrighteOn2(!isBrightOn2);
     }
-
+   
+    useEffect(() => {
+      const post = async () => {
+        try {
+          const response = await axios.post(`${BASE_URL}/sunlightmodetogle`, {
+            tog: `${isBrightOn2}`
+          });
+          console.log(response.data);
+        } catch (error) {
+          console.error('Error toggling airplane mode', error.message);
+        }
+  
+      }
+      post();
+    }, [isBrightOn2]);
 
     //for brightness 1
 
@@ -33,6 +98,7 @@ function DandB2() {
   const handleBrightnessChange = (event) => {
     const newBrightness = event.target.value;
     setBrightness(newBrightness);
+    setSliderValue1(newBrightness);
   };
 
   const overlayStyle = {
@@ -88,7 +154,7 @@ function DandB2() {
         
         
         <label style={{marginLeft:0}}  className="switch">
-              <input  type="checkbox" onChange={toggleBright1} checked={setIsBrighteOn1} style={{width:100}} />
+              <input  type="checkbox" onChange={toggleBright1} value={isBrightOn1}checked={isBrightOn1} style={{width:100}} />
               <span  className="slider round"></span>
               </label>
     </div>
@@ -103,7 +169,7 @@ function DandB2() {
         </div>
         
         <label style={{marginLeft:0}} className="switch">
-              <input  type="checkbox" onChange={toggleBright2} checked={isBrightOn2} style={{width:100}} />
+              <input  type="checkbox" onChange={toggleBright2} value={isBrightOn2}checked={isBrightOn2} style={{width:100}} />
               <span  className="slider round"></span>
               </label>
     </div>
