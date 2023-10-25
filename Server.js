@@ -256,8 +256,15 @@ const UserSchema = new mongoose.Schema({
     vrmode:{
       type:String,
       default:"Reduce Blur"
+    },
+    papermode:{
+      type:Boolean,
+      default:false
+    },
+    classicmode:{
+      type:Boolean,
+      default:false
     }
-
   },
   notifications:{
     notification1:{
@@ -623,6 +630,32 @@ app.post('/vrmodetogle', async (req, res) => {
   const togle = req.body.tog;
   try {
     await User.findByIdAndUpdate(userinfo.id, { 'display.vrmode': togle });
+    res.send('VR Mode Changed successfully');
+
+  } catch (error) {
+    console.log(error);
+  }
+}
+);
+
+app.post('/classicmodetogle', async (req, res) => {
+  const userinfo = await User.findOne({ name: "Ayushi" });
+  const togle = req.body.tog;
+  try {
+    await User.findByIdAndUpdate(userinfo.id, { 'display.classicmode': togle });
+    res.send('VR Mode Changed successfully');
+
+  } catch (error) {
+    console.log(error);
+  }
+}
+);
+
+app.post('/papermodetogle', async (req, res) => {
+  const userinfo = await User.findOne({ name: "Ayushi" });
+  const togle = req.body.tog;
+  try {
+    await User.findByIdAndUpdate(userinfo.id, { 'display.papermode': togle });
     res.send('VR Mode Changed successfully');
 
   } catch (error) {
