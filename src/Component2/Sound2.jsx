@@ -59,7 +59,7 @@ function Sound2() {
           const response = await axios.post(`${BASE_URL}/additionalsetting`, isAddsettingOn);
           console.log(response.data);
         } catch (error) {
-          console.error('Error toggling airplane mode', error.message);
+          console.error('Error toggling Addsetting mode', error.message);
         }
       };
       post();

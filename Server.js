@@ -145,6 +145,10 @@ const UserSchema = new mongoose.Schema({
     type: String,
     default: "Ayushi"
   },
+  backupdata : {
+    type :Boolean,
+    default : false
+  },
   wifi: {
     type: Boolean,
     default: false
@@ -291,6 +295,9 @@ const UserSchema = new mongoose.Schema({
       type:Boolean,
       default:false
     },
+
+   
+    
 
   },
   notifictionshade:{
@@ -664,6 +671,21 @@ app.post('/papermodetogle', async (req, res) => {
 }
 );
 
+
+//for backups
+
+app.post('/backups', async (req, res) => {
+  const userinfo = await User.findOne({ name: "Ayushi" });
+  const togle = req.body.tog;
+  try {
+    await User.findByIdAndUpdate(userinfo.id, { "backups": togle });
+    res.send('Data added successfully');
+
+  } catch (error) {
+    console.log(error);
+  }
+}
+)
 
 
 

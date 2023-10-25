@@ -1,20 +1,59 @@
 import React from 'react'
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FaArrowLeft } from 'react-icons/fa';
+import axios from 'axios';
 
 
 function About5() {
    
 
   const navigate=useNavigate();
+  const BASE_URL = 'http://localhost:4000';
+
+
+  const fetchData = async () => {
+    try {
+      const response = await axios.get(`${BASE_URL}/getUserData`);
+      setIsbackupsOn( response.data.backups);
+    } catch (error) {
+      console.error('Error:', error.message);
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+
+  const initialState = {
+    backupdata : false,
+  }
 
    
     // toggle button code 1
-    const [isbackupsOn, setIsbackupsOn] = useState(false);
+    const [isbackupsOn, setIsbackupsOn] = useState(initialState);
        const togglebackups = () => {
        setIsbackupsOn(!isbackupsOn);
     }
+
+
+    useEffect(() => {
+
+      const post = async () => {
+        try {
+          const response = await axios.post(`${BASE_URL}/backups`, {
+            tog: `${isbackupsOn}`
+          });
+          console.log(response.data);
+        } catch (error) {
+          console.error('Error toggling backups mode', error.message);
+        }
+      };
+    
+      post();
+
+    }, [isbackupsOn])
 
 
   return (
