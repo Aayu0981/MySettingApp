@@ -16,6 +16,8 @@ function DandB3() {
             const response = await axios.get(`${BASE_URL}/getUserData`);
             setIsReadOn1(response.data.display.readmode);
             setIsReadOn2(response.data.display.scheduleturnoff);
+            setClassicMode(response.data.display.classicmode);
+            SetPaperMode(response.data.display.papermode);
 
         } catch (error) {
             console.error('Error:', error.message);
@@ -29,6 +31,7 @@ function DandB3() {
     const [isReadOn1, setIsReadOn1] = useState(false);
     const toggleRead1 = () => {
         setIsReadOn1(!isReadOn1);
+
     }
 
     useEffect(() => {
@@ -45,6 +48,8 @@ function DandB3() {
         }
         post();
     }, [isReadOn1]);
+
+
 
 
 
@@ -67,6 +72,51 @@ function DandB3() {
         }
         post();
     }, [isReadOn2]);
+
+    const [classiMode,setClassicMode]=useState(false);
+    const [paperMode,SetPaperMode]=useState(false);
+    
+    const togglClassicMode = () => {
+        setClassicMode(!classiMode);
+    }
+    const togglPaperMode = () => {
+        SetPaperMode(!paperMode);
+    }
+    
+    
+
+    useEffect(() => {
+        const post = async () => {
+            try {
+                const response = await axios.post(`${BASE_URL}/classicmodetogle`, {
+                    tog: `${classiMode}`
+                });
+                console.log(response.data);
+            } catch (error) {
+                console.error('Error toggling airplane mode', error.message);
+            }
+
+        }
+        post();
+    }, [classiMode]);
+
+
+    useEffect(() => {
+        const post = async () => {
+            try {
+                const response = await axios.post(`${BASE_URL}/papermodetogle`, {
+                    tog: `${paperMode}`
+                });
+                console.log(response.data);
+            } catch (error) {
+                console.error('Error toggling airplane mode', error.message);
+            }
+
+        }
+        post();
+    }, [paperMode]);
+
+
 
 
 
@@ -96,8 +146,8 @@ function DandB3() {
 
             <div>
 
-                <div id='MobileDevice' style={{ alignItems: 'center', marginLeft: 0 }}>
-                    <div>
+                <div id={classiMode===true?'MobileDeviceActive':'MobileDevice'} style={{ alignItems: 'center', marginLeft: 0 }} >
+                    <div  onClick={togglClassicMode}>
                         <p className='Darktext1' style={{ marginBottom: 0 }}>Classic</p>
                         <p className='Lighttext' style={{ marginTop: 0 }}>Switch to warmer colour to reduce the amomunt of blue light</p>
                     </div>
@@ -105,8 +155,8 @@ function DandB3() {
                     <p style={{ marginRight: 10 }}>&gt;</p>
                 </div>
 
-                <div id='MobileDevice' style={{ alignItems: 'center', marginLeft: 0 }}>
-                    <div>
+                <div id={paperMode===true?'MobileDeviceActive':'MobileDevice'}  style={{ alignItems: 'center', marginLeft: 0 }}>
+                    <div onClick={togglPaperMode} >
                         <p className='Darktext1' style={{ marginBottom: 0 }}>Paper</p>
                         <p className='Lighttext' style={{ marginTop: 0 }}>Switch to warmer colour and add paper texture to background to reduce eye strain</p>
                     </div>
