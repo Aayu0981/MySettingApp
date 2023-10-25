@@ -751,7 +751,7 @@ app.post('/donotdisturbtogle', async (req, res) => {
 
 
 
-app.post('/itemsshowstogle', async (req, res) => {
+app.post('/smarthometogle', async (req, res) => {
   const userinfo = await User.findOne({ name: "Ayushi" });
   const togle = req.body.tog;
   try {

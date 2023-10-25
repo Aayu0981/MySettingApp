@@ -17,9 +17,9 @@ function Notification3() {
       const response = await axios.get(`${BASE_URL}/getUserData`);
       setIsIteamOn({
         
-      notify:response.data.notifications.notify,
-      controlc:response.data.notifications.controlc,
-      smarthome1:response.data.notifications.smarthome1,
+      notify:response.data.notifications.itemsshows.notify,
+      controlc:response.data.notifications.itemsshows.controlc,
+      smarthome1:response.data.notifications.itemsshows.smarthome1,
     });
   } catch (error) {
     console.error('Error:', error.message);

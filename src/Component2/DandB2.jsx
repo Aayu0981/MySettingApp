@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 
-function DandB2() {
+function DandB2({setBrightness}) {
 
     const navigate=useNavigate();
     const BASE_URL = 'http://localhost:4000';
@@ -93,7 +93,7 @@ function DandB2() {
 
     //for brightness 1
 
-    const [brightness, setBrightness] = useState(100);
+    
 
   const handleBrightnessChange = (event) => {
     const newBrightness = event.target.value;
@@ -101,15 +101,7 @@ function DandB2() {
     setSliderValue1(newBrightness);
   };
 
-  const overlayStyle = {
-    background: `rgba(0, 0, 0, ${(100 - brightness) / 100})`,
-    position: 'fixed',
-    top: 0,
-    left: 0,
-    width: '100%',
-    height: '100%',
-    zIndex: 999,
-  };
+
 
 
   return (
@@ -123,7 +115,7 @@ function DandB2() {
 
 
       
-      <div className="overlay" style={overlayStyle}></div>
+      <div className="overlay"></div>
     
 
 
@@ -135,7 +127,7 @@ function DandB2() {
           type="range"
           min="1"
           max="100"
-          value={brightness}
+          value={sliderValue1}
           onChange={handleBrightnessChange}
            style={{marginLeft:0}}/>
       </div>

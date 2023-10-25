@@ -5,6 +5,7 @@ import './Sound2.css';
 import './Sound.css';
 import './About2.css';
 import './Wallpaper.css';
+import { useState, useEffect } from 'react';
 // import Aboutphone1 from './Component/Aboutphone1';
 import Searchicone from "./Component/Searchicone";
 import Systemupdater from './Component/Systemupdater';
@@ -60,6 +61,17 @@ import Hotspot2 from './Component2/Hotspot2';
 
 
 function App() {
+
+  const [brightness, setBrightness] = useState(100);
+  useEffect(()=>{
+    document.body.style.background=`rgba(0,0,0,${(100 - brightness) / 100})`
+  }, [brightness]);
+
+
+  const toglebrightness = (newvalue)=>{
+    setBrightness(newvalue);
+  }
+
   return (
 
 
@@ -94,7 +106,7 @@ function App() {
        {/* Display path start */}
        <Route path='/DandB' Component={DandB}></Route>
        <Route path='/DandB1'Component={DandB1}></Route>
-       <Route path='/DandB2'Component={DandB2}></Route>
+       <Route path='/DandB2'element={<DandB2 setBrightness={toglebrightness}/>}></Route>
        <Route path='/DandB3'Component={DandB3}></Route>
        <Route path='/DandB4'Component={DandB4}></Route>
        <Route path='/Textsize' Component={Textsize}></Route>

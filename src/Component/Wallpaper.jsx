@@ -285,8 +285,28 @@ import React from 'react'
 
 function Wallpaper() {
   return (
-    <div>
-      <h1>hiiii</h1>
+    <div style={{width:350}}>
+
+      <p className='heading'>Wallpaper</p>
+
+      <div className='Modes'>
+        <p className='Darktext1'>Editor's picks</p>
+        <p className='Lighttext'>MORE</p>
+      </div>
+     
+
+     <div>
+           
+           
+
+     </div>
+
+
+
+
+
+
+
     </div>
   )
 }
