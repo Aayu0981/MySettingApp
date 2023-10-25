@@ -15,7 +15,7 @@ function About5() {
   const fetchData = async () => {
     try {
       const response = await axios.get(`${BASE_URL}/getUserData`);
-      setIsbackupsOn( response.data.backups);
+      setIsbackupsOn( response.data.backupdata);
     } catch (error) {
       console.error('Error:', error.message);
     }
@@ -26,13 +26,9 @@ function About5() {
   }, []);
 
 
-  const initialState = {
-    backupdata : false,
-  }
-
    
     // toggle button code 1
-    const [isbackupsOn, setIsbackupsOn] = useState(initialState);
+    const [isbackupsOn, setIsbackupsOn] = useState(false);
        const togglebackups = () => {
        setIsbackupsOn(!isbackupsOn);
     }

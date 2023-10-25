@@ -171,6 +171,22 @@ const UserSchema = new mongoose.Schema({
       default: 50
     },
 
+    donotdisturbbdata : {
+      donotdisturb : {
+        type: Boolean,
+        default : false
+      },
+
+      whenlock : {
+        type : Boolean,
+        default : false
+      },
+      notifyabouotcall : {
+        type : Boolean,
+        default: false
+      },
+    },
+
     additionalsetting : {
       daialpadtone : {
         type: Boolean,
@@ -678,7 +694,7 @@ app.post('/backups', async (req, res) => {
   const userinfo = await User.findOne({ name: "Ayushi" });
   const togle = req.body.tog;
   try {
-    await User.findByIdAndUpdate(userinfo.id, { "backups": togle });
+    await User.findByIdAndUpdate(userinfo.id, { "backupdata": togle });
     res.send('Data added successfully');
 
   } catch (error) {
@@ -686,6 +702,34 @@ app.post('/backups', async (req, res) => {
   }
 }
 )
+
+//dandD
+
+
+app.post('/donotdisturbtogle', async (req, res) => {
+  try {
+    const userinfo = await User.findOne({ name: "Ayushi" });
+
+    if (!userinfo) {
+      return res.status(404).send("User not found");
+    }
+
+    const { donotdisturb, whenlock ,notifyabouotcall } = req.body;
+
+    await User.findByIdAndUpdate(userinfo._id, {
+      "sound.donotdisturbdata.donotdisturb":donotdisturb,
+      "sound.donotdisturbdata.whenlock":whenlock,   
+      "sound.donotdisturbdata.notifyaboutcall":notifyabouotcall,
+      
+    });
+
+    res.send('Data added successfully');
+
+  } catch (error) {
+    console.error('Error updating notification settings:', error);
+    res.status(500).send('Internal Server Error');
+  }
+});
 
 
 

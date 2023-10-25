@@ -1,29 +1,68 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { FaArrowLeft } from 'react-icons/fa';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 
 function Sound1() {
 
     const navigate=useNavigate();
+    const BASE_URL = 'http://localhost:4000';
 
-    const [isDandBOn1, setIsDandBOn1] = useState(false);
-       const toggleDandB1 = () => {
-       setIsDandBOn1(!isDandBOn1);
+
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(`${BASE_URL}/getUserData`);
+        setIsDandDdataOn({
+          
+         donotdisturb:response.data.sound.donotdisturbdata.donotdisturb,
+          whenlock:response.data.sound.donotdisturbdata.whenlock,
+          notifyabouotcall:response.data.sound.donotdisturbdata.notifyaboutcall,
+       
+      });
+      } catch (error) {
+        console.error('Error:', error.message);
+      }
+    };
+  
+    useEffect(() => {
+      fetchData();
+    }, []);
+
+
+    const initialState={
+      donotdisturb:false,
+      whenlock:false,
+      notifyaboutcall:false,
+     
+  
     }
 
 
+    
 
-    const [isDandBOn2, setIsDandBOn2] = useState(false);
-    const toggleDandB2 = () => {
-    setIsDandBOn2(!isDandBOn2);
- }
+    const [isDandDbataOn, setIsDandDdataOn] = useState(initialState);
+
+    function toggleDandDdata(e) {
+      const { name, checked } = e.target;
+      setIsDandDdataOn(prevState => ({ ...prevState, [name]: checked }));
+    }
+
+    useEffect(() => {
+      const post = async () => {
+        try {
+          const response = await axios.post(`${BASE_URL}/donotdisturbtogle`, isDandDbataOn);
+          console.log(response.data);
+        } catch (error) {
+          console.error('Error toggling airplane mode', error.message);
+        }
+      };
+      post();
+    }, [isDandDbataOn]);
 
 
- const [isDandBOn3, setIsDandBOn3] = useState(false);
- const toggleDandB3 = () => {
- setIsDandBOn3(!isDandBOn3);
-}
+
+  
 
 
 
@@ -51,7 +90,7 @@ function Sound1() {
               </div>
               
               <label className="switch">
-              <input type="checkbox" onChange={toggleDandB1} checked={isDandBOn1} style={{width:180}} />
+              <input type="checkbox"  onChange={(e)=>toggleDandDdata(e)} name='donotdisturb' value={isDandDbataOn.donotdisturb} checked={isDandDbataOn.donotdisturb}  style={{width:180}} />
               <span className="slider round"></span>
               </label>
 
@@ -62,7 +101,7 @@ function Sound1() {
               {/* toggle button add krna hai */}
 
               <label className="switch">
-              <input type="checkbox" onChange={toggleDandB2} checked={isDandBOn2} />
+              <input type="checkbox" onChange={(e)=>toggleDandDdata(e)} name='whenlock' value={isDandDbataOn.whenlock} checked={isDandDbataOn.whenlock} />
               <span className="slider round"></span>
               </label>
           </div>
@@ -75,7 +114,7 @@ function Sound1() {
                </div>
 
                <label className="switch">
-              <input type="checkbox" onChange={toggleDandB3} checked={isDandBOn3}  style={{width:200}}/>
+              <input type="checkbox"  onChange={(e)=>toggleDandDdata(e)} name='notifyaboutcall' value={isDandDbataOn.notifyaboutcall} checked={isDandDbataOn.notifyaboutcall}  style={{width:200}}/>
               <span className="slider round"></span>
               </label>
                {/* toggle button add krna hai */}
