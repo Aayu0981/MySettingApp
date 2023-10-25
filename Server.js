@@ -605,7 +605,7 @@ app.post('/notificationshadetogle', async (req, res) => {
   const userinfo = await User.findOne({ name: "Ayushi" });
   const togle = req.body.tog;
   try {
-    await User.findByIdAndUpdate(userinfo.id, { 'notificationshade': togle });
+    await User.findByIdAndUpdate(userinfo.id, { 'notifictionshade': togle });
     res.send('Notification Shade changed successfully');
 
   } catch (error) {
