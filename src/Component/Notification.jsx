@@ -6,11 +6,34 @@ import img3 from '../image/Badges.jpeg'
 import img4 from '../image/control.jpeg';
 import { FaArrowLeft } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 
 function Notification() {
   
 
   const navigate=useNavigate();
+
+
+
+
+
+  
+  
+
+
+//for img3
+
+const [isImg2Enabled, setIsImg2Enabled] = useState(false);
+const [isImg3Enabled, setIsImg3Enabled] = useState(false);
+const [isImg1Enabled, setIsImg1Enabled]= useState(false);
+
+
+
+const [isImg2Disable, setIsImg2Disable] = useState(false);
+const [isImg3Disable, setIsImg3Disable] = useState(false);
+const [isImg1Disable, setIsImg1Disable]= useState(false);
+
+
   return (
     <div  style={{width:350}}>
 
@@ -25,13 +48,13 @@ function Notification() {
               <p className='Lighttext'>NOTIFICATION</p>
 
 
-        <div>
+        <div  >
          
-         <img src={img1} style={{width:100,borderRadius:20,marginLeft:0}} />
+         <img src={img1}  className='comp'   onClick={() => { setIsImg2Disable(false); setIsImg3Disable(false); setIsImg1Enabled(true)}}      style={{width:100,borderRadius:20,marginLeft:0}}    />
 
-         <img src={img2} style={{width:100 ,borderRadius:20}} />
+         <img src={img2}  className='comp'   onClick={() => { setIsImg1Disable(false); setIsImg3Disable(false); setIsImg2Enabled(true)} }  style={{width:100 ,borderRadius:20}} />
 
-         <img src={img3} style={{width:100 ,borderRadius:20}} />
+         <img src={img3}   className='comp'  onClick={() => { setIsImg1Disable(false); setIsImg2Disable(false); setIsImg3Enabled(true)}  }   style={{width:100 ,borderRadius:20}} />
 
         </div>
 
@@ -54,7 +77,7 @@ function Notification() {
         <div  className='Media'  style={{display:'flex',marginLeft:0}}>
 
           <div style={{marginLeft:0}}>
-          <p className='Darktext1' style={{marginBottom:0}}>Control centre style</p>
+          <p className='Darktext1' style={{marginBottom:0}}   >Control centre style</p>
           <p className='Lighttext' style={{marginTop:0}}>Select how you'd like to display toggle and notifications</p>
           </div>
          

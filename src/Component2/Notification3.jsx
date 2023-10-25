@@ -1,28 +1,71 @@
 import React from 'react'
-import { useState} from 'react';
+import { useState , useEffect} from 'react';
 import { FaArrowLeft } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 
 
 function Notification3() {
 
-    const [isIteamOn1, setIsIteamOn1] = useState(false);
-    const toggleIteam1 = () => {
-    setIsIteamOn1(!isIteamOn1);
- }
+
+  const BASE_URL = 'http://localhost:4000';
 
 
- const [isIteamOn2, setIsIteamOn2] = useState(false);
- const toggleIteam2 = () => {
- setIsIteamOn2(!isIteamOn2);
-}
+  const fetchData = async () => {
+    try {
+      const response = await axios.get(`${BASE_URL}/getUserData`);
+      setIsIteamOn({
+        
+      notify:response.data.notifications.notify,
+      controlc:response.data.notifications.controlc,
+      smarthome1:response.data.notifications.smarthome1,
+    });
+  } catch (error) {
+    console.error('Error:', error.message);
+   }
+   };
+
+    useEffect(() => {
+    fetchData();
+    }, []);
+
+    const initialState={
+      notify:false,
+      controlc:false,
+      smarthome1:false,
+     
+  
+    }
 
 
-const [isIteamOn3, setIsIteamOn3] = useState(false);
-const toggleIteam3 = () => {
-setIsIteamOn3(!isIteamOn3);
-}
+
+
+
+    const [isIteamOn, setIsIteamOn] = useState(initialState);
+   
+    function toggleIteam(e) {
+      const { name, checked } = e.target;
+      setIsIteamOn(prevState => ({ ...prevState, [name]: checked }));
+    }
+
+     
+    useEffect(() => {
+      const post = async () => {
+        try {
+          const response = await axios.post(`${BASE_URL}/itemsshowstogle`, isIteamOn);
+          console.log(response.data);
+        } catch (error) {
+          console.error('Error toggling airplane mode', error.message);
+        }
+      };
+      post();
+    }, [isIteamOn]);
+
+
+
+
+ 
 
 const nevigate=useNavigate();
 
@@ -40,7 +83,7 @@ const nevigate=useNavigate();
     <div className='Media' style={{justifyContent:'space-between'}}>
         <p className='Darktext1'>Notification</p>
         <label className="switch">
-              <input type="checkbox" onChange={toggleIteam1} checked={isIteamOn1} />
+              <input type="checkbox"   onChange={(e)=>toggleIteam(e)} name='notify' value={isIteamOn.notify} checked={isIteamOn.notify} />
               <span className="slider round"></span>
               </label>
     </div>
@@ -52,7 +95,7 @@ const nevigate=useNavigate();
         <p className='Lighttext' style={{marginLeft:0,marginTop:0}}>Works with the new version og control centre</p>
         </div>
         <label className="switch">
-              <input type="checkbox" onChange={toggleIteam2} checked={isIteamOn2}  style={{width:200}}  />
+              <input type="checkbox"  onChange={(e)=>toggleIteam(e)} name='controlc' value={isIteamOn.controlc} checked={isIteamOn.controlc} style={{width:200}}  />
               <span className="slider round"></span>
               </label>
     </div>
@@ -65,7 +108,7 @@ const nevigate=useNavigate();
         <p className='Lighttext'style={{marginLeft:0,marginTop:0}}>works with the new version of Control centre</p>
         </div>
         <label className="switch">
-              <input type="checkbox" onChange={toggleIteam3} checked={isIteamOn3} style={{width:200}}/>
+              <input type="checkbox"  onChange={(e)=>toggleIteam(e)} name='smarthome1' value={isIteamOn.smarthome1} checked={isIteamOn.smarthome1} style={{width:200}}/>
               <span className="slider round"></span>
               </label>
     </div>

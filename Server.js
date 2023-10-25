@@ -171,7 +171,7 @@ const UserSchema = new mongoose.Schema({
       default: 50
     },
 
-    donotdisturbbdata : {
+    donotdisturbdata : {
       donotdisturb : {
         type: Boolean,
         default : false
@@ -181,7 +181,7 @@ const UserSchema = new mongoose.Schema({
         type : Boolean,
         default : false
       },
-      notifyabouotcall : {
+      notifyaboutcall : {
         type : Boolean,
         default: false
       },
@@ -311,9 +311,24 @@ const UserSchema = new mongoose.Schema({
       type:Boolean,
       default:false
     },
-
-   
-    
+      smarthome : {
+       type: Boolean,
+       default: false
+    },
+    itemsshows : {
+      notify : {
+        type: Boolean,
+        default : false
+      },
+      controlc : {
+        type:Boolean,
+        default : false
+      },
+      smarthome1 : {
+        type : Boolean,
+        default : false
+      }
+    }
 
   },
   notifictionshade:{
@@ -714,12 +729,12 @@ app.post('/donotdisturbtogle', async (req, res) => {
       return res.status(404).send("User not found");
     }
 
-    const { donotdisturb, whenlock ,notifyabouotcall } = req.body;
+    const { donotdisturb, whenlock ,notifyaboutcall } = req.body;
 
     await User.findByIdAndUpdate(userinfo._id, {
       "sound.donotdisturbdata.donotdisturb":donotdisturb,
       "sound.donotdisturbdata.whenlock":whenlock,   
-      "sound.donotdisturbdata.notifyaboutcall":notifyabouotcall,
+      "sound.donotdisturbdata.notifyaboutcall":notifyaboutcall,
       
     });
 
@@ -730,6 +745,54 @@ app.post('/donotdisturbtogle', async (req, res) => {
     res.status(500).send('Internal Server Error');
   }
 });
+
+
+//for smart home
+
+
+
+app.post('/itemsshowstogle', async (req, res) => {
+  const userinfo = await User.findOne({ name: "Ayushi" });
+  const togle = req.body.tog;
+  try {
+    await User.findByIdAndUpdate(userinfo.id, { "notifications.smarthome": togle });
+    res.send('Data added successfully');
+
+  } catch (error) {
+    console.log(error);
+  }
+}
+)
+
+
+
+//items shown
+
+app.post('/itemsshowstogle', async (req, res) => {
+  try {
+    const userinfo = await User.findOne({ name: "Ayushi" });
+
+    if (!userinfo) {
+      return res.status(404).send("User not found");
+    }
+
+
+    const { notify, controlc , smarthome1 } = req.body;
+
+    await User.findByIdAndUpdate(userinfo._id, {
+      "notifications.itemsshows.notify":notify,
+      "notifications.itemsshows.controlc":controlc,   
+      "notifications.itemsshows.smarthome1":smarthome1,
+      
+    });
+    res.send('Data added successfully');
+
+  } catch (error) {
+    console.error('Error updating notification settings:', error);
+    res.status(500).send('Internal Server Error');
+  }
+});
+
 
 
 

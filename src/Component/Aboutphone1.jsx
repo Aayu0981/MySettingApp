@@ -22,7 +22,7 @@ function Aboutphone1() {
   
     <div style={{position:"relative",zIndex:1,display:"flex"}}>
     <div id='left' style={{width:200,height:300,borderRadius:20,position:"relative"}}>
-    <img src="https://i.imgur.com/G9wfOYe.png"  style={{backgroundColor:"transparent" ,width:100}} />
+    <img src="https://i.imgur.com/G9wfOYe.png" className='comp' style={{backgroundColor:"transparent" ,width:100}} />
      <br />
      <span >MIUI version</span><br/>
      <p style={{fontSize:12,color:'grey'}}>MIUI Global</p>
@@ -38,12 +38,28 @@ function Aboutphone1() {
       <p>Device name</p>
       <p style={{fontSize:12,color:'grey'}}>POCO M4 Pro</p>
      </div>
+        
 
-     <div  className='storage' style={{width:180,height:155,borderRadius:20, zIndex:2}}>
+       
+     <div className='storage' style={{width:180,height:155,borderRadius:20, zIndex:2}}>
+     
       <p className='s1' >Storage</p><br/>
       <p className='ooccu' style={{fontSize:12,color:'grey',marginTop:50}}>Occupied</p>
       <p className='oc1'>59.1 GB<sub>/64 GB</sub></p>
+      
      </div>
+
+
+
+
+
+
+
+
+
+
+
+     
      </div>
      </div>
 

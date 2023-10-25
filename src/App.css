@@ -405,6 +405,7 @@ makeactive:hover img {
   padding-top: 5px;
   padding-bottom:5px;
   text-align:center;
+
 }
 
 .comp:hover {
@@ -423,6 +424,35 @@ makeactive:hover img {
   padding-bottom:5px;
   text-align:center;
 }
+
+
+/* storage box animation */
+
+
+/* #Storage-animation{
+  animation: animate 4s ease-in-out infinite;
+  color: #03a9f4;
+}
+
+@keyframes animate{
+
+  0%,100%{
+
+    clip-path: polygon(1% 49%, 11% 43%, 25% 42%, 39% 46%, 49% 51%, 61% 55%, 77% 58%, 89% 54%, 100% 48%, 99% 98%, 1% 99%);
+}
+
+50%{
+
+
+  clip-path: polygon(0 54%, 12% 64%, 29% 65%, 41% 63%, 53% 56%, 64% 52%, 76% 49%, 88% 47%, 100% 48%, 99% 98%, 1% 99%);
+
+}
+} */
+
+
+
+
+
 
 
 
