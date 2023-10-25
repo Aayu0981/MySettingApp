@@ -18,12 +18,7 @@
 
 /* next line for about3 */
 
-#MobileDevice{
-    display: flex;
-    background-color: rgba(128, 128, 128, 0.307);
-    border-radius: 20px;
-    margin-bottom: 15px;
-}
+
 
 #Cloud{
     display: flex;
@@ -130,3 +125,26 @@
     width: 80%;
     margin: 10px 0;
   }
+
+  #MobileDevice{
+    display: flex;
+    background-color: rgba(128, 128, 128, 0.307);
+    border-radius: 20px;
+    margin-bottom: 15px;
+}
+
+#MobileDevice:hover{
+   
+    background-color: rgba(130, 130, 130, 0.307);
+    transform: scale(1.05);
+   
+}
+
+#MobileDeviceActive{
+    display: flex;
+    background-color: #320c9a;
+    border-radius: 20px;
+    margin-bottom: 15px;
+    transform: scale(1.05);
+
+}
