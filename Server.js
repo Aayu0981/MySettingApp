@@ -281,6 +281,10 @@ const UserSchema = new mongoose.Schema({
       default:false
     },
 
+  },
+  notifictionshade:{
+    type:String,
+    default:"MIUI"
   }
 
 });
@@ -596,6 +600,19 @@ app.post('/additionalsetting', async(req,res)=>{
     res.status(500).send('Internal Server Error');
   }
 })
+
+app.post('/notificationshadetogle', async (req, res) => {
+  const userinfo = await User.findOne({ name: "Ayushi" });
+  const togle = req.body.tog;
+  try {
+    await User.findByIdAndUpdate(userinfo.id, { 'notificationshade': togle });
+    res.send('Notification Shade changed successfully');
+
+  } catch (error) {
+    console.log(error);
+  }
+}
+);
 
 
 
