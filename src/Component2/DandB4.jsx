@@ -13,7 +13,7 @@ function DandB4() {
   const fetchData = async () => {
     try {
       const response = await axios.get(`${BASE_URL}/getUserData`);
-      setshade(response.data.display.vrmode);
+      setVrMode(response.data.display.vrmode);
     } catch (error) {
       console.error('Error:', error.message);
     }
