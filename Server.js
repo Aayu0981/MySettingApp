@@ -252,6 +252,10 @@ const UserSchema = new mongoose.Schema({
     autorotate:{
       type:Boolean,
       default:false
+    },
+    vrmode:{
+      type:String,
+      default:"Reduce Blur"
     }
 
   },
@@ -607,6 +611,19 @@ app.post('/notificationshadetogle', async (req, res) => {
   try {
     await User.findByIdAndUpdate(userinfo.id, { 'notifictionshade': togle });
     res.send('Notification Shade changed successfully');
+
+  } catch (error) {
+    console.log(error);
+  }
+}
+);
+
+app.post('/vrmodetogle', async (req, res) => {
+  const userinfo = await User.findOne({ name: "Ayushi" });
+  const togle = req.body.tog;
+  try {
+    await User.findByIdAndUpdate(userinfo.id, { 'display.vrmode': togle });
+    res.send('VR Mode Changed successfully');
 
   } catch (error) {
     console.log(error);
