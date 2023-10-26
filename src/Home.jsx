@@ -12,6 +12,7 @@ import { FaHome } from 'react-icons/fa';
 import { FaImage } from 'react-icons/fa';
 import { FaPalette } from 'react-icons/fa';
 import { FaAlignRight, FaArrowRight, FaArrowsAlt, FaArrowsAltH, FaArrowsAltV, FaBluetooth, FaExpandArrowsAlt, FaGreaterThan, FaLongArrowAltRight, FaRegArrowAltCircleRight } from 'react-icons/fa';
+import SearchIcone from './Component/Searchicone';
 import Aboutphone1 from './Component/Aboutphone1';
 import './App.css'
 
@@ -27,18 +28,7 @@ function Home() {
 
 <div  style={{width:350}}>
 
-    
-    <div>
- <h1>Settings</h1>
-
- <div id='box1' >
-  <label className="input-label">
-    <span className="search-icon" >&#128269;</span>
-
-    <input id='searchbox' type="text" placeholder="Search settings" />
-  </label>
-  </div>
-    </div>
+    <SearchIcone></SearchIcone>
 
 
 
