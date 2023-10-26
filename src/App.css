@@ -448,7 +448,16 @@ makeactive:hover img {
 }
 
 
-
+.searchFilteredElement{
+  
+  margin-bottom: 5px;
+  font-weight: 550;
+  border-bottom: 1px rgb(231, 224, 224) solid;
+  padding-bottom: 7px;
+  font-size:large;
+  
+  
+}
 
 /* storage box animation */
 
