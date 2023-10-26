@@ -7,7 +7,7 @@ import Dark from '../image/Dark2.jpeg'
 import Light from '../image/light.jpeg'
 import axios from 'axios';
 
-function DandB() {
+function DandB({setDarkModeOn}) {
 
   const navigate=useNavigate();
   const BASE_URL = 'http://localhost:4000';
@@ -16,6 +16,7 @@ function DandB() {
     try {
       const response = await axios.get(`${BASE_URL}/getUserData`);
       setIsDisplayOn(response.data.display.autorotate);
+      setDarkModeOn(response.data.display.darkmode);
       setdarkmode(response.data.display.darkmode);
     } catch (error) {
       console.error('Error:', error.message);
@@ -51,27 +52,12 @@ const [darkmode,setdarkmode]=useState(false);
 
 const enabledarkmode=()=>{
   setdarkmode(true);
+  setDarkModeOn(true)
 }
 const disabledarkmode=()=>{
   setdarkmode(false);
+  setDarkModeOn(false);
 }
-useEffect(() => {
-  const post = async () => {
-    try {
-      const response = await axios.post(`${BASE_URL}/darkmodetogle`, {
-        tog: `${darkmode}`
-      });
-      console.log(response.data);
-    } catch (error) {
-      console.error('Error toggling airplane mode', error.message);
-    }
-
-  }
-  post();
-}, [darkmode]);
-
-
-
 
   return (
     <div style={{width:350}}>
