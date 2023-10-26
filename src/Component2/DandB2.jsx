@@ -101,7 +101,7 @@ function DandB2({setBrightness}) {
     setSliderValue1(newBrightness);
   };
 
-
+  
 
 
   return (
@@ -115,7 +115,7 @@ function DandB2({setBrightness}) {
 
 
       
-      <div className="overlay"></div>
+      <div className="overlay" ></div>
     
 
 
