@@ -281,10 +281,25 @@
 
 // export default Wallpaper;
 
-import React from 'react'
+import React, { useEffect, useState } from 'react';
+import wallppr1 from '../image/wallppr1.jpg';
+import wallppr2 from '../image/wallppr2.jpg';
+import wallppr3 from '../image/wallppr3.jpg';
+import wallppr4 from '../image/wallppr4.jpg';
 
 function Wallpaper() {
+
+  const [wallPaper,setWallpaper]= useState(wallppr1);
+
+  const togleWallPaper= (e)=>{
+    setWallpaper(e.target.name);
+  }
+
+  
+
+
   return (
+    <div className='wallppr' style={{ backgroundImage: `url(${wallPaper})` }}>
     <div style={{width:350}}>
 
       <p className='heading'>Wallpaper</p>
@@ -292,6 +307,13 @@ function Wallpaper() {
       <div className='Modes'>
         <p className='Darktext1'>Editor's picks</p>
         <p className='Lighttext'>MORE</p>
+      </div>
+
+      <div className='wallpprList'>
+        <img src={wallppr1} alt="" className='wallpprstogle' name={wallppr1} onClick={(e)=>togleWallPaper(e)}   />
+        <img src={wallppr2} alt="" className='wallpprstogle' name={wallppr2} onClick={(e)=>togleWallPaper(e)} />
+        <img src={wallppr3} alt="" className='wallpprstogle' name={wallppr3} onClick={(e)=>togleWallPaper(e)} />
+        <img src={wallppr4} alt="" className='wallpprstogle' name={wallppr4} onClick={(e)=>togleWallPaper(e)} />
       </div>
      
 
@@ -307,6 +329,7 @@ function Wallpaper() {
 
 
 
+    </div>
     </div>
   )
 }
