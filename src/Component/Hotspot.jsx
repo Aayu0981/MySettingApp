@@ -1,5 +1,5 @@
 import React from 'react'
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FaArrowLeft } from 'react-icons/fa';
 import axios from 'axios';
@@ -9,18 +9,40 @@ function Hotspot() {
     const navigate=useNavigate();
     const BASE_URL = 'http://localhost:4000';
 
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(`${BASE_URL}/getUserData`);
+        setIsHotspotOn(response.data.hotspot.mode);
+      } catch (error) {
+        console.error('Error:', error.message);
+      }
+    };
+  
+    useEffect(() => {
+      fetchData();
+    }, []);
+    
+
     const [isHotspotOn, setIsHotspotOn] = useState(false);
 const togglehotspot =async () => {
 setIsHotspotOn(!isHotspotOn);
-try {
-  const response = await axios.post(`${BASE_URL}/hotspottogle`,{
-          tog:`${isHotspotOn}`
-  });
-  console.log(response.data);
-} catch (error) {
-  console.error('Error toggling airplane mode', error.message);
+
 }
-}
+
+useEffect(() => {
+  const post = async () => {
+    try {
+      const response = await axios.post(`${BASE_URL}/hotspottogle`, {
+        tog: `${isHotspotOn}`
+      });
+      console.log(response.data);
+    } catch (error) {
+      console.error('Error toggling airplane mode', error.message);
+    }
+
+  }
+  post();
+}, [isHotspotOn]);
 
   return (
     <div style={{width:350}}>
