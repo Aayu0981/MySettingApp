@@ -429,6 +429,26 @@ makeactive:hover img {
   text-align:center;
 }
 
+.wallpprstogle{
+  width: 150px;
+  height: 150px;
+  margin-top: 10px;
+  border-radius: 10px;
+  
+}
+.wallpprstogle:hover{
+  transform: scale(1.1);
+}
+
+
+
+.wallppr{
+  background-size: cover;
+  min-height: 100vh;
+}
+
+
+
 
 /* storage box animation */
 
