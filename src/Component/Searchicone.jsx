@@ -77,7 +77,7 @@ const handleSearch = (event) => {
    
 
     <div style={{ position: 'relative' }}>
-      <h1>Setting</h1>
+      <h1>Settings</h1>
 
       <div id="box1">
         <label className="input-label">
