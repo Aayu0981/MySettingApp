@@ -5,7 +5,6 @@ import './Sound2.css';
 import './Sound.css';
 import './About2.css';
 import './Wallpaper.css';
-import { useState, useEffect } from 'react';
 // import Aboutphone1 from './Component/Aboutphone1';
 import Searchicone from "./Component/Searchicone";
 import Systemupdater from './Component/Systemupdater';
@@ -21,6 +20,8 @@ import Theme from './Component/Theme';
 import { Route, Routes } from 'react-router-dom';
 import Home from './Home';
 import Connection from './Component/Connection';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 
 
 
@@ -60,93 +61,162 @@ import Hotspot2 from './Component2/Hotspot2';
 
 
 
+
 function App() {
+  const BASE_URL = 'http://localhost:4000';
+
+
+  const fetchData = async () => {
+    try {
+      const response = await axios.get(`${BASE_URL}/getUserData`);
+
+      setBrightness(response.data.display.brightness.level);
+      setDarkModeOn(response.data.display.darkmode)
+
+    } catch (error) {
+      console.error('Error:', error.message);
+    }
+
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   const [brightness, setBrightness] = useState(100);
-  useEffect(()=>{
-    document.body.style.background=`rgba(0,0,0,${(100 - brightness) / 100})`
+
+  useEffect(() => {
+    document.body.style.background = `rgba(0, 0, 0, ${(100 - brightness) / 100})`;
   }, [brightness]);
 
 
-  const toglebrightness = (newvalue)=>{
+  const toglebrightness = (newvalue) => {
     setBrightness(newvalue);
   }
+
+
+  //for darkmode
+  const [isDarkmodeOn, setDarkModeOn] = useState(false);
+    
+  const togleDarkMode = (newvalue) => {
+    setDarkModeOn(newvalue);
+  }
+
+
+  useEffect(() => {
+    const post = async () => {
+      try {
+        const response = await axios.post(`${BASE_URL}/darkmodetogle`, {
+          tog: `${darkmode}`
+        });
+        console.log(response.data);
+      } catch (error) {
+        console.error('Error toggling airplane mode', error.message);
+      }
+
+    }
+    post();
+
+    if (isDarkmodeOn === true) {
+
+      const elements = document.getElementsByClassName('app');
+      for (let i = 0; i < elements.length; i++) {
+        elements[i].style.background = 'rgb(0, 0, 0)';
+      }
+
+      document.body.style.background = 'rgb(0, 0, 0)'
+
+      document.body.style.color = `#ffffff`; // Black text color
+
+    }
+    else {
+      const elements = document.getElementsByClassName('app');
+      for (let i = 0; i < elements.length; i++) {
+        elements[i].style.background = '#ffffff';
+      }
+      document.body.style.background = '#ffffff'
+      document.body.style.color = 'rgb(0, 0, 0)';
+
+    }
+
+  }, [isDarkmodeOn]);
+
 
   return (
 
 
-    <div >
-     
-     
+    <div className='app' >
+
+
       <Routes>
         <Route path='/' Component={Home}></Route>
         <Route path='/Airoplane' Component={Airoplane}></Route>
-        <Route path='/Aboutphone1' Component={Aboutphone1}/>
+        <Route path='/Aboutphone1' Component={Aboutphone1} />
         <Route path='/Bluetooth' Component={Bluetooth}></Route>
         <Route path='/Systemupdater' Component={Systemupdater}></Route>
-        <Route path='/Systemupdater1'Component={Systemupdater1}></Route>
+        <Route path='/Systemupdater1' Component={Systemupdater1}></Route>
         <Route path='/Hotspot' Component={Hotspot}></Route>
         <Route path='/Hotspot2' Component={Hotspot2}></Route>
 
         {/* About pages path start */}
-       <Route path='/About2' Component={About2}></Route>
-       <Route path='/About3'Component={About3}></Route>
-       <Route path='/About4' Component={About4}></Route>
-       <Route path='/About5' Component={About5}></Route>
-       <Route path='/About6' Component={About6}></Route>
-       <Route path='/About7' Component={About7}></Route>
-       <Route path='/Legalinfo'Component={Legalinfo}></Route>
-       <Route path='/Status' Component={Status}></Route>
+        <Route path='/About2' Component={About2}></Route>
+        <Route path='/About3' Component={About3}></Route>
+        <Route path='/About4' Component={About4}></Route>
+        <Route path='/About5' Component={About5}></Route>
+        <Route path='/About6' Component={About6}></Route>
+        <Route path='/About7' Component={About7}></Route>
+        <Route path='/Legalinfo' Component={Legalinfo}></Route>
+        <Route path='/Status' Component={Status}></Route>
 
-       {/* security path start */}
-       <Route path='/Security' Component={Security}></Route>
-       <Route path='/Security1' Component={Security1}></Route>
-       <Route path='/Security3'Component={Security3}></Route>
+        {/* security path start */}
+        <Route path='/Security' Component={Security}></Route>
+        <Route path='/Security1' Component={Security1}></Route>
+        <Route path='/Security3' Component={Security3}></Route>
 
-       {/* Display path start */}
-       <Route path='/DandB' Component={DandB}></Route>
-       <Route path='/DandB1'Component={DandB1}></Route>
-       <Route path='/DandB2'element={<DandB2 setBrightness={toglebrightness}/>}></Route>
-       <Route path='/DandB3'Component={DandB3}></Route>
-       <Route path='/DandB4'Component={DandB4}></Route>
-       <Route path='/Textsize' Component={Textsize}></Route>
-      
-       
-       {/* sound path start */}
-       <Route path='/Sound' Component={Sound}></Route>
-       <Route path='/Sound1'Component={Sound1}></Route>
-       <Route path='/Sound2'Component={Sound2}></Route>
-       <Route path='/Sound3'Component={Sound3}></Route>
+        {/* Display path start */}
+        <Route path='/DandB' element={<DandB setDarkModeOn={togleDarkMode}/>}></Route>
+        <Route path='/DandB1' Component={DandB1}></Route>
+        <Route path="/DandB2" element={<DandB2 setBrightness={toglebrightness} />} />
+        <Route path='/DandB3' Component={DandB3}></Route>
+        <Route path='/DandB4' Component={DandB4}></Route>
+        <Route path='/Textsize' Component={Textsize}></Route>
 
-       
-       {/* wifi-->connecton  path start */}
-       <Route path='/Connection'Component={Connection}></Route>
-       <Route path='/Connection1'Component={Connection1}></Route>
+
+        {/* sound path start */}
+        <Route path='/Sound' Component={Sound}></Route>
+        <Route path='/Sound1' Component={Sound1}></Route>
+        <Route path='/Sound2' Component={Sound2}></Route>
+        <Route path='/Sound3' Component={Sound3}></Route>
+
+
+        {/* wifi-->connecton  path start */}
+        <Route path='/Connection' Component={Connection}></Route>
+        <Route path='/Connection1' Component={Connection1}></Route>
 
         {/* bluetooth path start */}
-        <Route path='/Bluetooth1'Component={Bluetooth1}></Route>
+        <Route path='/Bluetooth1' Component={Bluetooth1}></Route>
 
         {/* Notification path start */}
         <Route path='/Notification' Component={Notification}></Route>
-        <Route path='/Notification1'Component={Notification1}></Route>
-        <Route path='/Notification2'Component={Notification2}></Route>
+        <Route path='/Notification1' Component={Notification1}></Route>
+        <Route path='/Notification2' Component={Notification2}></Route>
         <Route path='/Notification3' Component={Notification3}></Route>
         <Route path='/Notification4' Component={Notification4}></Route>
 
 
         <Route path='/Wallpaper' Component={Wallpaper}></Route>
       </Routes>
-     
-   
 
 
-     
-    
+
+
+
+
     </div>
   );
 }
 
- export default App;
+export default App;
 
 
 
