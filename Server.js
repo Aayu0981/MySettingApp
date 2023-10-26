@@ -230,8 +230,20 @@ const UserSchema = new mongoose.Schema({
     default: false
   },
   hotspot: {
+    mode:{
     type: Boolean,
     default: false
+  },
+    devicename:{
+      type:String,
+      default:"POCO M4 pro"
+      
+    },
+    password:{
+       type:String,
+       default:""
+    }
+
   },
   display: {
     mode: {
@@ -465,7 +477,7 @@ app.post('/hotspottogle', async (req, res) => {
   const userinfo = await User.findOne({ name: "Ayushi" });
   const togle = req.body.tog;
   try {
-    await User.findByIdAndUpdate(userinfo.id, { hotspot: togle });
+    await User.findByIdAndUpdate(userinfo.id, {"hotspot.mode": togle });
     res.send('Data added successfully');
 
   } catch (error) {
@@ -792,6 +804,33 @@ app.post('/itemsshowstogle', async (req, res) => {
     res.status(500).send('Internal Server Error');
   }
 });
+
+
+
+app.post('/hotspotPasswordchange', async (req, res) => {
+  try {
+    const userinfo = await User.findOne({ name: "Ayushi" });
+
+    if (!userinfo) {
+      return res.status(404).send("User not found");
+    }
+
+
+    const { deviceName,password} = req.body;
+
+    await User.findByIdAndUpdate(userinfo._id, {
+      "hotspot.devicename":deviceName, 
+      "hotspot.password":password,
+         
+    });
+    res.send('Password Changed Successfully');
+
+  } catch (error) {
+    console.error('Error updating notification settings:', error);
+    res.status(500).send('Internal Server Error');
+  }
+});
+
 
 
 
