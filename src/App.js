@@ -87,6 +87,11 @@ function App() {
 
   useEffect(() => {
     document.body.style.background = `rgba(0, 0, 0, ${(100 - brightness) / 100})`;
+    if(brightness<20){
+      setDarkModeOn(true);
+    }else{
+      setDarkModeOn(false);
+    }
   }, [brightness]);
 
 
@@ -119,22 +124,14 @@ function App() {
 
     if (isDarkmodeOn === true) {
 
-      const elements = document.getElementsByClassName('app');
-      for (let i = 0; i < elements.length; i++) {
-        elements[i].style.background = 'rgb(0, 0, 0)';
-      }
+      setBrightness(0);
 
-      document.body.style.background = 'rgb(0, 0, 0)'
-
-      document.body.style.color = `#ffffff`; // Black text color
+      document.body.style.color = `#ffffff`;
 
     }
     else {
-      const elements = document.getElementsByClassName('app');
-      for (let i = 0; i < elements.length; i++) {
-        elements[i].style.background = '#ffffff';
-      }
-      document.body.style.background = '#ffffff'
+      
+      setBrightness(100);
       document.body.style.color = 'rgb(0, 0, 0)';
 
     }
