@@ -87,11 +87,12 @@ function App() {
 
   useEffect(() => {
     document.body.style.background = `rgba(0, 0, 0, ${(100 - brightness) / 100})`;
-    if(brightness<20){
+    if(brightness<20 && isDarkmodeOn===false){
       setDarkModeOn(true);
-    }else{
-      setDarkModeOn(false);
     }
+    else if(brightness>=20 && isDarkmodeOn===true) 
+      setDarkModeOn(false);
+    
   }, [brightness]);
 
 
@@ -112,7 +113,7 @@ function App() {
     const post = async () => {
       try {
         const response = await axios.post(`${BASE_URL}/darkmodetogle`, {
-          tog: `${darkmode}`
+          tog: `${isDarkmodeOn}`
         });
         console.log(response.data);
       } catch (error) {
@@ -172,7 +173,7 @@ function App() {
 
         {/* Display path start */}
         <Route path='/DandB' element={<DandB setDarkModeOn={togleDarkMode}/>}></Route>
-        <Route path='/DandB1' Component={DandB1}></Route>
+        <Route path='/DandB1' element={<DandB1 />} />
         <Route path="/DandB2" element={<DandB2 setBrightness={toglebrightness} />} />
         <Route path='/DandB3' Component={DandB3}></Route>
         <Route path='/DandB4' Component={DandB4}></Route>
