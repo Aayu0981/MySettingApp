@@ -9,42 +9,43 @@ function DandB1() {
   const navigate=useNavigate();
   const BASE_URL = 'http://localhost:4000';
 
-  const fetchData = async () => {
-    try {
-      const response = await axios.get(`${BASE_URL}/getUserData`);
-      setIsdarkModeOn(response.data.display.darkmode);
-    } catch (error) {
-      console.error('Error:', error.message);
-    }
-  };
+  // const fetchData = async () => {
+  //   try {
+  //     const response = await axios.get(`${BASE_URL}/getUserData`);
+  //     setIsDarkModeOn(response.data.display.darkmode);
+  //   } catch (error) {
+  //     console.error('Error:', error.message);
+  //   }
+  // };
 
-  useEffect(() => {
-    fetchData();
-  }, []);
+  // useEffect(() => {
+  //   fetchData();
+  // }, []);
 
 
-  const [isdarkModeOn, setIsdarkModeOn] = useState(false);
+  const [darkmode, setIsDarkModeOn] = useState(false);
   const toggledarkMode = () => {
-  setIsdarkModeOn(!isdarkModeOn);
+  setIsDarkModeOn(!darkmode);
+  
 }
 
-useEffect(() => {
+// useEffect(() => {
+   
+//   const post = async () => {
+//     try {
+//       const response = await axios.post(`${BASE_URL}/darkmodetogle`, {
+//         tog: `${darkmode}`
+//       });
+//       console.log(response.data);
+//     } catch (error) {
+//       console.error('Error toggling airplane mode', error.message);
+//     }
+//   };
 
-  const post = async () => {
-    try {
-      const response = await axios.post(`${BASE_URL}/darkmodetogle`, {
-        tog: `${isdarkModeOn}`
-      });
-      console.log(response.data);
-    } catch (error) {
-      console.error('Error toggling airplane mode', error.message);
-    }
-  };
-
-  post();
+//   post();
 
 
-}, [isdarkModeOn])
+// }, [darkmode])
 
   return (
     <div style={{width:350}}>
@@ -60,7 +61,7 @@ useEffect(() => {
         <p className='Darktext1' style={{marginLeft:30}}>Schedule Dark mode</p>
 
         <label className="switch">
-              <input type="checkbox" onChange={ toggledarkMode} checked={isdarkModeOn} />
+              <input type="checkbox" onChange={ toggledarkMode} checked={darkmode} />
               <span className="slider round"></span>
               </label>
 
