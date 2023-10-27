@@ -30,7 +30,7 @@ function Systemupdater() {
     <div style={{display:'flex', justifyContent:'space-between',marginLeft:20}}>
 
     <div style={{display:'flex' ,marginLeft:0}}><img src={img1} style={{width:40, marginLeft:0}} /> 
-    <p>Calculator</p>
+    <p className='Darktext1'>Calculator</p>
     </div>
       
 

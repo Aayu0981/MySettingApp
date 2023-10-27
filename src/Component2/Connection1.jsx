@@ -11,14 +11,14 @@ function Connection1() {
     <div style={{width:350}}>
 
          
-        <div onClick={()=> navigate(-1)}>
-            <p><FaArrowLeft/></p>
+        <div  style={{marginLeft:-20}} onClick={()=> navigate(-1)}>
+            <p>  <FaArrowLeft/></p>
         </div>
       
 
 
      
-     <p className='heading'>Additional settings</p>
+     <p className='heading' style={{marginLeft:10}}>Additional settings</p>
       
       <p className='Lighttext'>MANAGE WI-FI CONNECTION</p>
 
@@ -29,12 +29,12 @@ function Connection1() {
         <p className='Lighttext'style={{marginTop:0,marginLeft:0}}>Test connection for networking issues</p>
         </div>
         
-        <p style={{}}>&gt;</p>
+       
       </div>
 
       <div style={{display:'flex',textAlign:'center',justifyContent:'space-between'}}>
         <p className='Darktext1' style={{marginLeft:0}}>Manage saved networks</p>
-        <p>&gt;</p>
+       
       </div>
 
 

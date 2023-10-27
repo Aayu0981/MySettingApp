@@ -186,18 +186,6 @@ function Home() {
           </div>
 
 
-          <div id="Home-Screen">
-          <div id='main3'>
-        <FaHome className='Home'/>  
-
-        <div className='arrow1'>
-          <div id="text">Home Screen</div>
-           <span className='arow' >&gt;</span>
-          </div>
-        {/* <span className='arow' style={{marginLeft:165}}>&gt;</span> */}
-
-        </div>
-          </div>
   
   <div id="Wall-Paper">
   <div id='main3'>
@@ -213,19 +201,34 @@ function Home() {
         
   </div>
 
-  <div id="The-me">
+  {/* <div id="The-me">
   <div id='main3'>
 
 <FaPalette  className='theme'/>  
-<div className='arrow1'>
+<div className='arrow1'  onClick={()=>navigate("/Theme")}>
  <div id="text">Theme</div>
   <span className='arow' >&gt;</span>
  </div>
  
 {/* <span className='arow'>&gt;</span> */}
 
-</div>
-  </div>
+{/* </div>
+  </div> */} 
+
+
+  
+  {/* <div id="Home-Screen">
+          <div id='main3'>
+        <FaHome className='Home'  onClick={()=>navigate("/HomeScreen")} />  
+
+        <div className='arrow1'>
+          <div id="text">Home Screen</div>
+           <span className='arow' >&gt;</span>
+          </div>
+        {/* <span className='arow' style={{marginLeft:165}}>&gt;</span> */}
+
+        {/* </div>
+          </div> */} 
     
 
 </div>

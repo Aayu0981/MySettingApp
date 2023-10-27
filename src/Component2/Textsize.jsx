@@ -63,8 +63,12 @@
 
 import React, { useState,useEffect } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom/dist';
+import { FaArrowLeft } from 'react-icons/fa';
 
 function Textsize() {
+
+  const navigate=useNavigate();
   // Define the slider value and its change handler
   const BASE_URL = 'http://localhost:4000';
 
@@ -105,6 +109,14 @@ function Textsize() {
 
   return (
     <div style={{ width: 350 }}>
+
+
+
+<div style={{marginLeft:-10}} onClick={()=> navigate(-1)}>
+            <p className='back'><FaArrowLeft/></p>
+        </div>
+    
+
       <p className='heading'>Text size</p>
 
       <div className='Text1'>
@@ -115,8 +127,12 @@ function Textsize() {
         <p>Try adjusting text size using the slider below</p>
       </div>
 
-      <div className="slider-container">
+
+      <div  style={{marginTop:50}}>
+      <div className="slider-container" >
         <h2>Horizontal Slider</h2>
+
+        <div >
         <input
           type="range"
           min="0"
@@ -124,9 +140,13 @@ function Textsize() {
           value={sliderValue}
           onChange={handleSliderChange}
           className="slider"
-        />
+           style={{width:250, marginTop:430,marginLeft:120}}/>
 
-        <p>Value: {sliderValue}</p>
+</div>
+         
+
+        <p  style={{marginTop:40}}>Value: {sliderValue}</p>
+      </div>
       </div>
     </div>
   );

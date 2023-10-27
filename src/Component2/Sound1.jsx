@@ -125,7 +125,7 @@ function Sound1() {
 
        <div  className='Modes'style={{marginLeft:30}} >
            <p className='Darktext1' style={{marginLeft:0}}>Schedule turn on time</p>
-           <p className='Lighttext'>&gt; off</p>
+           <p className='Lighttext'> off</p>
        </div>
 
 

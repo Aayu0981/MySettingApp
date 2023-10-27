@@ -101,7 +101,7 @@ const [isNotificationOn, setIsNotificationOn] = useState(initialState);
         
         <div className='Media'>
           <img src={img1} style={{width:40}}/>
-        <p className='Darktext1'>Google</p>
+        <p className='Darktext1'>Phone</p>
 
         </div>
         <label className="switch">
@@ -116,7 +116,7 @@ const [isNotificationOn, setIsNotificationOn] = useState(initialState);
 
       <div className='Media'>
         <img src={img2} style={{width:30,backgroundColor:'white'}} />
-        <p className='Darktext1'>Phone</p>
+        <p className='Darktext1'>Location</p>
 
         </div>
         <label className="switch">
@@ -158,7 +158,7 @@ const [isNotificationOn, setIsNotificationOn] = useState(initialState);
 
         <div  className='Media'> 
           <img src={img5} style={{width:35,backgroundColor:'white'}} />
-           <p className='Darktext1'>Messages</p></div>
+           <p className='Darktext1'>Truecaller</p></div>
 
  
         <label className="switch">
@@ -171,7 +171,7 @@ const [isNotificationOn, setIsNotificationOn] = useState(initialState);
 
 <div  className='Media' > 
 <img src={img6} style={{width:35,backgroundColor:'white'}} />
- <p className='Darktext1'>Messages</p></div>
+ <p className='Darktext1'>Calculator</p></div>
 
  
  <label className="switch">

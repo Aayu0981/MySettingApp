@@ -27,13 +27,13 @@ function Sound3() {
   return (
   <div style={{width:350}}>
 
-        <div style={{marginLeft:0}} onClick={()=> navigate(-1)}>
+        <div style={{marginLeft:-22}} onClick={()=> navigate(-1)}>
             <p><FaArrowLeft/></p>
         </div>
 
 
  
-     <p style={{marginLeft:20}} className='heading'>Sound assistant</p>
+     <p style={{marginLeft:10}} className='heading'>Sound assistant</p>
 
       <div style={{display:'flex',marginLeft:0,alignItems:'center'}}>
 

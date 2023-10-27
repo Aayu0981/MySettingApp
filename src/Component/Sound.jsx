@@ -300,7 +300,7 @@ function Sound() {
 
   return (
     <div style={{ width: 350 }}>
-      <div style={{ marginLeft: 0 }} onClick={() => navigate(-1)}>
+      <div style={{ marginLeft:-10}} onClick={() => navigate(-1)}>
         <p ><FaArrowLeft /></p>
       </div>
 
@@ -342,7 +342,7 @@ function Sound() {
           <div className='Media'  >
             <FaMusic className='Music' /><p className='Darktext1'> Media</p>
           </div>
-          <div className='brightness-slider' style={{ marginLeft: 0, width: 300, paddingBottom: 8, paddingTop: 15 }} >
+          <div className='brightness-slider' style={{ marginLeft: 0, width: 300, paddingBottom: 20, paddingTop: 15 }} >
             <div className="Sound-slider" style={{ marginTop: 0, marginLeft: 0 }}>
               <input style={{ marginTop: 0, width: 250 }} type="range" min="0" max="100" value={sliderValue1} onChange={handleSliderChange1} className="sound" />
             </div>

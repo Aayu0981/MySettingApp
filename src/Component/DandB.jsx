@@ -62,11 +62,11 @@ const disabledarkmode=()=>{
   return (
     <div style={{width:350}}>
 
-      <div style={{marginLeft:0}} onClick={()=> navigate(-1)}>
+      <div style={{marginLeft:-5}} onClick={()=> navigate(-1)}>
             <p className='back'><FaArrowLeft/></p>
         </div>
       
-      <p className='heading'>Display</p>
+      <p className='heading'  style={{marginLeft:10}}>Display</p>
 
         <p className='Lighttext'>COLOR SCHEME</p>
 

@@ -10,7 +10,7 @@ function About2() {
           
 
                 
-        <div style={{marginLeft:0}} onClick={()=> navigate(-1)}>
+        <div style={{marginLeft:10}} onClick={()=> navigate(-1)}>
             <p className='back'><FaArrowLeft/></p>
         </div>
 

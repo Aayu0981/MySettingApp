@@ -55,12 +55,12 @@ function About5() {
   return (
     <div style={{width:350}}>
 
-       <div style={{marginLeft:0}} onClick={()=> navigate(-1)}>
+       <div style={{marginLeft:-5}} onClick={()=> navigate(-1)}>
             <p className='back'><FaArrowLeft/></p>
         </div>
     
 
-    <p className='heading'>Back up my data</p>
+    <p className='heading' style={{marginLeft:10}}>Back up my data</p>
 
 
     <div className='Modes'>

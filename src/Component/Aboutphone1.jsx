@@ -12,7 +12,7 @@ function Aboutphone1() {
     
    <>
 
-         <div style={{marginLeft:0}} onClick={()=> nevigate(-1)}>
+         <div style={{marginLeft:15}} onClick={()=> nevigate(-1)}>
             <p className='back'><FaArrowLeft/></p>
         </div>
 
@@ -25,8 +25,8 @@ function Aboutphone1() {
     <img src="https://i.imgur.com/G9wfOYe.png" className='comp' style={{backgroundColor:"transparent" ,width:100}} />
      <br />
      <span >MIUI version</span><br/>
-     <p style={{fontSize:12,color:'grey'}}>MIUI Global</p>
-     <p style={{fontSize:12,marginTop:0,color:'grey'}}>13.0.5</p>
+     <p style={{fontSize:12,color:'grey', marginBottom:0}}>MIUI Global</p>
+     <p style={{fontSize:12,marginTop:0,color:'grey',marginBottom:0}}>13.0.5</p>
      <p  style={{fontSize:12,color:'grey',marginTop:0 }}>Stable</p>
      <p className='up' >Update</p>
      </div>
@@ -66,7 +66,7 @@ function Aboutphone1() {
      <div id='MIUI'>
       <div className="config">
       <p className='Darktext1'  >MIUI version(For POCO)</p>
-      <p className='about10'>MIUI Global 13.0.5 Stable</p></div>
+      <p className='about10' >MIUI Global 13.0.5 Stable</p></div>
       
      
       <div className="config"><p className='Darktext1'>Android Version</p>
@@ -81,7 +81,7 @@ function Aboutphone1() {
       <p className='arow'>&gt;</p></div>
       
      </div>
-     <hr/>
+     <hr  style={{width:400,marginLeft:30}}/>
 
      <div >
       <div className='config' onClick={()=>nevigate("/About3")}><p className='Darktext1'>Back up and restore</p>
@@ -94,7 +94,7 @@ function Aboutphone1() {
       
      </div>
 
-        <hr/>
+        <hr   style={{width:400,marginLeft:30}}/>
 
      <div>
       <div className="config"  onClick={()=>nevigate("/About6")}><p className='Darktext1' >Important safety information</p>

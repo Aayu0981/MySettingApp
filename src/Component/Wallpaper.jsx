@@ -286,8 +286,12 @@ import wallppr1 from '../image/wallppr1.jpg';
 import wallppr2 from '../image/wallppr2.jpg';
 import wallppr3 from '../image/wallppr3.jpg';
 import wallppr4 from '../image/wallppr4.jpg';
+import { useNavigate } from 'react-router-dom/dist';
+import { FaArrowLeft } from 'react-icons/fa';
 
 function Wallpaper() {
+
+  const navigate=useNavigate();
 
   const [wallPaper,setWallpaper]= useState(wallppr1);
 
@@ -302,7 +306,11 @@ function Wallpaper() {
     <div className='wallppr' style={{ backgroundImage: `url(${wallPaper})` }}>
     <div style={{width:350}}>
 
-      <p className='heading'>Wallpaper</p>
+    <div style={{marginLeft:-5}} onClick={()=> navigate(-1)}>
+            <p className='back'><FaArrowLeft/></p>
+        </div>
+
+      <p className='heading'  style={{ marginLeft: 10 }}>Wallpaper</p>
 
       <div className='Modes'>
         <p className='Darktext1'>Editor's picks</p>

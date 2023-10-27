@@ -53,11 +53,11 @@ function DandB4() {
     <div  style={{width:350}}>
 
       
-<div style={{marginLeft:10}} onClick={()=> nevigate(-1)}>
+<div style={{marginLeft:5}} onClick={()=> nevigate(-1)}>
             <p className='back'><FaArrowLeft/></p>
         </div>
         
-        <p className='heading' style={{marginLeft:30}}>When device is in VR</p>
+        <p className='heading' style={{marginLeft:20}}>When device is in VR</p>
 
         <div  onClick={togleToReduceBlur} className={vrMode==="Reduce Blur"?'compactive':"comp"}>
             <p>Reduce blur (recommended)</p>

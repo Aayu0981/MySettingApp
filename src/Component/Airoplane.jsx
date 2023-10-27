@@ -48,7 +48,7 @@ const [isAirplaneModeOn1, setIsAirplaneModeOn] = useState(false);
   return (
     <div style={{width:350}} >
          
-         <div onClick={()=> navigate(-1)}>
+         <div style={{marginLeft:0}} onClick={()=> navigate(-1)}>
             <p><FaArrowLeft/></p>
         </div>
 

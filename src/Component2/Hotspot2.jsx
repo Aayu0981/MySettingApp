@@ -57,7 +57,7 @@ function Hotspot2() {
                 {/* <p>{JSON.stringify(form)}</p> */}
 
                 <div className='Modes' style={{ marginLeft: 0 }}>
-                    <div onClick={() => navigate(-1)} style={{ marginLeft: 0 }}>
+                    <div onClick={() => navigate(-1)} style={{ marginLeft: -15 }}>
                         <p style={{ marginLeft: 0 }}><FaTimes /></p>
                     </div>
 

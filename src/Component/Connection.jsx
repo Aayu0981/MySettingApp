@@ -59,8 +59,8 @@ function Connection() {
 
       <p style={{ marginLeft: 30 }} className='heading'>Wi-Fi</p>
 
-      <div style={{ marginLeft: 30 }} className='Modes'>
-        <p className='Darktext1'>Wi-Fi</p>
+      <div style={{ marginLeft: 17 }} className='Modes'>
+        <p className='Darktext1'  >Wi-Fi</p>
 
         <label className="switch">
           <input type="checkbox" onChange={togglewifi} checked={iswifiOn} />

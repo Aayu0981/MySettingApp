@@ -73,11 +73,11 @@ function Sound2() {
 
 
         
-        <div style={{marginLeft:0}} onClick={()=> navigate(-1)}>
+        <div style={{marginLeft:10}} onClick={()=> navigate(-1)}>
             <p><FaArrowLeft/></p>
         </div>
 
-     <p  style={{marginLeft:30}}className='heading'>Additional settings</p>
+     <p  style={{marginLeft:40}}className='heading'>Additional settings</p>
 
      <div className='Modes' style={{marginLeft:30}}>
         <p className='Darktext1'>Dial pad tones</p>

@@ -38,7 +38,7 @@ const [isImg1Disable, setIsImg1Disable]= useState(false);
     <div  style={{width:350}}>
 
        
-<div style={{marginLeft:0}} onClick={()=> navigate(-1)}>
+<div style={{marginLeft:-5}} onClick={()=> navigate(-1)}>
             <p className='back'><FaArrowLeft/></p>
         </div>
         

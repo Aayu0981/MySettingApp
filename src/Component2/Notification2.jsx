@@ -61,7 +61,7 @@ function Notification2() {
         </div>
 
 
-        <p className='heading' style={{marginLeft:30}}>Additional cards</p>
+        <p className='heading' style={{marginLeft:25}}>Additional cards</p>
 
         <div className='Modes' style={{marginLeft:30}}>
             <p className='Darktext1'  style={{marginLeft:0}}>Smart home</p>
