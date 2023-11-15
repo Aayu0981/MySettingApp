@@ -1,19 +1,53 @@
 import React from 'react'
 import { FaAssistiveListeningSystems, FaDesktop, FaMobile, FaMobileAlt } from 'react-icons/fa'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FaArrowLeft } from 'react-icons/fa';
+import axios from 'axios';
 
 
 function About3() {
 
     const navigate=useNavigate();
+    const BASE_URL = 'http://localhost:4000';
+    const [isautorestoreOn, setIsautorestoreOn] = useState(false);
 
 
-    const [isAirplaneModeOn, setIsAirplaneModeOn] = useState(false);
-       const toggleAirplaneMode = () => {
-       setIsAirplaneModeOn(!isAirplaneModeOn);
-    }
+   
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(`${BASE_URL}/getUserData`);
+        setIsautorestoreOn(response.data.automaticrestore);
+      } catch (error) {
+        console.error('Error:', error.message);
+      }
+    };
+    
+    useEffect(() => {
+      fetchData();
+    }, []);
+    
+
+   
+    const toggleautorestore = () => {
+    setIsautorestoreOn(!isautorestoreOn);
+ }
+
+
+    useEffect(() => {
+      const post = async () => {
+        try {
+          const response = await axios.post(`${BASE_URL}/autorestoretogle`, {
+            tog: `${isautorestoreOn}`
+          });
+          console.log(response.data);
+        } catch (error) {
+          console.error('Error toggling  Automatic restore', error.message);
+        }
+  
+      }
+      post();
+    }, [isautorestoreOn]);
 
 
   return (
@@ -98,7 +132,7 @@ function About3() {
           
             <div style={{marginTop:20, marginLeft:0}} >
               <label className="switch">
-              <input type="checkbox" onChange={toggleAirplaneMode} checked={isAirplaneModeOn} />
+              <input type="checkbox" onChange={toggleautorestore} checked={isautorestoreOn} />
               <span className="slider round"></span>
               </label>
           </div>

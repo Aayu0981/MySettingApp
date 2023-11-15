@@ -17,7 +17,7 @@ function Sound1() {
           
          donotdisturb:response.data.sound.donotdisturbdata.donotdisturb,
           whenlock:response.data.sound.donotdisturbdata.whenlock,
-          notifyabouotcall:response.data.sound.donotdisturbdata.notifyaboutcall,
+          notifyaboutcall:response.data.sound.donotdisturbdata.notifyaboutcall,
        
       });
       } catch (error) {

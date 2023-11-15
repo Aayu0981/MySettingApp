@@ -145,6 +145,11 @@ const UserSchema = new mongoose.Schema({
     type: String,
     default: "Ayushi"
   },
+  automaticrestore :{
+    type :Boolean,
+    default : false
+
+  },
   backupdata : {
     type :Boolean,
     default : false
@@ -169,6 +174,21 @@ const UserSchema = new mongoose.Schema({
     alarm: {
       type: Number,
       default: 50
+    },
+
+    silentmode : {
+
+      silentmode1: {
+     
+          type :Boolean,
+          default : false
+        
+      },
+      silentmedia : {
+        type :Boolean,
+        default : false
+      },
+
     },
 
     donotdisturbdata : {
@@ -221,6 +241,17 @@ const UserSchema = new mongoose.Schema({
         type: Boolean,
         default: false
       }
+    },
+
+    soundassistant :{
+      adjustmedia :{
+        type:Boolean,
+        default:false
+      },
+      audio :{
+        type:Boolean,
+        default:false
+      },
     }
 
   },
@@ -228,6 +259,17 @@ const UserSchema = new mongoose.Schema({
   bluetooth: {
     type: Boolean,
     default: false
+  },
+  connection : {
+    pair : {
+      type:Boolean,
+      default:false
+
+    },
+    showbluetooth : {
+      type:Boolean,
+      default:false
+    }
   },
   hotspot: {
     mode:{
@@ -387,15 +429,10 @@ app.get('/getUserData', async (req, res) => {
 app.post('/airplanemodetogle', async (req, res) => {
   const userinfo = await User.findOne({ name: "Ayushi" });
   const togle = req.body.tog;
-     let message="" ;
-     if(togle==true){
-      message="on";
-     }
-     else{
-     message="off";}
+   
   try {
     await User.findByIdAndUpdate(userinfo.id, { airplanemode: togle });
-    res.send(`Airplane mode ${message}`);
+    res.send(`Airplane mode toggled`);
        
   } catch (error) {
     console.log(error);
@@ -662,6 +699,32 @@ app.post('/additionalsetting', async(req,res)=>{
   }
 })
 
+// sound assistant
+
+app.post('/soundassistanttogle', async (req, res) => {
+  try {
+    const userinfo = await User.findOne({ name: "Ayushi" });
+
+    if (!userinfo) {
+      return res.status(404).send("User not found");
+    }
+
+    const { adjustmedia,audio } = req.body;
+
+    await User.findByIdAndUpdate(userinfo._id, {
+      "sound.soundassistant.adjustmedia":adjustmedia,
+      "sound.soundassistant.audio":audio
+
+    });
+
+    res.send('Data added successfully');
+
+  } catch (error) {
+    console.error('Error updating sound assistant settings:', error);
+    res.status(500).send('Internal Server Error');
+  }
+});
+
 app.post('/notificationshadetogle', async (req, res) => {
   const userinfo = await User.findOne({ name: "Ayushi" });
   const togle = req.body.tog;
@@ -830,6 +893,82 @@ app.post('/hotspotPasswordchange', async (req, res) => {
     res.status(500).send('Internal Server Error');
   }
 });
+
+
+//for Automatic restore
+
+app.post('/autorestoretogle', async (req, res) => {
+  const userinfo = await User.findOne({ name: "Ayushi" });
+  const togle = req.body.tog;
+  try {
+    await User.findByIdAndUpdate(userinfo.id, { "automaticrestore": togle });
+    res.send('Data added successfully');
+
+  } catch (error) {
+    console.log(error);
+  }
+}
+)
+
+//in sout for sound toggle like silent mode
+
+
+app.post('/silentmodetogle', async (req, res) => {
+  try {
+    const userinfo = await User.findOne({ name: "Ayushi" });
+
+    if (!userinfo) {
+      return res.status(404).send("User not found");
+    }
+
+
+    const { silentmode1,silentmedia } = req.body;
+
+    await User.findByIdAndUpdate(userinfo._id, {
+      "sound.silentmode.silentmode1":silentmode1,
+      "sound.silentmode.silentmedia":silentmedia   
+ 
+      
+    });
+    res.send('Data added successfully');
+
+  } catch (error) {
+    console.error('Error updating notification settings:', error);
+    res.status(500).send('Internal Server Error');
+  }
+});
+
+//for bluetooth addithional setting 
+
+app.post('/connectiontogle', async (req, res) => {
+  try {
+    const userinfo = await User.findOne({ name: "Ayushi" });
+
+    if (!userinfo) {
+      return res.status(404).send("User not found");
+    }
+
+
+    const { pair,showbluetooth } = req.body;
+
+    await User.findByIdAndUpdate(userinfo._id, {
+      "connection.pair":pair,
+ "connection.showbluetooth":showbluetooth   
+ 
+      
+    });
+    res.send('Data added successfully');
+
+  } catch (error) {
+    console.error('Error updating blutooth additional settings:', error);
+    res.status(500).send('Internal Server Error');
+  }
+});
+
+
+
+
+
 
 
 

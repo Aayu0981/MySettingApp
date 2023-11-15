@@ -2,24 +2,67 @@ import React from 'react'
 import { useState } from 'react';   
 import { useNavigate } from 'react-router-dom';
 import { FaArrowLeft } from 'react-icons/fa';
+import { useEffect } from 'react';
+import axios from 'axios';
 
 
 
 function Sound3() {
 
     const navigate=useNavigate();
+    const BASE_URL = 'http://localhost:4000';
 
     // toggle button code 1
-    const [isSoundOn1, setIsSoundOn1] = useState(false);
-       const toggleSound1 = () => {
-       setIsSoundOn1(!isSoundOn1);
+
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(`${BASE_URL}/getUserData`);
+        setIsSoundOn({
+          adjustmedia:response.data.sound.soundassistant.adjustmedia,
+          audio:response.data.sound.soundassistant.audio
+      });
+    } catch (error) {
+      console.error('Error:', error.message);
     }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const initialState={
+    adjustmedia:false,
+    audio:false
+
+  }
 
 
-    const [isSoundOn2, setIsSoundOn2] = useState(false);
-       const toggleSound2 = () => {
-       setIsSoundOn2(!isSoundOn2);
+
+
+    const [isSoundOn, setIsSoundOn] = useState(initialState);
+   
+
+    function toggleSound(e) {
+      const { name, checked } = e.target;
+      setIsSoundOn(prevState => ({ ...prevState, [name]: checked }));
     }
+  
+
+    
+  useEffect(() => {
+    const post = async () => {
+      try {
+        const response = await axios.post(`${BASE_URL}/soundassistanttogle`, isSoundOn);
+        console.log(response.data);
+      } catch (error) {
+        console.error('Error toggling Sound assistante mode', error.message);
+      }
+    };
+    post();
+  }, [isSoundOn]);
+
+
+    
 
 
     
@@ -47,7 +90,7 @@ function Sound3() {
 
           {/* toggle button code 2 */}
            <label className="switch">
-              <input type="checkbox" onChange={toggleSound1} checked={isSoundOn1} />
+              <input type="checkbox" onChange={(e)=>toggleSound(e)}  name='adjustmedia'  checked={isSoundOn.adjustmedia} />
               <span className="slider round"></span>
               </label>
               </div>
@@ -67,7 +110,7 @@ function Sound3() {
             <div >
           {/* toggle button code 2 */}
            <label className="switch">
-              <input type="checkbox" onChange={toggleSound2} checked={isSoundOn2} />
+              <input type="checkbox" onChange={(e)=>toggleSound(e)}  name='audio' checked={isSoundOn.audio} />
               <span className="slider round"></span>
               </label>
               </div>
